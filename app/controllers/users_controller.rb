@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   def index
 
@@ -5,8 +6,8 @@ class UsersController < ApplicationController
 
   def new
     url = request.original_url
-    authorization_code = url[42..-1]
-    p authorization_code
+    # url = "https://dbcparlay.herokuapp.com/users/new?code=c1b1bae92097e22422b59e6f6e7a39fd"
+    authorization_code = url[47..-1]
     response = HTTParty.post("https://api.venmo.com/v1/oauth/access_token",
       :body => { :client_id => '3071',
                  :client_secret => 'aBDA9ba2eB4RZNcCJ8DRbbydhjsmXDBS',
