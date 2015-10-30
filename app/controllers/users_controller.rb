@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def index
 
-    # url = request.original_url
+  end
+
+  def new
     url = request.original_url
     authorization_code = url[38..-1]
     p authorization_code
