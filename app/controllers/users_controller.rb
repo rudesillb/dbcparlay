@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def new
     url = request.original_url
-    authorization_code = url[38..-1]
+    authorization_code = url[42..-1]
     p authorization_code
     response = HTTParty.post("https://api.venmo.com/v1/oauth/access_token",
       :body => { :client_id => '3071',
