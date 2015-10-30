@@ -13,9 +13,9 @@ class UsersController < ApplicationController
       "code": authorization_code
       })
 
-    p "*" 50
+    p "*" * 50
     p response
-    p "*" 50
+    p "*" * 50
   end
 
 end
