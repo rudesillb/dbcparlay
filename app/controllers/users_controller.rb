@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  # def index
-  #   drew = User.find(3)
-  #   render json: drew
-  # end
+  def index
+    @bets = User.find(1).bets
+    @inverse_bets = User.find(1).inverse_bets
+    friends = []
+    inverse_friends = []
+    @bets.each do |bet|
+      friends << bet.friendship.inverse_friend
+    end
+
+    @inverse_bets.each do |bet|
+      inverse_friends << bet.friendship.user
+    end
+
+    render json: drew
+  end
 
   # def create
   #   newbet = Bet.new(bet_amount: params[:bet_amount], end: params[:end])

@@ -3,7 +3,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   $scope.hey = 'hey'
   // get route for active bets
   // explicitly showing all info in bets expression
-  $scope.bets={'active' : [], 'all':[], 'inactive':[]}
+  $scope.bets={'active' : [], 'inactive':[]}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
       for(var i = 0; i < response.bets.length; i++){
         if (response.bets[i].status === 'active'){
@@ -37,11 +37,17 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
     $scope.listDate = true;
   }
 
+  //get user info
+  $scope.getuserinfo = function() {
+
+  }
+
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
       $(function() {
         $scope.getallbets();
+        $scope.getuserinfo();
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
