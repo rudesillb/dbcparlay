@@ -31,9 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider){
         'template@active': { templateUrl: 'views/profile-templates/_active.html'}
       }
     })
-});
 
-
+}); // END OF CONFIG
 
 $(function() {
     // Slider on login page...
@@ -47,9 +46,3 @@ $(function() {
       }
     });
 
-    // Date Picker
-     $( "#datepicker" ).datepicker({
-      minDate: 0
-     });
-
-  });
