@@ -1,0 +1,45 @@
+
+
+  <!--=======================
+   Main Information page
+   ========================-->
+<main role="profile" class="debug">
+    <div class="container ta-center row debug">
+
+      <!-- Mobile Header dropdown -->
+      <div class="col span-3-t relative">
+
+        <!-- need to hide this when in desktop mode... -->
+        <button id="mobileMenu" class="btn btn--s debug" ng-click="mobileMenu()">menu</button>
+
+        <!-- Hidden by defalt -->
+        <!-- tab version of data below... not the best.... -->
+        <ul class="lst-n ul-n debug container row p-sm gutters-t ">
+          <a href=""><li ui-sref="history" class="col span-2-t debug" >History</li></a>
+          <li ui-sref="active" class="col span-2-t debug" >Active</li>
+          <li ui-sref="outstanding" class="col span-2-t debug" >Outstanding</li>
+          <li ui-sref="inactive" class="col span-2-t debug" >Inactive</li>
+        </ul>
+
+        <!-- mobile dropdown menu -->
+        <ul class="lst-n ul-n debug absolute bgc-gray w-50 li-hover" ng-show="listDate">
+          <li class="debug" ui-serf='history' >History</li>
+          <li ui-sref='active'>Active</li>
+          <li ui-sref="#">Outstanding</li>
+          <li ui-sref="#">Inactive</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="debug">
+
+      <div ui-view="template"></div>
+
+    </div>
+</main>
+    <!--=======================
+   End main info page...
+   ========================-->
+
+
