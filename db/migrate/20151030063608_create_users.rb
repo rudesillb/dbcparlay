@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :access_token
-      t.integer :venmo_id
+      t.string :venmo_id
 
       t.timestamps null: false
     end

@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.string   "last_name"
     t.string   "email"
     t.string   "access_token"
-    t.integer  "venmo_id"
+    t.string   "venmo_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
