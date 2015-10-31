@@ -9,8 +9,7 @@
     http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
 
-/* Drew P hide menu */
-/*#desktopMenu {display: none;}*/
+
 
 
 .container,
@@ -54,6 +53,12 @@
     display: block;
     float: left;
     width: 100%;
+}
+
+/* drewp mobile..*/
+
+@media (max-width: 800px){
+    #desktopMenu {display: none;}
 }
 
 /*
