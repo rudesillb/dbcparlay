@@ -108,6 +108,20 @@ textarea {
 .hide {display: none;}
 
 
+/* positioning */
+
+.absolute { position: absolute; }
+.relative { position: relative; }
+.right-15 {right: 15em;}
+
+
+/* background color */
+.bgc-gray {background-color: gray;}
+
+
+/* hover */
+.li-hover li:hover {color:white;}
+
 
 
 
