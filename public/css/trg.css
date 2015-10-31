@@ -8,6 +8,11 @@
 /*
     http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
+
+/* Drew P hide menu */
+/*#desktopMenu {display: none;}*/
+
+
 .container,
 .row,
 .col {
@@ -100,6 +105,7 @@
      /* at desktop view show the tab menu...*/
     #mobileMenu {display: none;}
     #profileTab {display: block;}
+
 
 
 }

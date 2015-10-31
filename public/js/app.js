@@ -11,7 +11,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'views/NewBet.html'
     })
 
-    // Nessted routes for the profile page...
+    // Nested routes for the profile page...
     .state('history', {
       url: '/profile/history',
       controller: 'MainController',
@@ -32,18 +32,16 @@ app.config(function($stateProvider, $urlRouterProvider){
       }
     })
 
+    .state('inactive', {
+    url: '/profile/inactive',
+    controller: 'MainController',
+    views: {
+      '': { templateUrl: 'views/profile.html' },
+
+      'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
+    }
+  })
+
 }); // END OF CONFIG
 
-$(function() {
-    // Slider on login page...
-    $( "#slider" ).slider({
-      range: "max",
-      min: 1,
-      max: 5,
-      value: 1,
-      slide: function( event, ui ) {
-        $( "#homeBetAmount" ).val( ui.value );
-      }
-    });
-});
 

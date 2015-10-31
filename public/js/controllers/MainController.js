@@ -16,8 +16,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
-
-
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
       $(function() {

@@ -57,13 +57,13 @@
 
 */
 .btn--s {
-  font-size: 14px; }
+  font-size: .75em; }
 
 .btn--m {
-  font-size: 16px; }
+  font-size: 1.2em; }
 
 .btn--l {
-  font-size: 20px;
+  font-size: 1.5em;
   border-radius: 0.25em !important; }
 
 /*
