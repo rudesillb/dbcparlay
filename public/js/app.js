@@ -14,44 +14,55 @@ app.config(function($stateProvider, $urlRouterProvider){
 
     // Nessted routes for the profile page...
 
-    .state('profile', {
-      url: '/profile',
-      controller: 'MainController',
-      views: {
-        '': { templateUrl: 'views/profile.html' },
+    // .state('profile', {
+    //   url: '/profile',
+    //   controller: 'MainController',
+    //   views: {
+    //     '': { templateUrl: 'views/profile.html' },
 
-        'template@history': { templateUrl: 'views/profile-templates/_history.html'}
-      }
-    })
+    //     'template@history': { templateUrl: 'views/profile-templates/_history.html'}
+    //   }
+    // })
     .state('history', {
       url: '/profile/history',
-      controller: 'MainController',
       views: {
         '': { templateUrl: 'views/profile.html' },
 
-        'template@history': { templateUrl: 'views/profile-templates/_history.html'}
+        'template@history': { templateUrl: 'views/profile-templates/_history.html',
+                              controller: 'MainController'}
       }
     })
 
     .state('active', {
       url: '/profile/active',
-      controller: 'MainController',
+
       views: {
         '': { templateUrl: 'views/profile.html' },
 
-        'template@active': { templateUrl: 'views/profile-templates/_active.html'}
+        'template@active': { templateUrl: 'views/profile-templates/_active.html',
+                              controller: 'MainController'}
+      }
+    })
+    .state('inactive', {
+      url: '/profile/inactive',
+
+      views: {
+        '': { templateUrl: 'views/profile.html' },
+
+        'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html',
+                              controller: 'MainController'}
       }
     })
 
-    .state('inactive', {
-    url: '/profile/inactive',
-    controller: 'MainController',
-    views: {
-      '': { templateUrl: 'views/profile.html' },
+  //   .state('inactive', {
+  //   url: '/profile/inactive',
+  //   controller: 'MainController',
+  //   views: {
+  //     '': { templateUrl: 'views/profile.html' },
 
-      'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
-    }
-  })
+  //     'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
+  //   }
+  // })
 
 
 }); // END OF CONFIG

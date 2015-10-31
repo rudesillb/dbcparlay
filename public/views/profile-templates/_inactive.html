@@ -1,4 +1,4 @@
-<ul class="ul-n lst-n debug">
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inactive">
 
   <li class="debug container row gutters-t ta-center ">
 
@@ -7,11 +7,11 @@
     </div>
 
     <div class="col span-3-t debug">
-      <p>Place holder text describing the bet</p>
+      <p>{{bet.description}}</p>
     </div>
 
     <div class="col span-3-t debug">
-      <p>$dollar amount here</p>
+      <p>{{bet.bet_amount | currency}}</p>
     </div>
 
 
