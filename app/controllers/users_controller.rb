@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   def new
     url = request.original_url
     user = parse_user(send_response(url))
-    if User.find(user["venmo_id"]) != null
-      session[:current_user_id] = user["venmo_id"]
-    else
+    # if User.find(user["venmo_id"]) != null
+      # session[:current_user_id] = user["venmo_id"]
+    # else
       User.create(user)
-      session[:current_user_id] = user["venmo_id"]
-    end
+      # session[:current_user_id] = user["venmo_id"]
+    # end
   end
 
   private
