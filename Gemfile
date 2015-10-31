@@ -30,11 +30,12 @@ gem 'pry-rails'
 gem 'rails-api'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'attr_encrypted'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
