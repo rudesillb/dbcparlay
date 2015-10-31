@@ -7,15 +7,19 @@
     <div class="container ta-center row debug">
 
       <!-- Mobile Header dropdown -->
-      <div class="col span-3-t">
-        <button class="btn btn--s debug">menu</button>
+      <div class="col span-3-t relative">
+
+        <!-- need to hide this when in desktop mode... -->
+        <button class="btn btn--s debug" ng-click="mobileMenu()">menu</button>
+
         <!-- Hidden by defalt -->
-        <ul class="lst-n ul-n debug hide">
-          <li class="debug">History</li>
-          <li>Active</li>
-          <li>Outstanding</li>
-          <li>Inactive</li>
+        <ul class="lst-n ul-n debug absolute bgc-gray w-50 li-hover" ng-show="listDate">
+          <li class="debug" >History</li>
+          <li ui-sref="#">Active</li>
+          <li ui-sref="#">Outstanding</li>
+          <li ui-sref="#">Inactive</li>
         </ul>
+
       </div>
     </div>
 
