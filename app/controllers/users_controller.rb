@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def new
     url = request.original_url
     user = parse_user(send_response(url))
-    if User.find_by("venmo_id" => user["venmo_id"]) != null
+    if User.find_by("venmo_id" => user["venmo_id"]) != nil
       session[:current_user_id] = user["venmo_id"]
     else
       User.create(user)
