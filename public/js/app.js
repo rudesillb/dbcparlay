@@ -45,4 +45,5 @@ $(function() {
         $( "#homeBetAmount" ).val( ui.value );
       }
     });
+});
 
