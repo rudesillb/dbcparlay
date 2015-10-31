@@ -1,14 +1,15 @@
 <div class="container ta-center debug">
+    {{newBet}}
     <h1 class=" h1-n debug">Propose a bet</h1>
 
     <p>
         <label for="homeBetAmount">$</label>
-        <input type="text" id="homeBetAmount">
+        <input type="text" id="homeBetAmount" ng-model="newBet.bet_amount">
     </p>
 
     <div id="slider" class=" w-50 m-auto debug"></div>
 
-    <p>Date: <input type="text" id="datepicker"></p>
+    <p>Date: <input type="text" id="datepicker" ng-model="newBet.end"></p>
 
-    <button class="btn btn--m">Propose Bet</button>
+    <button class="btn btn--m" ng-click="post()">Propose Bet</button>
 </div>

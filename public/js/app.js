@@ -13,10 +13,6 @@ app.config(function($routeProvider){
     .otherwise({
       redirectTo: '/'
     })
-
-
-
-
 });
 
 
@@ -33,11 +29,9 @@ $(function() {
       }
     });
 
-
     // Date Picker
      $( "#datepicker" ).datepicker({
       minDate: 0
      });
-
 
   });

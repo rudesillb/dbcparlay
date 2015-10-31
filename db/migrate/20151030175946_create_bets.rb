@@ -2,8 +2,7 @@ class CreateBets < ActiveRecord::Migration
   def change
     create_table :bets do |t|
       t.float :bet_amount, default: 0
-      t.references :user
-      t.integer :friend_id
+      t.references :friendship
       t.datetime :end, default: '01-01-2020'
       t.string :status, default: 'inactive'
       t.string :description
