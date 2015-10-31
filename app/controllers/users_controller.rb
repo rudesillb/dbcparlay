@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     url = request.original_url
     authorization_code = url[47..-1]
     response = HTTParty.post("https://api.venmo.com/v1/oauth/access_token",
-      :body => { :client_id => '3071',
-                 :client_secret => '',
+      :body => { :client_id => ENV["VENMO_ID"],
+                 :client_secret => ENV["VENMO_SECRET"],
                  :code => "#{authorization_code}"
       }.to_json,
       :headers => { 'Content-Type' => 'application/json'} )
