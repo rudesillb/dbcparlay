@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     user["last_name"] = response["user"]["last_name"]
     user["username"] = response["user"]["username"]
     user["venmo_id"] = response["user"]["id"]
-    user["cookie"] = response[@headers]["set-cookie"]
+    # user["cookie"] = response[@headers]["set-cookie"]
     return user
   end
 
