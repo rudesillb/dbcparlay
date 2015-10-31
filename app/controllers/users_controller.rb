@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   def new
     url = request.original_url
     user = parse_user(send_response(url))
-
-    p session[:username]
+    new_user = User.create(user)
+    p new_user
   end
 
   private
