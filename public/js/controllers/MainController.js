@@ -11,7 +11,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   $scope.newBet = {}
   $scope.post = function(){
     var newbetcopy = angular.copy($scope.newBet)
-    $http.post('/bets', newbetcopy).success(function(response){console.log(response)})
+    $http.post('/bets', newbetcopy).success(function(response){
+      console.log(response)})
   };
 
   //drews 'I fergot how to use ng-show' code
