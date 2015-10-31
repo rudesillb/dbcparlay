@@ -30,7 +30,7 @@ gem 'pry-rails'
 gem 'rails-api'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'attr_encrypted'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

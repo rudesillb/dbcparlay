@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.string :access_token
+      t.string :encrypted_access_token
+      t.string :encrypted_access_token_salt
+      t.string :encrypted_access_token_iv
       t.string :venmo_id
 
       t.timestamps null: false
