@@ -8,6 +8,10 @@
 /*
     http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
+
+
+
+
 .container,
 .row,
 .col {
@@ -49,6 +53,12 @@
     display: block;
     float: left;
     width: 100%;
+}
+
+/* drewp mobile..*/
+
+@media (max-width: 800px){
+    #desktopMenu {display: none;}
 }
 
 /*
@@ -100,6 +110,7 @@
      /* at desktop view show the tab menu...*/
     #mobileMenu {display: none;}
     #profileTab {display: block;}
+
 
 
 }

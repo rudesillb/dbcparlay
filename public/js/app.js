@@ -11,12 +11,27 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'views/NewBet.html'
     })
 
+<<<<<<< HEAD
+=======
+    // Nested routes for the profile page...
+    .state('history', {
+      url: '/profile/history',
+      controller: 'MainController',
+      views: {
+        '': { templateUrl: 'views/profile.html' },
+
+        'template@history': { templateUrl: 'views/profile-templates/_history.html'}
+      }
+    })
+
+>>>>>>> bafc1550faf19b5366a395fa16ed26c7de5629cc
     .state('active', {
       url: '/profile/active',
       controller: 'MainController',
       templateUrl: "views/profile-templates/_active.html"
     })
 
+<<<<<<< HEAD
     // Nessted routes for the profile page...
 
     // .state('profile', {
@@ -49,19 +64,18 @@ app.config(function($stateProvider, $urlRouterProvider){
     // })
 
 
+=======
+    .state('inactive', {
+    url: '/profile/inactive',
+    controller: 'MainController',
+    views: {
+      '': { templateUrl: 'views/profile.html' },
+
+      'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
+    }
+  })
+>>>>>>> bafc1550faf19b5366a395fa16ed26c7de5629cc
 
 }); // END OF CONFIG
 
-$(function() {
-    // Slider on login page...
-    $( "#slider" ).slider({
-      range: "max",
-      min: 1,
-      max: 5,
-      value: 1,
-      slide: function( event, ui ) {
-        $( "#homeBetAmount" ).val( ui.value );
-      }
-    });
-});
 
