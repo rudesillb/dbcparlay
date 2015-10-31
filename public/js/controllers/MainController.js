@@ -1,5 +1,5 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
-
+  $scope.cats='catsssss'
   $scope.bets={}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
     $scope.bets = response;
@@ -21,6 +21,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
       $(function() {
+        $scope.getallbets();
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
