@@ -93,6 +93,15 @@
     .gutters-t .span-10-t { width: 83%; }
     .gutters-t .span-11-t { width: 91.5%; }
     .gutters-t .span-12-t { width: 100%; }
+
+
+    /*********************
+     DrewP Styles*/
+     /* at desktop view show the tab menu...*/
+    #mobileMenu {display: none;}
+    #profileTab {display: block;}
+
+
 }
 
 /*
