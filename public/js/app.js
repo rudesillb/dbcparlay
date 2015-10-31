@@ -1,21 +1,22 @@
-var app = angular.module('Parlay', ['ngRoute']);
+var app = angular.module('Parlay', ['ui.router']);
 
-app.config(function($routeProvider){
-  $routeProvider
-    .when('/bet/new', {
+app.config(function($stateProvider, $urlRouterProvider){
+
+  $urlRouterProvider.otherwise('/')
+
+  $stateProvider
+
+    .state('new bet', {
+      url: '/',
       controller: 'MainController',
-      templateUrl: 'views/NewBet'
+      templateUrl: 'views/NewBet.html'
     })
-    .when('/profile', {
+
+    .state('profile', {
+      url: '/profile',
       controller: 'MainController',
-      templateUrl: 'views/profile'
+      templateUrl: 'views/profile.html'
     })
-    .otherwise({
-      redirectTo: '/'
-    })
-
-
-
 
 });
 
