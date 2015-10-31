@@ -34,6 +34,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 });
 
 
+
 $(function() {
     // Slider on login page...
     $( "#slider" ).slider({
