@@ -2,17 +2,13 @@ var app = angular.module('Parlay', ['ngRoute']);
 
 app.config(function($routeProvider){
   $routeProvider
-    .when('/', {
-      controller: '',
-      templateUrl: ''
+    .when('/bet/new', {
+      controller: 'MainController',
+      templateUrl: './views/NewBet'
     })
     .when('/', {
-      controller: '',
-      templateUrl: ''
-    })
-    .when('/', {
-      controller: '',
-      templateUrl: ''
+      controller: 'MainController',
+      templateUrl: './views/NewBet'
     })
     .otherwise({
       redirectTo: '/'
@@ -21,4 +17,27 @@ app.config(function($routeProvider){
 
 
 
-})
+});
+
+
+$(function() {
+    console.log('hey drew')
+    // Slider on login page...
+    $( "#slider" ).slider({
+      range: "max",
+      min: 1,
+      max: 5,
+      value: 1,
+      slide: function( event, ui ) {
+        $( "#homeBetAmount" ).val( ui.value );
+      }
+    });
+
+
+    // Date Picker
+     $( "#datepicker" ).datepicker({
+      minDate: 0
+     });
+
+
+  });
