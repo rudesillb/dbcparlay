@@ -6,6 +6,7 @@ class BetsController < ApplicationController
   end
 
   def create
+    p params
     newbet = Bet.new(bet_amount: params[:bet_amount], end: params[:end])
     newbet.save
     render json: newbet, status: :created

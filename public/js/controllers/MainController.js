@@ -1,15 +1,23 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
-  $scope.cats='meiow'
-  $scope.bets={}
+
+
+  // get route for active bets
+  $scope.bets={'active' : []}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-    $scope.bets = response;
-    console.log($scope.bets)
+      for(var i = 0; i < response.bets.length; i++){
+        if (response.bets[i].status === 'active'){
+          $scope.bets.active.push(response.bets[i])
+        }
+      }
+      console.log($scope.bets)
+    // var activebets = response
+    $scope.bets.all = response;
   })};
+  // post route
 
-
-  //Post route to make a new bet. You're welcome drew
   $scope.newBet = {}
   $scope.post = function(){
+    console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
     $http.post('/bets', newbetcopy).success(function(response){
       console.log(response)})
@@ -24,6 +32,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
       $(function() {
+        $scope.getallbets();
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",

@@ -11,7 +11,18 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'views/NewBet.html'
     })
 
-    // Nested routes for the profile page...
+
+    // Nessted routes for the profile page...
+
+    .state('profile', {
+      url: '/profile',
+      controller: 'MainController',
+      views: {
+        '': { templateUrl: 'views/profile.html' },
+
+        'template@history': { templateUrl: 'views/profile-templates/_history.html'}
+      }
+    })
     .state('history', {
       url: '/profile/history',
       controller: 'MainController',
@@ -41,6 +52,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
     }
   })
+
 
 }); // END OF CONFIG
 

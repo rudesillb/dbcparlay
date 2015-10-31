@@ -1,3 +1,13 @@
-<h1>hey from active</h1>
-<h1>{{ cats }}</h1>
+
+<h1 ng-controller='MainController'></h1>
+
+<div ng-repeat="bet in bets.active">
+  {{ bet.bet_amount }}<br>
+  {{ bet.end }}<br>
+  {{ bet.description }}<br>
+</div>
+<p>{{hello}}</p>
+
+
+
 
