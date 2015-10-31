@@ -4,11 +4,11 @@ app.config(function($routeProvider){
   $routeProvider
     .when('/bet/new', {
       controller: 'MainController',
-      templateUrl: './views/NewBet'
+      templateUrl: 'views/NewBet'
     })
-    .when('/', {
+    .when('/profile', {
       controller: 'MainController',
-      templateUrl: './views/NewBet'
+      templateUrl: 'views/profile'
     })
     .otherwise({
       redirectTo: '/'
