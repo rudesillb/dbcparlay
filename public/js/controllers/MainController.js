@@ -1,12 +1,21 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
-  $scope.cats='catsssss'
-  $scope.bets={}
-  $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-    $scope.bets = response;
-  })};
 
+  // get route for active bets
+  $scope.bets={'active' : []}
+  $scope.getallbets = function(){ $http.get('/bets').success(function(response){
+      for(var i = 0; i < response.bets.length; i++){
+        if (response.bets[i].status === 'active'){
+          $scope.bets.active.push(response.bets[i])
+        }
+      }
+      console.log($scope.bets)
+    // var activebets = response
+    $scope.bets.all = response;
+  })};
+  // post route
   $scope.newBet = {}
   $scope.post = function(){
+    console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
     $http.post('/bets', newbetcopy).success(function(response){console.log(response)})
   };
