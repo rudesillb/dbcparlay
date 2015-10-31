@@ -21,7 +21,6 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 
 $(function() {
-    console.log('hey drew')
     // Slider on login page...
     $( "#slider" ).slider({
       range: "max",
