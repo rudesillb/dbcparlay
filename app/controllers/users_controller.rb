@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def new
     url = request.original_url
     user = parse_user(send_response(url))
-    p user
+
     # user = {"access_token"=>"5dceff9c91a14008f0a6c985c23dc56382abb16a175a71e3f540f1bf2182808b", "email"=>"bradyrudesill@gmail.com", "first_name"=>"Brady", "last_name"=>"Rudesill", "username"=>"Brady-Rudesill", "venmo_id"=>"1806884898078720454"}
     User.create(user)
   end
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
                  :code => "#{authorization_code}"
       }.to_json,
       :headers => { 'Content-Type' => 'application/json'} )
+    p response
     return response
   end
 
