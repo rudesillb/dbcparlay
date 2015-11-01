@@ -135,12 +135,16 @@ p {
 /* border */
 .b1b {border: 1px solid #DCDCDC;}
 
+/* clearfix*/
+.cb { clear: both;}
+
+
+
+
 
 /* Random */
 .hide {display: none;}
 .mh {cursor: pointer;}
-
-
 
 /* hover */
 .hover-g li:hover { background-color: #DCDCDC; }

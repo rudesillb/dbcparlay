@@ -44,14 +44,12 @@
 
         <!-- mobile dropdown menu -->
         <!-- need to hide this when in desktop mode... -->
-        <button id="mobileMenu" class="btn btn--s " ng-click="mobileTab()">menu</button>
+        <button id="mobileMenu" class="btn btn--s fl-left " ng-click="mobileTab()">menu</button>
 
-        <ul class="lst-n ul-n  absolute bgc-gray w-50 li-hover" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+        <ul class="lst-n ul-n bgc-gray w-50 li-hover cb" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
 
-          <li class="mh " ui-sref="history" >history</li>
-          <li class="mh " ui-sref="active" >active</li>
-          <li class="mh " ui-sref="outstanding" >outstanding</li>
-          <li class="mh " ui-sref="inactive" >inactive</li>
+          <!-- lowercase matters from routing... -->
+          <li class="mh" ui-sref="{{mOption | lowercase}}" >{{ mOption }}</li>
 
         </ul>
 
