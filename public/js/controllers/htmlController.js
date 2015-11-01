@@ -2,7 +2,6 @@ app.controller('HtmlController', ['$scope', function($scope){
 
   // show declare winner menu...
   $scope.declareW = function(){
-
     if($scope.options){
       delete $scope.options
     }else{

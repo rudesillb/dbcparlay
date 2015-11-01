@@ -8,35 +8,10 @@
       <p>{{ bet.description }}</p>
     </div>
     <div class="col span-3-t debug">
-      <div>
-        <button class="btn btn--s" ng-click="">declare winner</button>
-        <ul class="ul-n lst-n absolute" ng-show="">
-          <li>me</li>
-          <li>other</li>
-          <li>draw</li>
-        </ul>
-      </div>
-    </div>
-  </li>
-</ul>
-
-
-<ul class="ul-n lst-n debug" ng-repeat="bet in bets.all.bets[1]">
-
-  <li class="debug container row gutters-t ta-center ">
-    <div class="col span-3-t debug">
-      Img placeholder {{ bet.reciever }} {{ bet.creator }}
-    </div>
-    <div class="col span-6-t debug">
-      <p>{{ bet.description }}</p>
-    </div>
-    <div class="col span-3-t debug">
-      <div>
-        <button class="btn btn--s" ng-click="">declare winner</button>
-        <ul class="ul-n lst-n absolute" ng-show="">
-          <li>me</li>
-          <li>other</li>
-          <li>draw</li>
+      <div ng-controller="HtmlController">
+        <button class="btn btn--s" ng-click="declareW()">declare winner</button>
+        <ul class="ul-n lst-n"  ng-show="options" ng-repeat="option in options">
+          <li>{{option}}</li>
         </ul>
       </div>
     </div>
