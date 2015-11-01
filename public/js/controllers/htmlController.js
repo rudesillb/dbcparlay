@@ -25,8 +25,8 @@ $scope.mobileTab = function(){
        $('#desktopMenu li').click(function () {
 
         $(this).addClass('active');
-        $(this).parent('li').removeClass('active');
-    });
+        $(this).siblings().removeClass('active');
+      });
     })
    }
    $scope.changeTabColor()
