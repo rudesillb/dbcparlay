@@ -5,40 +5,45 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-    console.log('this is the response')
-    console.log(response)
-      for(var i = 0; i < response.bets[0].length; i++){
+      console.log('this is the response')
+      console.log(response)
 
+      //collect active bets that user created
+      for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'active'){
           $scope.bets.active.push(response.bets[0][i])
         }
       }
 
+      //collect active bets where user is friend
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'active'){
           $scope.bets.inverse_active.push(response.bets[1][i])
         }
       }
 
-      // loop to query inactive bets
+      //collect inactive bets where user created
       for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'inactive'){
           $scope.bets.inactive.push(response.bets[0][i])
         }
       }
 
+      //collect inactive bets where user is friend
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'inactive'){
           $scope.bets.inverse_inactive.push(response.bets[1][i])
         }
       }
 
+      //collect outstanding bets where user created
       for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'outstanding'){
           $scope.bets.outstanding.push(response.bets[0][i])
         }
       }
 
+      //collect outstanding bets where user is friend
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'outstanding'){
           $scope.bets.inverse_outstanding.push(response.bets[1][i])
@@ -48,8 +53,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
     // var activebets = response
   $scope.bets.all = response;
   })};
-  // post route
 
+  //post route to create new bet
   $scope.newBet = {}
   $scope.post = function(){
     // console.log($scope.newBet)
@@ -58,16 +63,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
       console.log(response)})
   };
 
-  //
-
   //drews 'I fergot how to use ng-show' code
   $scope.mobileMenu = function(){
     $scope.listDate = true;
-  }
-
-  //get user info
-  $scope.getuserinfo = function() {
-
   }
 
   //declare self a winner, may need to change bet.creator to user_id on server
@@ -82,6 +80,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   $scope.declareWinnerDraw = function(id) {
     $http.put('/bets/' + id, 'draw')
   }
+
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
@@ -111,12 +110,5 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
     // call ui function
     $scope.initJqueryUi();
-
-
-
-
-
-
-
 
 }]) // end of controller...
