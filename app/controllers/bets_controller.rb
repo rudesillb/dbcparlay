@@ -35,6 +35,7 @@ class BetsController < ApplicationController
 
   def update
     p params
+    p
     bet = Bet.find(params[:id])
     p bet
     #checking and registering votes
@@ -67,10 +68,12 @@ class BetsController < ApplicationController
     #check for winner
     if bet.user_vote && bet.friend_vote
       if bet.user_vote == bet.friend_vote
-         bet.update_attributes(winner: bet.user_vote)
+         bet.update_attributes(winner: bet.user_vote, status: 'complete')
       else
-        #reset logic
+        bet.update_attributes(user_vote: nil, friend_vote: nil)
       end
     end
+
+    render json: bet
   end
 end

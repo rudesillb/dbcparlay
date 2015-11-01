@@ -1,6 +1,5 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
   //test for the angles
-  $scope.hey = 'hey'
 
   // get route for bets collections
   // explicitly showing all info in bets expression
@@ -66,7 +65,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
   //declare self a winner, may need to change bet.creator to user_id on server
   $scope.declareWinnerUser = function(id, winner) {
-    $http.put('/bets/' + id, {user_vote: winner})
+    $http.put('/bets/' + id, {user_vote: winner});
+
   }
   $scope.declareWinnerFriend = function(id, winner) {
     $http.put('/bets/' + id, {friend_vote: winner})

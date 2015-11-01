@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.string   "description"
     t.string   "creator"
     t.string   "reciever"
+    t.string   "user_vote"
+    t.string   "friend_vote"
+    t.string   "winner"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end

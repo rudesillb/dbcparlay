@@ -20,7 +20,7 @@
 
     <div class="col span-3-t ">
       <div ng-controller="HtmlController">
-        <button class="btn btn--s" ng-click="declareW()" >declare winner</button>
+        <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.user_vote">declare winner</button>
         <ul class="ul-n lst-n li-h-w" ng-show="options">
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user')">me</li>
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'friend')">other</li>
@@ -35,7 +35,7 @@
 
 <ul class="ul-n lst-n " ng-repeat="bet in bets.inverse_active">
 
-  <li class=" container row gutters-t ta-center ">
+  <li class=" m-b-s bc-lgray container row gutters-t gutters-d ta-center p-sm ">
 
     <div class="col span-3-t ">
       <p class="p-list">Img placeholder</p>
@@ -52,19 +52,28 @@
 
 <!-- what the heck is this.... -->
     <div class="col span-3-t ">
-      <div>
-        <button class="btn btn--s" >declare winner</button>
-        <ul class="ul-n lst-n absolute" ng-show="">
-          <li ng-click="declareWinnerFriend(bet.id, 'friend')">me</li>
-          <li ng-click="declareWinnerFriend(bet.id, 'user')">other</li>
-          <li ng-click="declareWinnerFriend(bet.id, 'draw')">draw</li>
+
+      <div ng-controller="HtmlController">
+
+        <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.friend_vote">declare winner</button>
+
+        <ul class="ul-n lst-n li-h-w ta-center" ng-show="options">
+
+          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'friend')">me
+          </li>
+          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'user')">other
+          </li>
+          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'draw')">draw</li>
+
         </ul>
+
       </div>
     </div>
-
   </li>
 
 </ul>
+
+
 
 
 

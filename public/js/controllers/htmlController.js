@@ -6,7 +6,7 @@ app.controller('HtmlController', ['$scope', function($scope){
     if($scope.options){
       delete $scope.options
     }else{
-    $scope.options = true;
+      $scope.options = true;
     }
 
   } // end of declare winner....
