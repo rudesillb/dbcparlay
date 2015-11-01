@@ -64,13 +64,13 @@ module UsersHelper
   end
 
   def gravatar(email,size)
-    if size = 'small'
+    if size == 'small'
       md5 = Digest::MD5.new
       md5.update email
       md5 = md5.hexdigest
       return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=80"
     end
-    if size = 'large'
+    if size == 'large'
       md5 = Digest::MD5.new
       md5.update email
       md5 = md5.hexdigest
