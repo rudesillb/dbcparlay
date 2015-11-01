@@ -1,5 +1,6 @@
-module UsersHelper
 require 'digest'
+module UsersHelper
+
 
   def login(user)
     session[:current_user_id] = user["venmo_id"]
@@ -68,6 +69,7 @@ require 'digest'
       md5.update email
       md5 = md5.hexdigest
       return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=80"
+    end
     if size = 'large'
       md5 = Digest::MD5.new
       md5.update email
