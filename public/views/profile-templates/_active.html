@@ -20,8 +20,12 @@
 
     <div class="col span-3-t debug">
       <div>
-        <button class="btn btn--s" ng-click="">accept</button>
-        <button class="btn btn--s" ng-click="">decline</button>
+        <button class="btn btn--s" >declare winner</button>
+        <ul class="ul-n lst-n absolute" ng-show="">
+          <li ng-click="declareWinnerMe(bet.id, bet.creator)">me</li>
+          <li ng-click="declareWinnerFriend(bet.id, bet.reciever)">other</li>
+          <li ng-click="declareWinnerDraw(bet.id)">draw</li>
+        </ul>
       </div>
     </div>
 
@@ -49,8 +53,12 @@
 
     <div class="col span-3-t debug">
       <div>
-        <button class="btn btn--s" ng-click="">accept</button>
-        <button class="btn btn--s" ng-click="">decline</button>
+        <button class="btn btn--s" >declare winner</button>
+        <ul class="ul-n lst-n absolute" ng-show="">
+          <li ng-click="declareWinnerMe(bet.id, bet.reciever)">me</li>
+          <li ng-click="declareWinnerFriend(bet.id, bet.creator)">other</li>
+          <li ng-click="declareWinnerDraw(bet.id)">draw</li>
+        </ul>
       </div>
     </div>
 

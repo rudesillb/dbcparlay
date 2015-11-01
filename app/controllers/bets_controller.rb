@@ -33,4 +33,9 @@ class BetsController < ApplicationController
     render json: newbet, status: :created
   end
 
+  def update
+    #bet = Bet.find(params[:id])
+    #User.find_by() <-- find by data from declareWinner function
+    #bet.update_attributes(winner:)
+  end
 end
