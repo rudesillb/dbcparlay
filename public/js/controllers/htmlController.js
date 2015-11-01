@@ -22,8 +22,8 @@ $scope.mobileTab = function(){
 
    $scope.changeTabColor = function(){
     $(function(){
-       $('#desktopMenu li').click(function (ev) {
-
+       $('#desktopMenu li').click(function(){
+        $(this).css("border-bottom", "none")
         $(this).addClass('active');
         // $(ev.currentTarget).parent('li').removeClass('active');
     });

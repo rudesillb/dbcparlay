@@ -1,8 +1,8 @@
 
 
-<ul class="ul-n lst-n debug" ng-repeat="bet in bets.active">
+<ul class="ul-n lst-n " ng-repeat="bet in bets.active">
 
-  <li class="debug container row gutters-t gutters-d ta-center ">
+  <li class=" m-b-s bc-lgray container row gutters-t gutters-d ta-center p-sm ">
 
     <div class="col span-3-t debug">
       Img placeholder
@@ -13,16 +13,16 @@
     </div>
 
     <div class="col span-3-t debug">
-      <p>{{bet.bet_amount | currency}}</p>
+      <p class="">{{bet.bet_amount | currency}}</p>
     </div>
 
-    <div class="col span-3-t debug">
+    <div class="col span-3-t ">
       <div ng-controller="HtmlController">
 
-        <button class="btn btn--s" ng-click="declareW()" >declare winner</button>
+        <button class="btn btn--s v-cnt" ng-click="declareW()" >declare winner</button>
 
         <ul class="lst-n ul-n" ng-show="options" ng-repeat="option in options" >
-          <li ui-serf="#">{{option}}</li>
+          <li> ui-serf="#">{{option}}</li>
         </ul>
 
       </div>

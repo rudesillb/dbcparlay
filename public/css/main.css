@@ -77,6 +77,13 @@ textarea {
 }
 
 
+p {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
 
 
 
@@ -101,17 +108,16 @@ textarea {
 
 .w-50 { width: 50%; }
 
+/* margin */
 .m-auto { margin: 0 auto; }
+.m-b-s {margin-bottom: .4em;}
 
 /* list */
 .lst-n { list-style-type: none;}
 
-.hide {display: none;}
 
-.mh {cursor: pointer;}
 
 /* positioning */
-
 .absolute { position: absolute; }
 .relative { position: relative; }
 .right-15 { right: 15em; }
@@ -119,12 +125,20 @@ textarea {
 
 /* background color */
 .bgc-gray { background-color: gray; }
+.active {background-color: #DCDCDC;}
+.bc-lgray {background-color: #DCDCDC}
 
 
 /* hover */
-.li-hover li:hover { color:white; }
+.li-hover li:hover { color: white; }
 
-.active {background-color: yellow;}
+/* border */
+.b1b {border: 1px solid #DCDCDC;}
+
+
+/* Random */
+.hide {display: none;}
+.mh {cursor: pointer;}
 
 
 
