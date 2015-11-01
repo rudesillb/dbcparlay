@@ -64,8 +64,14 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   };
 
   //declare self a winner, may need to change bet.creator to user_id on server
-  $scope.declareWinnerUser = function(id, winner) {
-    $http.put('/bets/' + id, {user_vote: winner});
+
+  // Drew P hide the declarewinner button on success..
+  $scope.declareWinnerUser = function(id, winner, $event) {
+    $http.put('/bets/' + id, {user_vote: winner}).success()
+    // $(function($event){
+    // debugger
+
+    // })
 
   }
   $scope.declareWinnerFriend = function(id, winner) {

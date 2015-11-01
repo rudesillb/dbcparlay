@@ -17,12 +17,14 @@
     </div>
 
 
-
+<!-- ng-hide="bet.user_vote" -->
     <div class="col span-3-t ">
       <div ng-controller="HtmlController">
-        <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.user_vote">declare winner</button>
+        <button class="btn btn--s" ng-click="declareW()" >declare winner</button>
         <ul class="ul-n lst-n li-h-w" ng-show="options">
-          <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user')">me</li>
+
+          <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user',$event)">me</li>
+
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'friend')">other</li>
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'draw')">draw</li>
         </ul>
