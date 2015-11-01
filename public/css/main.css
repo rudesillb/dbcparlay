@@ -107,20 +107,21 @@ textarea {
 
 .hide {display: none;}
 
+.mh {cursor: pointer;}
 
 /* positioning */
 
 .absolute { position: absolute; }
 .relative { position: relative; }
-.right-15 {right: 15em;}
+.right-15 { right: 15em; }
 
 
 /* background color */
-.bgc-gray {background-color: gray;}
+.bgc-gray { background-color: gray; }
 
 
 /* hover */
-.li-hover li:hover {color:white;}
+.li-hover li:hover { color:white; }
 
 
 
