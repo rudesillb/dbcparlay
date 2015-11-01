@@ -34,7 +34,7 @@
       <div class="col span-3-t relative" ng-controller="HtmlController">
 
         <!-- tab version of data below... not the best.... -->
-        <ul id="desktopMenu" class=" lst-n ul-n  container row gutters-t ">
+        <ul id="desktopMenu" class=" lst-n ul-n container row gutters-t ">
 
           <li ui-sref="history" class=" mh col span-2-t  p-sm"  >History</li>
           <li ui-sref="active" class=" mh col span-2-t  p-sm">Active</li>
@@ -46,12 +46,13 @@
         <!-- need to hide this when in desktop mode... -->
         <button id="mobileMenu" class="btn btn--s fl-left " ng-click="mobileTab()">menu</button>
 
-        <ul class="lst-n ul-n bgc-gray w-50 li-hover cb" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+        <div class="absolute w-50 t-p-sm">
+          <ul class="  lst-n ul-n bc-lgray cb li-h-w" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+            <!-- lowercase matters from routing... -->
+            <li class="  mh p-sm" ui-sref="{{mOption | lowercase}}" >{{ mOption }}</li>
+          </ul>
 
-          <!-- lowercase matters from routing... -->
-          <li class="mh" ui-sref="{{mOption | lowercase}}" >{{ mOption }}</li>
-
-        </ul>
+        </div>
 
       </div>
     </div>

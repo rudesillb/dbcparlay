@@ -125,6 +125,7 @@ p {
 .relative { position: relative; }
 .right-15 { right: 15em; }
 
+.t-p-sm {top: 2.5em;}
 
 /* background color */
 .bgc-gray { background-color: gray; }

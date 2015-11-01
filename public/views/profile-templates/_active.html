@@ -53,12 +53,17 @@
 <!-- what the heck is this.... -->
     <div class="col span-3-t ">
       <div ng-controller="HtmlController">
+
         <button class="btn btn--s" ng-click="declareW()">declare winner</button>
+
         <ul class="ul-n lst-n li-h-w ta-center" ng-show="options">
+
           <li class="p-sm li-hover mh" ng-click="declareWinnerMe(bet.id, bet.reciever)">me</li>
           <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, bet.creator)">other</li>
           <li class="p-sm li-hover mh" ng-click="declareWinnerDraw(bet.id)">draw</li>
+
         </ul>
+
       </div>
     </div>
 
