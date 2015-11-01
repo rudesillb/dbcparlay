@@ -62,7 +62,7 @@ module UsersHelper
     return true
   end
 
-  def gravatar_small(email,size)
+  def gravatar(email,size)
     if size = 'small'
       md5 = Digest::MD5.new
       md5.update email
