@@ -1,11 +1,12 @@
 app.controller('HtmlController', ['$scope', function($scope){
 
   // show declare winner menu...
+  // would be better on state data...
   $scope.declareW = function(){
     if($scope.options){
       delete $scope.options
     }else{
-    $scope.options = ["Me", "Other", "Draw"]
+    $scope.options = true;
     }
 
   } // end of declare winner....
@@ -19,6 +20,7 @@ $scope.mobileTab = function(){
       }
    }
 
+   //Jquery to hide show tabs...
    $scope.changeTabColor = function(){
     $(function(){
 
