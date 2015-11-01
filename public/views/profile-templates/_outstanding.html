@@ -1,3 +1,31 @@
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inverse_outstanding">
+
+  <li class="debug container row gutters-t gutters-d ta-center ">
+
+    <div class="col span-3-t debug">
+      Img placeholder {{ bet.creator }}
+    </div>
+
+    <div class="col span-3-t debug">
+      <p>{{bet.description}}</p>
+    </div>
+
+    <div class="col span-3-t debug">
+      <p>{{bet.bet_amount | currency}}</p>
+    </div>
+
+    <div class="col span-3-t debug">
+      <div ng-controller="HtmlController">
+
+        <button class="btn btn--s">pay up</button>
+
+      </div>
+
+    </div>
+
+  </li>
+
+</ul>
 
 
 
@@ -35,34 +63,6 @@
 
 
 
-<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inverse_outstanding">
-
-  <li class="debug container row gutters-t gutters-d ta-center ">
-
-    <div class="col span-3-t debug">
-      Img placeholder {{ bet.creator }}
-    </div>
-
-    <div class="col span-3-t debug">
-      <p>{{bet.description}}</p>
-    </div>
-
-    <div class="col span-3-t debug">
-      <p>{{bet.bet_amount | currency}}</p>
-    </div>
-
-    <div class="col span-3-t debug">
-      <div ng-controller="HtmlController">
-
-        <button class="btn btn--s">pay up</button>
-
-      </div>
-
-    </div>
-
-  </li>
-
-</ul>
 
 
 

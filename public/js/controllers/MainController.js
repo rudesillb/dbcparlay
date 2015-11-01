@@ -1,7 +1,8 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
-
+  //test for the angles
   $scope.hey = 'hey'
-  // get route for active bets
+
+  // get route for bets collections
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
@@ -49,8 +50,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
           $scope.bets.inverse_outstanding.push(response.bets[1][i])
         }
       }
-      // console.log($scope.bets)
-    // var activebets = response
+
+  //collection of all bets
   $scope.bets.all = response;
   })};
 
@@ -62,11 +63,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
     $http.post('/bets', newbetcopy).success(function(response){
       console.log(response)})
   };
-
-  //drews 'I fergot how to use ng-show' code
-  $scope.mobileMenu = function(){
-    $scope.listDate = true;
-  }
 
   //declare self a winner, may need to change bet.creator to user_id on server
   $scope.declareWinnerMe = function(id, winnerId) {
@@ -86,7 +82,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
     $scope.initJqueryUi = function(){
       $(function() {
         $scope.getallbets();
-        $scope.getuserinfo();
+
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
