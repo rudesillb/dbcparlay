@@ -53,16 +53,18 @@ app.config(function($stateProvider, $urlRouterProvider){
                               controller: 'MainController'}
       }
     })
+    .state('outstanding', {
+      url: '/profile/outstanding',
 
-  //   .state('inactive', {
-  //   url: '/profile/inactive',
-  //   controller: 'MainController',
-  //   views: {
-  //     '': { templateUrl: 'views/profile.html' },
+      views: {
+        '': { templateUrl: 'views/profile.html' },
 
-  //     'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html'}
-  //   }
-  // })
+        'template@outstanding': { templateUrl: 'views/profile-templates/_outstanding.html',
+                              controller: 'MainController'}
+      }
+    })
+
+
 
 
 }); // END OF CONFIG
