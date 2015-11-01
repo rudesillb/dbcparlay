@@ -1,6 +1,5 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
   //test for the angles
-  $scope.hey = 'hey'
 
   // get route for bets collections
   // explicitly showing all info in bets expression
@@ -65,17 +64,27 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   };
 
   //declare self a winner, may need to change bet.creator to user_id on server
-  $scope.declareWinnerMe = function(id, winnerId) {
-    $http.put('/bets/' + id, winnerId)
+
+  // Drew P hide the declarewinner button on success..
+  $scope.declareWinnerUser = function(id, winner, $event) {
+    $http.put('/bets/' + id, {user_vote: winner}).success()
+    // $(function($event){
+    // debugger
+
+    // })
+
   }
-  //declare friend the winner
-  $scope.declareWinnerFriend = function(id, winnerId) {
-    $http.put('/bets/' + id, winnerId)
+  $scope.declareWinnerFriend = function(id, winner) {
+    $http.put('/bets/' + id, {friend_vote: winner})
   }
-  //declare a draw
-  $scope.declareWinnerDraw = function(id) {
-    $http.put('/bets/' + id, 'draw')
-  }
+  // //declare friend the winner
+  // $scope.declareWinnerFriend = function(id, winnerId) {
+  //   $http.put('/bets/' + id, {reciever: winnerId})
+  // }
+  // //declare a draw
+  // $scope.declareWinnerDraw = function(id) {
+  //   $http.put('/bets/' + id, {draw: 'draw'})
+  // }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
