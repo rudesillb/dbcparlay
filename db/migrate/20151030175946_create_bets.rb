@@ -8,6 +8,9 @@ class CreateBets < ActiveRecord::Migration
       t.string :description
       t.string :creator
       t.string :reciever
+      t.string :user_vote
+      t.string :friend_vote
+      t.string :winner
 
       t.timestamps null: false
     end

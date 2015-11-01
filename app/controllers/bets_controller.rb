@@ -34,8 +34,43 @@ class BetsController < ApplicationController
   end
 
   def update
-    #bet = Bet.find(params[:id])
-    #User.find_by() <-- find by data from declareWinner function
-    #bet.update_attributes(winner:)
+    p params
+    bet = Bet.find(params[:id])
+    p bet
+    #checking and registering votes
+    if params[:user_vote]
+      if params[:user_vote] == 'user'
+        user = bet.friendship.user
+        p user
+        bet.update_attributes(user_vote: user.id)
+      elsif params[:user_vote] == 'friend'
+        user = bet.friendship.friend
+        p user
+        bet.update_attributes(user_vote: user.id)
+      else
+        bet.update_attributes(user_vote: '0')
+      end
+    elsif params[:friend_vote]
+      if params[:friend_vote] == 'user'
+        user = bet.friendship.user
+        p user
+        bet.update_attributes(friend_vote: user.id)
+      elsif params[:friend_vote] == 'friend'
+        user = bet.friendship.friend
+        p user
+        bet.update_attributes(friend_vote: user.id)
+      else
+        bet.update_attributes(friend_vote: '0')
+      end
+    end
+
+    #check for winner
+    if bet.user_vote && bet.friend_vote
+      if bet.user_vote == bet.friend_vote
+         bet.update_attributes(winner: bet.user_vote)
+      else
+        #reset logic
+      end
+    end
   end
 end
