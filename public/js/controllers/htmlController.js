@@ -23,7 +23,6 @@ $scope.mobileTab = function(){
    $scope.changeTabColor = function(){
     $(function(){
        $('#desktopMenu li').click(function () {
-
         $(this).addClass('active');
         $(this).siblings().removeClass('active');
       });
