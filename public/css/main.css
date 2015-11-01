@@ -120,8 +120,6 @@ p {
 /* list */
 .lst-n { list-style-type: none;}
 
-
-
 /* positioning */
 .absolute { position: absolute; }
 .relative { position: relative; }
@@ -134,10 +132,6 @@ p {
 .bc-lgray {background-color: #DCDCDC}
 
 
-/* hover */
-.li-hover-g li:hover { background-color: #DCDCDC; }
-.li-h-w li:hover { background-color: white;}
-
 /* border */
 .b1b {border: 1px solid #DCDCDC;}
 
@@ -146,7 +140,21 @@ p {
 .hide {display: none;}
 .mh {cursor: pointer;}
 
-/* Merge conflict active*/
+
+
+/* hover */
+.hover-g li:hover { background-color: #DCDCDC; }
+.li-h-w li:hover { background-color: white;}
+
+/* animate tabs */
+#desktopMenu li {
+  -webkit-transition: background-color .4s linear;
+  transition: background-color .4s linear;
+}
+
+#desktopMenu li:hover {
+    background-color: #DCDCDC;
+}
 
 
 
