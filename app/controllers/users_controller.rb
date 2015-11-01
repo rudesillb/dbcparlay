@@ -7,12 +7,11 @@ class UsersController < ApplicationController
     if User.find_by("venmo_id" => user["venmo_id"]) != nil
       login(user)
       p current_user
-      user = {}
     else
       User.create(user)
       login(user)
-      user = {}
     end
+    user = {}
   end
 
   private
@@ -37,6 +36,19 @@ class UsersController < ApplicationController
       }.to_json,
       :headers => { 'Content-Type' => 'application/json'} )
     return response
+  end
+
+  def login(user)
+    session[:current_user_id] = user["venmo_id"]
+  end
+
+  def logout
+    session.destroy
+  end
+
+  def current_user
+    return nil unless session[:current_user_id]
+    session[:current_user_id]
   end
 
 end
