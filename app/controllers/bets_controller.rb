@@ -24,7 +24,9 @@ class BetsController < ApplicationController
 
     p params
     user = User.find(1)
-    newbet = Bet.new(bet_amount: params[:bet_amount], end: params[:end], creator: "#{user.first_name} #{user.last_name}", reciever: params[:reciever])
+    # friend = User.find_by(params[:email])
+    # user.friendship.where(friend_id: friend.id)
+    newbet = user.friendships.first.bets.new(friendship_id: 1, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: "#{user.first_name} #{user.last_name}", reciever: params[:reciever])
     if newbet.save
       p "*"*1000
     end
