@@ -25,8 +25,48 @@
         </form>
     </nav>
 
-    <!-- all Templates go here  -->
-    <div ui-view></div>
+    <!--=======================
+   Main Information page
+   ========================-->
+<main role="profile" class="debug">
+    <div class="container ta-center row debug">
+
+      <div class="col span-3-t relative" ng-controller="HtmlController">
+
+        <!-- tab version of data below... not the best.... -->
+        <ul id="desktopMenu" class="lst-n ul-n debug container row p-sm gutters-t ">
+
+          <li ui-sref="history" class=" mh col span-2-t debug" >History</li>
+          <li ui-sref="active" class=" mh col span-2-t debug">Active</li>
+          <li ui-sref="outstanding" class="mh col span-2-t debug">Outstanding</li>
+          <li ui-sref="inactive" class="mh col span-2-t debug"  >Inactive</li>
+        </ul>
+
+        <!-- mobile dropdown menu -->
+        <!-- need to hide this when in desktop mode... -->
+        <button id="mobileMenu" class="btn btn--s debug" ng-click="mobileTab()">menu</button>
+
+        <ul class="lst-n ul-n debug absolute bgc-gray w-50 li-hover" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+
+          <li class="mh debug" ui-sref="history" >history</li>
+          <li class="mh debug" ui-sref="active" >active</li>
+          <li class="mh debug" ui-sref="outstanding" >outstanding</li>
+          <li class="mh debug" ui-sref="inactive" >inactive</li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="debug">
+
+      <div ui-view></div>
+
+    </div>
+</main>
+    <!--=======================
+   End main info page...
+   ========================-->
 
     <!-- Modules -->
     <script src="js/app.js"></script>

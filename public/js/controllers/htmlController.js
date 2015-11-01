@@ -22,10 +22,10 @@ $scope.mobileTab = function(){
 
    $scope.changeTabColor = function(){
     $(function(){
-       $('#desktopMenu li').click(function (ev) {
+       $('#desktopMenu li').click(function () {
 
         $(this).addClass('active');
-        // $(ev.currentTarget).parent('li').removeClass('active');
+        $(this).parent('li').removeClass('active');
     });
     })
    }
