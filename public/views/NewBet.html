@@ -1,7 +1,7 @@
 <div class="container ta-center debug">
     <h1 class=" h1-n debug">Propose a bet</h1>
 
-    <p>
+    <p class="debug">
         <label for="homeBetAmount">$</label>
         <input type="text" id="homeBetAmount" ng-model="newBet.bet_amount">
         {{newBet.bet_amount}}
@@ -9,11 +9,17 @@
 
     <div id="slider" class=" w-50 m-auto debug"></div>
 
-    <p>Date: <input type="text" id="datepicker" ng-model="newBet.end">{{newBet.end}}</p>
+    <p class="debug">
+        Date: <input type="text" id="datepicker" ng-model="newBet.end">{{newBet.end}}
+    </p>
 
-    <p>Description: <input type="text" ng-model="newBet.description">{{ newBet.description }}</p>
+    <p class="debug">
+        Description: <input type="text" ng-model="newBet.description">{{ newBet.description }}
+    </p>
 
-    <p>Friend: <input type="text" ng-model="newBet.reciever">{{ newBet.reciever }}</p>
+    <p class="debug">
+        Friend: <input type="text" ng-model="newBet.reciever">{{ newBet.reciever }}
+    </p>
 
     <a href="/#/profile/active"><button class="btn btn--m" ng-click="post()">Propose Bet</button></a>
 </div>
