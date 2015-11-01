@@ -123,6 +123,8 @@ textarea {
 /* hover */
 .li-hover li:hover { color:white; }
 
+.active {background-color: yellow;}
+
 
 
 

@@ -20,4 +20,15 @@ $scope.mobileTab = function(){
       }
    }
 
+   $scope.changeTabColor = function(){
+    $(function(){
+       $('#desktopMenu li').click(function (ev) {
+
+        $(this).addClass('active');
+        // $(ev.currentTarget).parent('li').removeClass('active');
+    });
+    })
+   }
+   $scope.changeTabColor()
+
 }])
