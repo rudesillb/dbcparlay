@@ -6,6 +6,10 @@ class CreateBets < ActiveRecord::Migration
       t.datetime :end, default: '01-01-2020'
       t.string :status, default: 'inactive'
       t.string :description
+      t.string :user_vote
+      t.string :friend_vote
+      t.string :winner
+
 
       t.timestamps null: false
     end
