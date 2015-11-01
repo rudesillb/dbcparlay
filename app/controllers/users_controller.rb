@@ -5,10 +5,13 @@ class UsersController < ApplicationController
     url = request.original_url
     user = parse_user(send_response(url))
     if User.find_by("venmo_id" => user["venmo_id"]) != nil
-      session[:current_user_id] = user["venmo_id"]
+      login(user)
+      p current_user
+      user = {}
     else
       User.create(user)
-      session[:current_user_id] = user["venmo_id"]
+      login(user)
+      user = {}
     end
   end
 
