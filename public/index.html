@@ -19,14 +19,54 @@
   <body ng-app="Parlay">
 
     <!-- nav... -->
-    <nav class="container p-sm clearfix debug">
+    <nav class="container p-sm clearfix ">
         <form action= "https://api.venmo.com/v1/oauth/authorize?client_id=3071&scope=make_payments%20access_profile%20access_email%20access_phone%20access_balance&response_type=code">
             <button class=" btn btn--s fl-right">Login</button>
         </form>
     </nav>
 
-    <!-- all Templates go here  -->
-    <div ui-view></div>
+    <!--=======================
+   Main Information page
+   ========================-->
+<main role="profile" class="">
+    <div class="container ta-center row ">
+
+      <div class="col span-3-t relative" ng-controller="HtmlController">
+
+        <!-- tab version of data below... not the best.... -->
+        <ul id="desktopMenu" class=" li-hover-g lst-n ul-n  container row gutters-t ">
+
+          <li ui-sref="history" class=" mh col span-2-t  p-sm"  >History</li>
+          <li ui-sref="active" class=" mh col span-2-t  p-sm">Active</li>
+          <li ui-sref="outstanding" class="mh col span-2-t  p-sm">Outstanding</li>
+          <li ui-sref="inactive" class="mh col span-2-t  p-sm"  >Inactive</li>
+        </ul>
+
+        <!-- mobile dropdown menu -->
+        <!-- need to hide this when in desktop mode... -->
+        <button id="mobileMenu" class="btn btn--s " ng-click="mobileTab()">menu</button>
+
+        <ul class="lst-n ul-n  absolute bgc-gray w-50 li-hover" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+
+          <li class="mh " ui-sref="history" >history</li>
+          <li class="mh " ui-sref="active" >active</li>
+          <li class="mh " ui-sref="outstanding" >outstanding</li>
+          <li class="mh " ui-sref="inactive" >inactive</li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="">
+
+      <div ui-view></div>
+
+    </div>
+</main>
+    <!--=======================
+   End main info page...
+   ========================-->
 
     <!-- Modules -->
     <script src="js/app.js"></script>

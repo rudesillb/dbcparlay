@@ -11,48 +11,30 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'views/NewBet.html'
     })
 
-
     // Nessted routes for the profile page...
 
     .state('history', {
       url: '/profile/history',
-      views: {
-        '': { templateUrl: 'views/profile.html' },
-
-        'template@history': { templateUrl: 'views/profile-templates/_history.html',
-                              controller: 'MainController'}
-      }
+      controller: 'MainController',
+      templateUrl: 'views/profile-templates/_history.html'
     })
 
     .state('active', {
       url: '/profile/active',
+      controller: 'MainController',
+      templateUrl: 'views/profile-templates/_active.html'
 
-      views: {
-        '': { templateUrl: 'views/profile.html' },
-
-        'template@active': { templateUrl: 'views/profile-templates/_active.html',
-                              controller: 'MainController'}
-      }
     })
     .state('inactive', {
       url: '/profile/inactive',
+      controller: 'MainController',
+      templateUrl: 'views/profile-templates/_inactive.html'
 
-      views: {
-        '': { templateUrl: 'views/profile.html' },
-
-        'template@inactive': { templateUrl: 'views/profile-templates/_inactive.html',
-                              controller: 'MainController'}
-      }
     })
     .state('outstanding', {
       url: '/profile/outstanding',
-
-      views: {
-        '': { templateUrl: 'views/profile.html' },
-
-        'template@outstanding': { templateUrl: 'views/profile-templates/_outstanding.html',
-                              controller: 'MainController'}
-      }
+      controller: 'MainController',
+      templateUrl: 'views/profile-templates/_outstanding.html'
     })
 
 

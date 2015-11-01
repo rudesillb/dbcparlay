@@ -4,27 +4,27 @@
 
   <li class=" m-b-s bc-lgray container row gutters-t gutters-d ta-center p-sm ">
 
-    <div class="col span-3-t debug">
-      Img placeholder
+    <div class="col span-3-t ">
+      <p class="p-list">Img placeholder</p>
     </div>
 
-    <div class="col span-3-t debug">
-      <p>{{bet.description}}</p>
+    <div class="col span-3-t ">
+      <p class="p-list">{{bet.description}}</p>
     </div>
 
-    <div class="col span-3-t debug">
-      <p>{{bet.bet_amount | currency}}</p>
+    <div class="col span-3-t ">
+      <p class="p-list">{{bet.bet_amount | currency}}</p>
     </div>
 
 
 
-    <div class="col span-3-t debug">
-      <div>
-        <button class="btn btn--s" >declare winner</button>
-        <ul class="ul-n lst-n absolute" ng-show="">
-          <li ng-click="declareWinnerMe(bet.id, bet.creator)">me</li>
-          <li ng-click="declareWinnerFriend(bet.id, bet.reciever)">other</li>
-          <li ng-click="declareWinnerDraw(bet.id)">draw</li>
+    <div class="col span-3-t ">
+      <div ng-controller="HtmlController">
+        <button class="btn btn--s" ng-click="declareW()" >declare winner</button>
+        <ul class="ul-n lst-n li-h-w" ng-show="options">
+          <li class=" p-sm li-hover mh" ng-click="declareWinnerMe(bet.id, bet.creator)">me</li>
+          <li class=" p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, bet.reciever)">other</li>
+          <li class=" p-sm li-hover mh" ng-click="declareWinnerDraw(bet.id)">draw</li>
         </ul>
       </div>
     </div>
@@ -33,25 +33,25 @@
 
 </ul>
 
-<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inverse_active">
+<ul class="ul-n lst-n " ng-repeat="bet in bets.inverse_active">
 
-  <li class="debug container row gutters-t ta-center ">
+  <li class=" container row gutters-t ta-center ">
 
-    <div class="col span-3-t debug">
-      Img placeholder
+    <div class="col span-3-t ">
+      <p class="p-list">Img placeholder</p>
     </div>
 
-    <div class="col span-3-t debug">
-      <p>{{bet.description}}</p>
+    <div class="col span-3-t ">
+      <p class="p-list">{{bet.description}}</p>
     </div>
 
-    <div class="col span-3-t debug">
-      <p>{{bet.bet_amount | currency}}</p>
+    <div class="col span-3-t ">
+      <p class="p-list">{{bet.bet_amount | currency}}</p>
     </div>
 
 
-
-    <div class="col span-3-t debug">
+<!-- what the heck is this.... -->
+    <div class="col span-3-t ">
       <div>
         <button class="btn btn--s" >declare winner</button>
         <ul class="ul-n lst-n absolute" ng-show="">

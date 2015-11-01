@@ -56,6 +56,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+* {
+    font-family: avenir, helvetica, roboto, arial, sans-serif;
+}
+
 .debug {
     border: 1px solid red;
 }
@@ -93,6 +97,7 @@ p {
 /* padding */
 .p-xxs {}
 .p-xs { padding: 0.4em; }
+.p-list { padding: 0.43em; }
 .p-sm { padding: 0.6em; }
 .p-med {}
 .p-large {}
@@ -130,7 +135,8 @@ p {
 
 
 /* hover */
-.li-hover li:hover { color: white; }
+.li-hover-g li:hover { background-color: #DCDCDC; }
+.li-h-w li:hover { background-color: white;}
 
 /* border */
 .b1b {border: 1px solid #DCDCDC;}
