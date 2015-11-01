@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.datetime "end",           default: '2020-01-01 00:00:00'
     t.string   "status",        default: "inactive"
     t.string   "description"
+    t.string   "creator"
+    t.string   "reciever"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end
@@ -38,10 +40,12 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "access_token"
-    t.integer  "venmo_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "encrypted_access_token"
+    t.string   "encrypted_access_token_salt"
+    t.string   "encrypted_access_token_iv"
+    t.string   "venmo_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

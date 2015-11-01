@@ -1,5 +1,6 @@
 
-<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inactive">
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inverse_inactive">
+
 
   <li class="debug container row gutters-t gutters-d ta-center ">
 
@@ -27,3 +28,28 @@
   </li>
 
 </ul>
+
+
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.inactive">
+
+  <li class="debug container row gutters-t ta-center ">
+
+    <div class="col span-3-t debug">
+      Img placeholder
+    </div>
+
+    <div class="col span-3-t debug">
+      <p>{{bet.description}}</p>
+    </div>
+
+    <div class="col span-3-t debug">
+      <p>{{bet.bet_amount | currency}}</p>
+    </div>
+
+
+
+
+  </li>
+
+</ul>
+

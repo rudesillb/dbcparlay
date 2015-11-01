@@ -1,11 +1,34 @@
-<ul class="ul-n lst-n debug">
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.all.bets[0]">
 
   <li class="debug container row gutters-t gutters-d  ta-center ">
     <div class="col span-3-t debug">
-      Img placeholder
+      Img placeholder {{ bet.reciever }} {{ bet.creator }}
     </div>
     <div class="col span-6-t debug">
-      <p>Place holder text describing the bet</p>
+      <p>{{ bet.description }}</p>
+    </div>
+    <div class="col span-3-t debug">
+      <div>
+        <button class="btn btn--s" ng-click="">declare winner</button>
+        <ul class="ul-n lst-n absolute" ng-show="">
+          <li>me</li>
+          <li>other</li>
+          <li>draw</li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>
+
+
+<ul class="ul-n lst-n debug" ng-repeat="bet in bets.all.bets[1]">
+
+  <li class="debug container row gutters-t ta-center ">
+    <div class="col span-3-t debug">
+      Img placeholder {{ bet.reciever }} {{ bet.creator }}
+    </div>
+    <div class="col span-6-t debug">
+      <p>{{ bet.description }}</p>
     </div>
     <div class="col span-3-t debug">
       <div>
