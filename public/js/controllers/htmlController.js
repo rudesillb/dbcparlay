@@ -20,6 +20,13 @@ $scope.mobileTab = function(){
       }
    }
 
+   // mobile menu, hide after click...
+   $scope.hideMenu = function($event){
+
+    delete $scope.tabOptions
+    debugger
+    }
+
    //Jquery to hide show tabs...
    $scope.changeTabColor = function(){
     $(function(){
