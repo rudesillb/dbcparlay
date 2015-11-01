@@ -15,6 +15,7 @@
         <!-- Hidden by defalt -->
         <!-- tab version of data below... not the best.... -->
         <ul id="desktopMenu" class="lst-n ul-n debug container row p-sm gutters-t ">
+
           <li ui-sref="history" class=" mh col span-2-t debug" >History</li>
           <li ui-sref="active" class=" mh col span-2-t debug" >Active</li>
           <li ui-sref="outstanding" class="mh col span-2-t debug" >Outstanding</li>
@@ -22,9 +23,12 @@
         </ul>
 
         <!-- mobile dropdown menu -->
-        <ul class="lst-n ul-n debug absolute bgc-gray w-50 li-hover" ng-show="tabOptions" ng-repeat="option in tabOptions">
-          {{ tabOptions }}
-          <li class="debug" ui-serf='{{option}}' > {{ option }}</li>
+        <ul class="lst-n ul-n debug absolute bgc-gray w-50 li-hover" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+
+          <li class="mh debug" ui-sref="history" >history</li>
+          <li class="mh debug" ui-sref="active" >active</li>
+          <li class="mh debug" ui-sref="outstanding" >outstanding</li>
+          <li class="mh debug" ui-sref="inactive" >inactive</li>
 
         </ul>
 
