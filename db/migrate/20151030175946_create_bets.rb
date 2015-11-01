@@ -6,6 +6,8 @@ class CreateBets < ActiveRecord::Migration
       t.datetime :end, default: '01-01-2020'
       t.string :status, default: 'inactive'
       t.string :description
+      t.string :creator
+      t.string :reciever
 
       t.timestamps null: false
     end

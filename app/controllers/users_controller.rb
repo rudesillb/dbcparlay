@@ -4,15 +4,7 @@ class UsersController < ApplicationController
   def index
     @bets = User.find(1).bets
     @inverse_bets = User.find(1).inverse_bets
-    friends = []
-    inverse_friends = []
-    @bets.each do |bet|
-      friends << bet.friendship.inverse_friend
-    end
 
-    @inverse_bets.each do |bet|
-      inverse_friends << bet.friendship.user
-    end
 
     render json: drew
   end

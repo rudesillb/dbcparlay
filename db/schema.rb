@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.datetime "end",           default: '2020-01-01 00:00:00'
     t.string   "status",        default: "inactive"
     t.string   "description"
+    t.string   "creator"
+    t.string   "reciever"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
   end

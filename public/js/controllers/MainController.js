@@ -5,6 +5,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inactive':[]}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
+    console.log('this is the response')
+    console.log(response)
       for(var i = 0; i < response.bets.length; i++){
         if (response.bets[i].status === 'active'){
           $scope.bets.active.push(response.bets[i])
@@ -16,7 +18,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
           $scope.bets.inactive.push(response.bets[i])
         }
       }
-      console.log($scope.bets)
+      // console.log($scope.bets)
     // var activebets = response
   $scope.bets.all = response;
   })};
@@ -66,7 +68,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
             minDate: 0
           }) //end of dp
 
-         $scope.getallbets()
       }) // end of ready function
     } // END OF initJquery
 
