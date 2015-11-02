@@ -8,7 +8,7 @@ class BetsController < ApplicationController
     @bets = User.find_by(venmo_id: session[:current_user_id]).bets
     p @bets
     @inverse_bets = User.find_by(venmo_id: session[:current_user_id]).inverse_bets
-
+    @user = User.find_by(venmo_id: session[:current_user_id])
     # @friends = []
     # @inverse_friends = []
     # @bets.each do |bet|
@@ -21,7 +21,7 @@ class BetsController < ApplicationController
 
 
 
-    render json: [@bets, @inverse_bets]
+    render json: [@bets, @inverse_bets, @user.id]
   end
 
   def create
@@ -107,10 +107,13 @@ class BetsController < ApplicationController
     render json: accepted_bet
   end
 
-  def show
+  def pay
     bet = Bet.find(params[:id])
     if valid_bet?(bet)
       pay_winner(bet)
+      bet.update_attributes(status: 'complete')
     end
+    render json: bet
   end
+
 end

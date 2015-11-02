@@ -5,8 +5,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-      console.log('this is the response')
-      console.log(response)
 
       //collect active bets that user created
       for(var i = 0; i < response.bets[0].length; i++){
@@ -71,12 +69,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     // these might not be visible to the other party...
     var voteField = $(event.target).closest('div')
     voteField.hide()
-
-    $http.put('/bets/' + id, {user_vote: winner}).success(function(response){
-
-    })
-
-
+    $http.put('/bets/' + id, {user_vote: winner})
   }
 
   $scope.declareWinnerFriend = function(id, winner, $event) {
@@ -86,18 +79,35 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
       $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
     })
-
+  }
 
   $scope.accept_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/accept')
   }
+
+  //win checker
+  $scope.winchecker = function(bet) {
+    if(bet.winner == $scope.bets.all.bets[2]){
+      return true
+    }
+    else {
+      return false
+    }
+  }
+
+  // send payment after clicking "pay"
+  $scope.youpaynow = function(bet){
+    $http.put('/bets/' + bet.id + '/pay').success()
+  }
+
+
 
   // $scope.pay_confirmation_info = {}
   // $scope.getbetinfo = function(bet_object){
   //   $location.path("/pay/confirmation")
   //     .search({bet_object: JSON.stringify(bet_object)})
   // }
-  // }
+
 
   // $scope.pay = function(bet) {
   //   $http.get('bets' + bet.id)
