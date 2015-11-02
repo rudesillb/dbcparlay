@@ -22,10 +22,16 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.datetime "end",           default: '2020-01-01 00:00:00'
     t.string   "status",        default: "inactive"
     t.string   "description"
+<<<<<<< HEAD
     t.string   "creator"
     t.string   "reciever"
     t.string   "user_vote"
     t.string   "friend_vote"
+=======
+    t.string   "user_vote"
+    t.string   "friend_vote"
+    t.string   "winner_vote"
+>>>>>>> b761cdb5be1c3ffd63287ee19aa1ffc5de43e9fb
     t.string   "winner"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
