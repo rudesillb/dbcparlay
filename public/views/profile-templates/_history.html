@@ -1,15 +1,16 @@
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[0]">
 
   <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
-    <div class="col span-3-t ">
-      <p class="  p-list" class="p-list">Img placeholder {{ bet.reciever }} {{ bet.creator }}</p>
+    <div class=" col span-1-t ">
+      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">
+       {{ bet.reciever }} {{ bet.creator }}
     </div>
-    <div class="col span-6-t ">
+    <div class=" col span-8-t ">
       <p class="  p-list">{{ bet.description }}</p>
     </div>
-    <div class="col span-3-t ">
+    <div class=" col span-3-t ">
 
-      <div>
+      <div class=" b-list">
         <button class="btn btn--s" ng-click="">placeholder</button>
       </div>
     </div>
@@ -20,13 +21,13 @@
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[1]">
 
   <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
-    <div class="col span-3-t ">
-      Img placeholder {{ bet.reciever }} {{ bet.creator }}
+    <div class=" col span-3-t ">
+      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60"> {{ bet.reciever }} {{ bet.creator }}
     </div>
-    <div class="col span-6-t ">
+    <div class=" col span-6-t ">
       <p class="  p-list">{{ bet.description }}</p>
     </div>
-    <div class="col span-3-t ">
+    <div class=" col span-3-t b-list">
       <button class="btn btn--s" ng-click="">placeholder</button>
     </div>
   </li>
