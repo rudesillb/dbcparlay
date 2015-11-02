@@ -36,6 +36,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'MainController',
       templateUrl: 'views/profile-templates/_outstanding.html'
     })
+    .state('pay_confirmation', {
+      url: '/pay/confirmation',
+      controller: 'MainController',
+      templateUrl: 'views/pay_confirmation.html'
+    })
 
 
 

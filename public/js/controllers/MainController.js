@@ -1,6 +1,6 @@
-app.controller('MainController', ['$scope', '$http', function($scope, $http){
+app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
   //test for the angles
-
+  // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
@@ -51,7 +51,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
       }
 
   //collection of all bets
-  $scope.bets.all = response;
+      $scope.bets.all = response;
   })};
 
   //post route to create new bet
@@ -85,6 +85,14 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   // $scope.declareWinnerDraw = function(id) {
   //   $http.put('/bets/' + id, {draw: 'draw'})
   // }
+
+  // $scope.pay_confirmation_info = {}
+  $scope.getbetinfo = function(bet_object){
+    $location.path("/pay/confirmation")
+      .search({bet_object: JSON.stringify(bet_object)})
+  }
+
+
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
