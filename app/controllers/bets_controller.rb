@@ -1,5 +1,9 @@
+include UsersHelper
 class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :autheticate
+
+
   def index
     @bets = User.find_by(venmo_id: session[:current_user_id]).bets
     p @bets
@@ -25,9 +29,9 @@ class BetsController < ApplicationController
     p params
     user = User.find_by(venmo_id: session[:current_user_id])
 
-    friend = User.find_by(params[:email])
-    user.friendship.where(friend_id: friend.id)
-    newbet = user.friendships.first.bets.new(friendship_id: 1, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
+    friend = User.find_by(username: params[:reciever])
+    friendship = Friendship.where(friend_id: friend.id, user_id: user.id)
+    newbet = friendship.bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
       p "*"*1000
     end

@@ -1,14 +1,9 @@
 include UsersHelper
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-
-  def index
-    @bets = User.find(1).bets
-    @inverse_bets = User.find(1).inverse_bets
+  before_action :autheticate
 
 
-    render json: drew
-  end
 
   def new
     url = request.original_url

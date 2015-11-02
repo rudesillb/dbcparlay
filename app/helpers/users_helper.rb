@@ -15,6 +15,12 @@ module UsersHelper
     session[:current_user_id]
   end
 
+  def authenticate
+    if current_user == nil
+      redirect "https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_balance&response_type=code"
+    end
+  end
+
   def parse_user(response)
     user = {}
     user[:access_token] = response["access_token"]
