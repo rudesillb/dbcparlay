@@ -102,14 +102,14 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
           value: 1,
           slide: function( event, ui ) {
             $( "#homeBetAmount" ).val( ui.value );
-          },
-          stop: function(event, ui){
-            console.log(ui.value)}
-        }) //end of slider
+            $scope.newBet.bet_amount = String(ui.value)
+          }
+        }); //end of slider
 
       // JQUERY UI--DATEPICKER
          $( "#datepicker" ).datepicker({
-            minDate: 0
+            minDate: 0,
+            dateFormat: 'dd/mm/yy'
           }) //end of dp
 
       }) // end of ready function
