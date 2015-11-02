@@ -28,16 +28,16 @@ class BetsController < ApplicationController
 
     p params
     user = User.find_by(venmo_id: session[:current_user_id])
-    p "*" 100
+    p "*" * 100
     p user
-        p "*" 100
+        p "*" * 100
 
     friend = User.find_by(username: params[:reciever])
-        p "*" 100
+        p "*" * 100
 
     p friend
     friendship = Friendship.where(friend_id: friend.id, user_id: user.id)
-        p "*" 100
+        p "*" * 100
 
     p friendship
     newbet = friendship.bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
