@@ -54,6 +54,8 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       $scope.bets.all = response;
   })};
 
+  $scope.getallbets();
+
   //post route to create new bet
   $scope.newBet = {}
   $scope.post = function(){
@@ -68,29 +70,11 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   // Drew P hide the declarewinner button on success..
   $scope.declareWinnerUser = function(id, winner, $event) {
     $http.put('/bets/' + id, {user_vote: winner}).success()
-    // $(function($event){
-    // debugger
-
-    // })
-
   }
+
   $scope.declareWinnerFriend = function(id, winner) {
     $http.put('/bets/' + id, {friend_vote: winner})
   }
-  // //declare friend the winner
-  // $scope.declareWinnerFriend = function(id, winnerId) {
-  //   $http.put('/bets/' + id, {reciever: winnerId})
-  // }
-  // //declare a draw
-  // $scope.declareWinnerDraw = function(id) {
-  //   $http.put('/bets/' + id, {draw: 'draw'})
-  // }
-
-  // // $scope.pay_confirmation_info = {}
-  // $scope.getbetinfo = function(bet_object){
-  //     $location.path("/pay/confirmation")
-  //       .search({bet_object: JSON.stringify(bet_object)})
-  // }
 
   $scope.pay = function(bet) {
     $http.get('bets' + bet.id)
@@ -99,9 +83,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
-      $(function() {
-        $scope.getallbets();
-
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
@@ -119,8 +100,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
          $( "#datepicker" ).datepicker({
             minDate: 0
           }) //end of dp
-
-      }) // end of ready function
     } // END OF initJquery
 
     // call ui function
