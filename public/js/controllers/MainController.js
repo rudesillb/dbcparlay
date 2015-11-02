@@ -77,6 +77,12 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   $scope.declareWinnerFriend = function(id, winner) {
     $http.put('/bets/' + id, {friend_vote: winner})
   }
+
+
+  $scope.accept_bet = function(bet_id){
+    $http.put('/bets/' + bet_id + '/accept')
+  }
+
   // //declare friend the winner
   // $scope.declareWinnerFriend = function(id, winnerId) {
   //   $http.put('/bets/' + id, {reciever: winnerId})
