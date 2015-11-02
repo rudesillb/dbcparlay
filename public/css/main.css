@@ -127,10 +127,23 @@ p {
 
 .t-p-sm {top: 2.5em;}
 
+/*
+ Green: #27ae60
+ blue: #2980b9
+ red: #e74c3c
+ orange: #f39c12
+*/
+
 /* background color */
 .bgc-gray { background-color: gray; }
-.active {background-color: #DCDCDC;}
-.bc-lgray {background-color: #DCDCDC}
+.active { background-color: #DCDCDC; }
+.bc-lgray { background-color: #DCDCDC; }
+
+.bc-green { background-color:#27ae60; }
+.bc-blue { background-color:#2980b9; }
+.bc-red { background-color:#e74c3c; }
+.bc-orange { background-color:#f39c12; }
+
 
 
 /* border */
@@ -141,12 +154,7 @@ p {
 
 /* Color */
 
-/*
- Green: #27ae60
- blue: #2980b9
- red: #e74c3c
- orange: #f39c12
-*/
+
 
 
 /* Random */

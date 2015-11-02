@@ -1,5 +1,7 @@
 app.controller('HtmlController', ['$scope', function($scope){
 
+
+
   // show declare winner menu...
   // would be better on state data...
   $scope.declareW = function(){

@@ -63,19 +63,21 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
       console.log(response)})
   };
 
-  //declare self a winner, may need to change bet.creator to user_id on server
-
   // Drew P hide the declarewinner button on success..
-  $scope.declareWinnerUser = function(id, winner, $event) {
-    $http.put('/bets/' + id, {user_vote: winner}).success()
-    // $(function($event){
-    // debugger
 
-    // })
+  $scope.declareWinnerUser = function(id, winner) {
+    // these might not be visible to the other party...
+    $(event.target).closest('div').hide()
+    $http.put('/bets/' + id, {user_vote: winner}).success(function(response){
+    })
+
 
   }
-  $scope.declareWinnerFriend = function(id, winner) {
-    $http.put('/bets/' + id, {friend_vote: winner})
+  $scope.declareWinnerFriend = function(id, winner, $event) {
+    // these might not be visible to the other party...
+      $(event.target).closest('div').hide()
+      $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
+    })
   }
   // //declare friend the winner
   // $scope.declareWinnerFriend = function(id, winnerId) {
