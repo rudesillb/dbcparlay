@@ -169,6 +169,13 @@ p {
 .bc-orange { background-color:#f39c12; }
 .bc-dgry{ background-color: #D2D7D3  }
 
+/* Test */
+
+.imageTest {
+    width: 80px;
+    height: 80px;
+    background-color: red;
+}
 
 
 /* full background */
