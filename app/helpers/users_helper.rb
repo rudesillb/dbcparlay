@@ -49,7 +49,7 @@ module UsersHelper
   def pay_winner(bet)
     # winner = User.find(1)
     # loser = User.find(5)
-    winner = User.find_by(:venmo_id => bet[:winner])
+    winner = User.find(bet[:winner])
     loser = User.find_by(:venmo_id => current_user)
     # :note         => bet.description,
     # :amount       => bet.amount
