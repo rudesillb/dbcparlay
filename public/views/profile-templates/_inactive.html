@@ -2,7 +2,7 @@
 <ul class="ul-n lst-n " ng-repeat="bet in bets.inverse_inactive">
 
 
-  <li class="b-sdw m-b-m p-sm bc-lgray container row gutters-t gutters-d ta-center ">
+  <li class="b-sdw m-b-m p-sm container row gutters-t gutters-d ta-center needA ">
 
     <div class="col span-3-t ">
       <p class="p-list ">Img placeholder</p>
@@ -16,13 +16,9 @@
       <p class="p-list ">{{bet.bet_amount | currency}}</p>
     </div>
 
-
-
-    <div class="col span-3-t ">
-      <div>
+    <div class="col span-3-t">
         <button class="btn btn--s" ng-click="">accept</button>
         <button class="btn btn--s" ng-click="">decline</button>
-      </div>
     </div>
 
   </li>
