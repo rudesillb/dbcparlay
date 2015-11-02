@@ -6,9 +6,9 @@ module UsersHelper
     session[:current_user_id] = user[:venmo_id]
   end
 
-  # def logout
-  #   session.destroy
-  # end
+  def logout
+    session.destroy
+  end
 
   def current_user
     return nil unless session[:current_user_id]
@@ -81,6 +81,18 @@ module UsersHelper
       md5.update email
       md5 = md5.hexdigest
       return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=200"
+    end
+  end
+
+  def get_friends(user)
+
+    response = HTTParty.get("https://api.venmo.com/v1/users/#{user.venmo_id}/friends?access_token=#{user.access_token}&limit=10000")
+    response["data"].each do |friend|
+      user_friend = User.find_by(venmo_id: friend["id"])
+      user_current = User.find_by(venmo_id: current_user)
+      if user_friend != nil
+        Friendship.create(friend_id: user_friend[:id], user_id: user_current[:id])
+      end
     end
   end
 
