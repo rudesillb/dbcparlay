@@ -97,7 +97,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
           max: 5,
           value: 1,
           slide: function( event, ui ) {
-            $( "#homeBetAmount" ).val( ui.value );
+            $( "#homeBetAmount" ).val( "$" + ui.value +".00" );
             $scope.newBet.bet_amount = String(ui.value)
           }
         }); //end of slider

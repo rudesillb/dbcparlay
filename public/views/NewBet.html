@@ -1,31 +1,36 @@
-<div class="container ta-center">
-    <h1 class=" h1-n mt-m ">Propose a bet</h1>
+<div class="container ta-center bc-lgray p-med">
+    <h1 class=" h1-n mt-s">Propose a bet</h1>
 
     <p class="i-ta">
-        <input class="b-n f-m mtb-m" type="text" id="homeBetAmount" placeholder="slide">
+        <input class="b-n f-m mtb-m wb-n" type="text" id="homeBetAmount" placeholder="slide" ng-model="newBet.bet_amount">
     </p>
 
-    <div id="slider" class=" w-30 m-auto m-b-l"></div>
+    <div id="slider" class="container w-50 m-auto m-b-l bc-green"></div>
 
-    <div class="container row gutters-t ">
-        <p class="i-ta col  span-3-t W-100">
-            <input placeholder="date" class="W-100 p-sm m-b-s " type="text" id="datepicker" ng-model="newBet.end">
+    <div class="row gutters-t gutters-d  ">
+        <p class="  i-ta  col  span-3-t">
+            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
         </p>
 
-        <p class="i-ta col  span-6-t">
-            <input placeholder="Description "class=" p-sm m-b-s " type="text" ng-model="newBet.description">
+        <p class="  i-ta  col  span-6-t">
+            <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
         </p>
 
-        <p class="i-ta col  span-3-t">
-            <input placeholder="Friend "class=" p-sm m-b-s" type="text" ng-model="newBet.reciever">
+        <p class="  i-ta  col  span-3-t">
+            <input placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
         </p>
 
     </div>
-        <h3>Finalize</h3>
-
-        <p>Amount: {{newBet.be_amount}}</p>
-        <p>Description:{{newBet.description}}</p>
-        <p>End Date:{{newBet.end}}</p>
-        <p>Friend: {{newBet.reciever}}</p>
-        <a href="/#/profile/active"><button class=" mt-m btn btn--m" ng-click="post()">Propose Bet</button></a>
 </div>
+
+        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
+            <h2>Finalize</h2>
+            <div class="ta-l w-50 m-auto">
+                <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
+                <p class="p-sm mb-s"><b>Description:</b> {{newBet.description}}</p>
+                <p class="p-sm m-b-s"><b>End Date:</b> {{newBet.end}}</p>
+                <p class="p-sm m-b-s"><b>Friend:</b> {{newBet.reciever}}</p>
+            </div>
+
+            <a href="/#/profile/active"><button class=" mt-m btn btn--m" ng-click="post()">Propose Bet</button></a>
+        </div>

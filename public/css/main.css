@@ -58,6 +58,8 @@ textarea {
 
 * {
     font-family: avenir, helvetica, roboto, arial, sans-serif;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .debug {
@@ -91,6 +93,7 @@ p {
 
 
 
+
 /******************
  Atomic Styles */
 
@@ -99,13 +102,14 @@ p {
 .p-xs { padding: 0.4em; }
 .p-list { padding: 0.43em; }
 .p-sm { padding: 0.6em; }
-.p-med {}
+.p-med { padding: 1.2em;}
 .p-large {}
 .p-xl { padding: 10em; }
 .p-xxl {}
 
 /* Text align */
 .ta-center { text-align: center; }
+.ta-l { text-align: left; }
 
 /* Float */
 .fl-right { float: right;}
@@ -113,6 +117,7 @@ p {
 
 .w-50 { width: 50%; }
 .w-30 { width: 30%; }
+.w-95 { width: 95%; }
 .w-100 { width: 100%; }
 
 /* margin */
@@ -120,6 +125,7 @@ p {
 .m-b-s {margin-bottom: .4em;}
 .m-b-m {margin-bottom: .8em;}
 .m-b-l {margin-bottom: 1.2em;}
+.mt-s {margin-top: .5em;}
 .mt-m {margin-top: .8em;}
 .mtb-m {margin: 1em 0}
 
@@ -144,20 +150,34 @@ p {
 */
 
 /* font */
+.fnt-s {font-size: 1em;}
 .f-m {font-size: 1.3em;}
 
 /* background color */
 .bgc-gray { background-color: gray; }
 .active { background-color: #DCDCDC; }
 .bc-lgray { background-color: #DCDCDC; }
+.bc-owhite { background-color: #ECECEC; }
 
 .bc-green { background-color:#27ae60; }
 .bc-blue { background-color:#2980b9; }
+.bc-lblue { background-color:#C5EFF7; }
 .bc-red { background-color:#e74c3c; }
 .bc-orange { background-color:#f39c12; }
+.bc-dgry{ background-color: #D2D7D3  }
+
+
+
+/* full background */
+
+/*.fbg {
+    background: url(http://images3.alphacoders.com/575/575271.jpg) no-repeat center center fixed;
+    background-size: cover;
+    }*/
+
+
 
 /* input */
-
 .b-n {border: none;}
 
 
@@ -180,7 +200,7 @@ p {
 .hover-g li:hover { background-color: #DCDCDC; }
 .li-h-w li:hover { background-color: white;}
 
-/* animate tabs */
+/* animation */
 #desktopMenu li {
   -webkit-transition: background-color .4s linear;
   transition: background-color .4s linear;
@@ -189,6 +209,11 @@ p {
 #desktopMenu li:hover {
     background-color: #DCDCDC;
 }
+
+
+
+
+
 
 
 

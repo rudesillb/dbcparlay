@@ -27,7 +27,7 @@ $scope.mobileTab = function(){
    $scope.hideMenu = function($event){
 
     delete $scope.tabOptions
-    debugger
+
     }
 
    //Jquery to hide show tabs...
