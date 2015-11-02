@@ -86,13 +86,15 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   //   $http.put('/bets/' + id, {draw: 'draw'})
   // }
 
-  // $scope.pay_confirmation_info = {}
-  $scope.getbetinfo = function(bet_object){
-    $location.path("/pay/confirmation")
-      .search({bet_object: JSON.stringify(bet_object)})
+  // // $scope.pay_confirmation_info = {}
+  // $scope.getbetinfo = function(bet_object){
+  //     $location.path("/pay/confirmation")
+  //       .search({bet_object: JSON.stringify(bet_object)})
+  // }
+
+  $scope.pay = function(bet) {
+    $http.get('bets' + bet.id)
   }
-
-
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER

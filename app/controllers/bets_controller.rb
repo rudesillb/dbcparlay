@@ -1,7 +1,7 @@
 class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @bets = User.find(1).bets
+    @bets = User.find().bets
     p @bets
     @inverse_bets = User.find(1).inverse_bets
 
@@ -75,5 +75,12 @@ class BetsController < ApplicationController
     end
 
     render json: bet
+  end
+
+  def show
+    bet = Bet.find(params[:id])
+    if valid_bet?(bet)
+      pay_winner(bet)
+    end
   end
 end
