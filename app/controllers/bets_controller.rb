@@ -28,10 +28,15 @@ class BetsController < ApplicationController
 
     p params
     user = User.find_by(venmo_id: session[:current_user_id])
-    p session[:current_user_id]
-    friend = User.find_by(username: params[:reciever])
-    p params[:receiver]
     p "*" * 100
+    print "session:"
+    p session[:current_user_id]
+    p "*" * 100
+    friend = User.find_by(username: params[:reciever])
+    print "reciever:"
+    p params[:reciever]
+    p "*" * 100
+     print "reciever:"
     p user
         p "*" * 100
     Friendship.create(friend_id: friend.id, user_id: user.id)
