@@ -116,6 +116,7 @@ p {
 /* margin */
 .m-auto { margin: 0 auto; }
 .m-b-s {margin-bottom: .4em;}
+.m-b-m {margin-bottom: .8em;}
 
 /* list */
 .lst-n { list-style-type: none;}
@@ -126,6 +127,8 @@ p {
 .right-15 { right: 15em; }
 
 .t-p-sm {top: 2.5em;}
+
+.b-sdw { box-shadow: 0 8px 6px -6px #777; }
 
 /*
  Green: #27ae60
