@@ -69,15 +69,20 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
   $scope.declareWinnerUser = function(id, winner) {
     // these might not be visible to the other party...
-    $(event.target).closest('div').hide()
+    var voteField = $(event.target).closest('div')
+    voteField.hide()
+
     $http.put('/bets/' + id, {user_vote: winner}).success(function(response){
+
     })
 
 
   }
   $scope.declareWinnerFriend = function(id, winner, $event) {
     // these might not be visible to the other party...
-      $(event.target).closest('div').hide()
+      var voteField = $(event.target).closest('div')
+      voteField.hide()
+
       $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
     })
 
