@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20151030184303) do
     t.string   "encrypted_access_token_salt"
     t.string   "encrypted_access_token_iv"
     t.string   "venmo_id"
+    t.string   "large_image"
+    t.string   "small_image"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

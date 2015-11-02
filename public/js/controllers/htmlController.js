@@ -14,7 +14,6 @@ app.controller('HtmlController', ['$scope', function($scope){
   } // end of declare winner....
 
 
-
 // this doesnt work as inteded cannot get ng-repeate to show all...
 $scope.mobileTab = function(){
      if($scope.tabOptions){

@@ -68,12 +68,19 @@ class BetsController < ApplicationController
     #check for winner
     if bet.user_vote && bet.friend_vote
       if bet.user_vote == bet.friend_vote
-         bet.update_attributes(winner: bet.user_vote, status: 'complete')
+         bet.update_attributes(winner: bet.user_vote, status: 'outstanding')
       else
         bet.update_attributes(user_vote: nil, friend_vote: nil)
       end
     end
 
     render json: bet
+  end
+
+  def show
+    bet = Bet.find(params[:id])
+    if valid_bet?(bet)
+      pay_winner(bet)
+    end
   end
 end

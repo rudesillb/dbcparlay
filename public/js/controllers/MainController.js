@@ -1,6 +1,6 @@
-app.controller('MainController', ['$scope', '$http', function($scope, $http){
+app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
   //test for the angles
-
+  // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
@@ -51,8 +51,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
       }
 
   //collection of all bets
-  $scope.bets.all = response;
+      $scope.bets.all = response;
   })};
+
+  $scope.getallbets();
 
   //post route to create new bet
   $scope.newBet = {}
@@ -78,22 +80,16 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
       $(event.target).closest('div').hide()
       $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
     })
+
   }
-  // //declare friend the winner
-  // $scope.declareWinnerFriend = function(id, winnerId) {
-  //   $http.put('/bets/' + id, {reciever: winnerId})
-  // }
-  // //declare a draw
-  // $scope.declareWinnerDraw = function(id) {
-  //   $http.put('/bets/' + id, {draw: 'draw'})
-  // }
+
+  $scope.pay = function(bet) {
+    $http.get('bets' + bet.id)
+  }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
-      $(function() {
-        $scope.getallbets();
-
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
@@ -111,8 +107,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
             minDate: 0,
             dateFormat: 'dd/mm/yy'
           }) //end of dp
-
-      }) // end of ready function
     } // END OF initJquery
 
     // call ui function
