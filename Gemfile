@@ -27,7 +27,7 @@ gem 'sprockets-rails'
 gem 'pry-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'rails-api'
+# gem 'rails-api'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'attr_encrypted'

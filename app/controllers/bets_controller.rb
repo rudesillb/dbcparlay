@@ -37,7 +37,6 @@ class BetsController < ApplicationController
     p params[:reciever]
     p "*" * 100
      print "reciever:"
-    p user
         p "*" * 100
     Friendship.create(friend_id: friend.id, user_id: user.id)
 
