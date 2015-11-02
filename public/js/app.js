@@ -48,4 +48,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 }); // END OF CONFIG
 
 
+$(function() {
 
+
+
+      }) // end of ready function

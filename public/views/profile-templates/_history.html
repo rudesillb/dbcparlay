@@ -1,6 +1,6 @@
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[0]">
 
-  <li class=" p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
+  <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
     <div class="col span-3-t ">
       <p class="  p-list" class="p-list">Img placeholder {{ bet.reciever }} {{ bet.creator }}</p>
     </div>
@@ -11,11 +11,6 @@
 
       <div>
         <button class="btn btn--s" ng-click="">placeholder</button>
-        <ul class="ul-n lst-n absolute" ng-show="">
-          <li>me</li>
-          <li>other</li>
-          <li>draw</li>
-        </ul>
       </div>
     </div>
   </li>
@@ -24,13 +19,15 @@
 
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[1]">
 
-  <li class=" container row gutters-t ta-center ">
+  <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
     <div class="col span-3-t ">
       Img placeholder {{ bet.reciever }} {{ bet.creator }}
     </div>
     <div class="col span-6-t ">
       <p class="  p-list">{{ bet.description }}</p>
     </div>
-
+    <div class="col span-3-t ">
+      <button class="btn btn--s" ng-click="">placeholder</button>
+    </div>
   </li>
 </ul>

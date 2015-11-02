@@ -1,25 +1,36 @@
-<div class="container ta-center debug">
-    <h1 class=" h1-n debug">Propose a bet</h1>
+<div class="container ta-center bc-lgray p-med">
+    <h1 class=" h1-n mt-s">Propose a bet</h1>
 
-    <p class="debug">
-        <label for="homeBetAmount">$</label>
-        <input type="text" id="homeBetAmount" ng-model="newBet.bet_amount">
-        {{newBet.bet_amount}}
+    <p class="i-ta">
+        <input class="b-n f-m mtb-m wb-n" type="text" id="homeBetAmount" placeholder="slide" ng-model="newBet.bet_amount">
     </p>
 
-    <div id="slider" class=" w-50 m-auto debug"></div>
+    <div id="slider" class="container w-50 m-auto m-b-xxl"></div>
 
-    <p class="debug">
-        Date: <input type="text" id="datepicker" ng-model="newBet.end">{{newBet.end}}
-    </p>
+    <div class="row gutters-t gutters-d  ">
+        <p class="  i-ta  col  span-3-t">
+            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
+        </p>
 
-    <p class="debug">
-        Description: <input type="text" ng-model="newBet.description">{{ newBet.description }}
-    </p>
+        <p class="  i-ta  col  span-6-t">
+            <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
+        </p>
 
-    <p class="debug">
-        Friend: <input type="text" ng-model="newBet.reciever">{{ newBet.reciever }}
-    </p>
+        <p class="  i-ta  col  span-3-t">
+            <input placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+        </p>
 
-    <a href="/#/profile/active"><button class="btn btn--m" ng-click="post()">Propose Bet</button></a>
+    </div>
 </div>
+
+        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
+            <h2>Finalize</h2>
+            <div class="ta-l w-50 m-auto">
+                <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
+                <p class="p-sm mb-s"><b>Description:</b> {{newBet.description}}</p>
+                <p class="p-sm m-b-s"><b>End Date:</b> {{newBet.end}}</p>
+                <p class="p-sm m-b-s"><b>Friend:</b> {{newBet.reciever}}</p>
+            </div>
+
+            <a href="/#/profile/active"><button class=" mt-m btn btn--m" ng-click="post()">Propose Bet</button></a>
+        </div>

@@ -54,6 +54,8 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       $scope.bets.all = response;
   })};
 
+  $scope.getallbets();
+
   //post route to create new bet
   $scope.newBet = {}
   $scope.post = function(){
@@ -63,49 +65,47 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       console.log(response)})
   };
 
-  //declare self a winner, may need to change bet.creator to user_id on server
-
   // Drew P hide the declarewinner button on success..
-  $scope.declareWinnerUser = function(id, winner, $event) {
-    $http.put('/bets/' + id, {user_vote: winner}).success()
-    // $(function($event){
-    // debugger
 
-    // })
+  $scope.declareWinnerUser = function(id, winner) {
+    // these might not be visible to the other party...
+    var voteField = $(event.target).closest('div')
+    voteField.hide()
+
+    $http.put('/bets/' + id, {user_vote: winner}).success(function(response){
+
+    })
+
 
   }
-  $scope.declareWinnerFriend = function(id, winner) {
-    $http.put('/bets/' + id, {friend_vote: winner})
-  }
+
+  $scope.declareWinnerFriend = function(id, winner, $event) {
+    // these might not be visible to the other party...
+      var voteField = $(event.target).closest('div')
+      voteField.hide()
+
+      $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
+    })
 
 
   $scope.accept_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/accept')
   }
 
-  // //declare friend the winner
-  // $scope.declareWinnerFriend = function(id, winnerId) {
-  //   $http.put('/bets/' + id, {reciever: winnerId})
-  // }
-  // //declare a draw
-  // $scope.declareWinnerDraw = function(id) {
-  //   $http.put('/bets/' + id, {draw: 'draw'})
-  // }
-
   // $scope.pay_confirmation_info = {}
-  $scope.getbetinfo = function(bet_object){
-    $location.path("/pay/confirmation")
-      .search({bet_object: JSON.stringify(bet_object)})
-  }
+  // $scope.getbetinfo = function(bet_object){
+  //   $location.path("/pay/confirmation")
+  //     .search({bet_object: JSON.stringify(bet_object)})
+  // }
+  // }
 
-
+  // $scope.pay = function(bet) {
+  //   $http.get('bets' + bet.id)
+  // }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
-      $(function() {
-        $scope.getallbets();
-
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
@@ -113,18 +113,16 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
           max: 5,
           value: 1,
           slide: function( event, ui ) {
-            $( "#homeBetAmount" ).val( ui.value );
-          },
-          stop: function(event, ui){
-            console.log(ui.value)}
-        }) //end of slider
+            $( "#homeBetAmount" ).val( "$" + ui.value +".00" );
+            $scope.newBet.bet_amount = String(ui.value)
+          }
+        }); //end of slider
 
       // JQUERY UI--DATEPICKER
          $( "#datepicker" ).datepicker({
-            minDate: 0
+            minDate: 0,
+            dateFormat: 'dd/mm/yy'
           }) //end of dp
-
-      }) // end of ready function
     } // END OF initJquery
 
     // call ui function
