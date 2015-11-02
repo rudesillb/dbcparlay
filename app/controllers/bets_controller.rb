@@ -49,7 +49,7 @@ class BetsController < ApplicationController
         p "*" * 100
 
     p friendship
-    newbet = friendship.bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
+    newbet = friendship[0].bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
       p "*"*1000
     end
@@ -99,4 +99,13 @@ class BetsController < ApplicationController
 
     render json: bet
   end
+
+  def accept
+    accepted_bet = Bet.find(params[:id])
+    accepted_bet.update_attributes(status: 'active')
+    p "&" * 100
+    render json: accepted_bet
+  end
+
+
 end
