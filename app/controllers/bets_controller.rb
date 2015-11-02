@@ -1,7 +1,7 @@
 class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @bets = User.find().bets
+    @bets = User.find(1).bets
     p @bets
     @inverse_bets = User.find(1).inverse_bets
 
