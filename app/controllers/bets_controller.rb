@@ -1,9 +1,9 @@
 class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @bets = User.find(1).bets
+    @bets = User.find_by(venmo_id: session[:current_user_id]).bets
     p @bets
-    @inverse_bets = User.find(1).inverse_bets
+    @inverse_bets = User.find_by(venmo_id: session[:current_user_id]).inverse_bets
 
     # @friends = []
     # @inverse_friends = []
@@ -23,10 +23,11 @@ class BetsController < ApplicationController
   def create
 
     p params
-    user = User.find(1)
-    # friend = User.find_by(params[:email])
-    # user.friendship.where(friend_id: friend.id)
-    newbet = user.friendships.first.bets.new(friendship_id: 1, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: "#{user.first_name} #{user.last_name}", reciever: params[:reciever])
+    user = User.find_by(venmo_id: session[:current_user_id])
+
+    friend = User.find_by(params[:email])
+    user.friendship.where(friend_id: friend.id)
+    newbet = user.friendships.first.bets.new(friendship_id: 1, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
       p "*"*1000
     end
