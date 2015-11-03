@@ -1,4 +1,4 @@
-var app = angular.module('Parlay', ['ui.router', 'ngAnimate']);
+var app = angular.module('Parlay', ['ui.router', 'ngAnimate', 'angular.filter']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 

@@ -60,6 +60,12 @@ class BetsController < ApplicationController
     render json: bet
   end
 
+  def new
+    user = User.find_by(venmo_id: session[:current_user_id])
+    friend_collection = user.friends
+    render json: friend_collection
+  end
+
   def accept
     accepted_bet = Bet.find(params[:id])
     accepted_bet.update_attributes(status: 'active')
