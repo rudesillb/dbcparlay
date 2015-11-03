@@ -1,7 +1,6 @@
 require 'digest'
 module UsersHelper
 
-
   def login(user)
     session[:current_user_id] = user[:venmo_id]
   end

@@ -118,10 +118,10 @@ class BetsController < ApplicationController
 
   def pay
     bet = Bet.find(params[:id])
-    # if valid_bet?(bet)
-    #   pay_winner(bet)
-    #   bet.update_attributes(status: 'complete')
-    # end
+    if valid_bet?(bet)
+      pay_winner(bet)
+      bet.update_attributes(status: 'complete')
+    end
     render json: bet
   end
 
