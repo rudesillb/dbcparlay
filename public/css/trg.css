@@ -66,6 +66,9 @@
 */
 /* 800px */
 @media (min-width: 50em) {
+
+    #ad-btn{font-size: .6em}
+
     .container {
         width: 45em; /* 720px */
     }
@@ -120,6 +123,9 @@
 */
 /* 1200px */
 @media (min-width: 75em) {
+
+#ad-btn{font-size: .8em}
+
     .container {
         width: 64em; /* 1024px */
     }

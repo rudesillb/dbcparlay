@@ -125,11 +125,11 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     // Slider on login page...
         $( "#slider" ).slider({
           range: "max",
-          min: 1,
+          min: 0,
           max: 5,
-          value: 1,
+          step: 0.25,
           slide: function( event, ui ) {
-            $( "#homeBetAmount" ).val( "$" + ui.value +".00" );
+            $( "#homeBetAmount" ).val( "$" + ui.value);
             $scope.newBet.bet_amount = String(ui.value)
           }
         }); //end of slider
@@ -143,5 +143,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
     // call ui function
     $scope.initJqueryUi();
+
+
 
 }]) // end of controller...
