@@ -63,28 +63,31 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       console.log(response)})
   };
 
-  // Drew P hide the declarewinner button on success..
-
+  // bet creator votes, buttons hide
   $scope.declareWinnerUser = function(id, winner) {
-    // these might not be visible to the other party...
-    var voteField = $(event.target).closest('div')
-    voteField.hide()
+    var voteField = $(event.target).closest('div');
+    voteField.hide();
     $http.put('/bets/' + id, {user_vote: winner})
   }
 
+  // bet friend votes, buttons hide
   $scope.declareWinnerFriend = function(id, winner, $event) {
-    // these might not be visible to the other party...
-      var voteField = $(event.target).closest('div')
-      voteField.hide()
-
+      var voteField = $(event.target).closest('div');
+      voteField.hide();
       $http.put('/bets/' + id, {friend_vote: winner}).success(function(response){
     })
   }
 
+// goes to accept bet route on server and hides buttons
   $scope.accept_bet = function(bet_id){
-    $http.put('/bets/' + bet_id + '/accept')
+    $http.put('/bets/' + bet_id + '/accept');
+    $(event.target).parent().hide();
+  }
 
-    $(event.target).parent().hide()
+  // goes to decline bet route on server and hides buttons
+  $scope.decline_bet = function(bet_id){
+    $http.put('/bets/' + bet_id + '/decline');
+    $(event.target).parent().hide();
   }
 
   //win checker
@@ -99,7 +102,8 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
   // send payment after clicking "pay"
   $scope.youpaynow = function(bet){
-    $http.put('/bets/' + bet.id + '/pay')
+    $http.put('/bets/' + bet.id + '/pay');
+    $(event.target).parent().hide();
   }
 
 

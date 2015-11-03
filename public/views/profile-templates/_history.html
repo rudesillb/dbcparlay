@@ -10,7 +10,7 @@
     <div class="col span-3-t ">
 
       <div>
-        <button class="btn btn--s" ng-click="">placeholder</button>
+        <button class="btn btn--s" ng-click="">{{ bet.bet_amount | currency }}</button>
       </div>
     </div>
   </li>
@@ -27,7 +27,7 @@
       <p class="  p-list">{{ bet.description }}</p>
     </div>
     <div class="col span-3-t ">
-      <button class="btn btn--s" ng-click="">placeholder</button>
+      <button class="btn btn--s" ng-click="">{{ bet.bet_amount | currency }}</button>
     </div>
   </li>
 </ul>

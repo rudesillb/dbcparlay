@@ -107,6 +107,13 @@ class BetsController < ApplicationController
     render json: accepted_bet
   end
 
+  def decline
+    declined_bet = Bet.find(params[:id])
+    declined_bet.destroy
+    # rendering nothing here
+    render json: declined_bet
+  end
+
   def pay
     bet = Bet.find(params[:id])
     if valid_bet?(bet)
