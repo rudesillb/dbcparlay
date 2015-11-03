@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     url = request.original_url
     user = parse_user(send_response(url))
     if User.find_by(:venmo_id => user[:venmo_id]) != nil
-      # user[:access_token] = response["access_token"]
+      user[:access_token] = response["access_token"]
       login(user)
       get_friends(user)
     else
