@@ -38,8 +38,20 @@ class BetsController < ApplicationController
     p "*" * 100
      print "reciever:"
         p "*" * 100
-    Friendship.create(friend_id: friend.id, user_id: user.id)
 
+    # Drew Error Handeling...
+    friend = Friendship.new(friend_id: friend.id, user_id: user.id)
+    if friend.save
+      puts 'X' * 100
+      puts "hello from inside if"
+      puts 'X' * 100
+    else
+      puts "X" * 100
+      p friend
+      p errors
+      p friend.errors
+      puts "X" * 100
+    end
 
         p "*" * 100
 

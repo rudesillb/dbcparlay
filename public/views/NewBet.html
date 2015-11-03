@@ -22,6 +22,15 @@
 </div>
 
         <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
+
+            <!-- Error handling... -->
+            <div class="bc-green" ng-show="error">
+                <p class="errors">Friend is Not Found</p>
+            </div>
+
+            <!-- ng-class="{error: error.data.captain} -->
+            <!-- ng-show="error.data.captain -->
+
             <h2>Review</h2>
             <div class="ta-l w-50 m-auto">
                 <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
