@@ -17,11 +17,11 @@ class UsersController < ApplicationController
     if User.find_by(:venmo_id => user[:venmo_id]) != nil
       # user[:access_token] = response["access_token"]
       login(user)
-      get_friends(user)
+      # get_friends(user)
     else
       User.create(user)
       login(user)
-      get_friends(user)
+      # get_friends(user)
     end
     user = {}
   end
