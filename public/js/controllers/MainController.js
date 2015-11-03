@@ -83,6 +83,8 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
   $scope.accept_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/accept')
+
+    $(event.target).parent().hide()
   }
 
   //win checker
