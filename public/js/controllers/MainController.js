@@ -52,6 +52,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       $scope.bets.all = response;
   })};
 
+
   $scope.getallbets();
 
   //post route to create new bet
@@ -144,6 +145,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     // call ui function
     $scope.initJqueryUi();
 
-
+    console.log($scope.bets)
 
 }]) // end of controller...
