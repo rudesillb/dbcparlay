@@ -29,6 +29,7 @@ class BetsController < ApplicationController
     p params
     user = User.find_by(venmo_id: session[:current_user_id])
     p user
+    session[:hello] = "world"
     p "*" * 100
     print "session:"
     p session[:current_user_id]
