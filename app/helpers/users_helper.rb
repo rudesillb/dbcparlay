@@ -23,6 +23,7 @@ module UsersHelper
 
   def parse_user(response)
     user = {}
+    p response
     user[:access_token] = response["access_token"]
     user[:email] = response["user"]["email"]
     user[:first_name] = response["user"]["first_name"]
