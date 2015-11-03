@@ -47,7 +47,7 @@ module UsersHelper
   def pay_winner(bet)
     winner = User.find(bet[:winner].to_i)
     loser = User.find_by(:venmo_id => current_user)
-    response = HTTParty.post("https://api.venmo.com/v1/payments",
+    p response = HTTParty.post("https://api.venmo.com/v1/payments",
       :body => { :access_token => loser.access_token,
                  :email      => winner.email,
                  :note       => bet.description,
