@@ -27,7 +27,8 @@ class BetsController < ApplicationController
   def create
 
     p params
-    p user = User.find_by(venmo_id: session[:current_user_id])
+    user = User.find_by(venmo_id: session[:current_user_id])
+    p user
     p "*" * 100
     print "session:"
     p session[:current_user_id]
