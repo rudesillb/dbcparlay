@@ -97,7 +97,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
   // send payment after clicking "pay"
   $scope.youpaynow = function(bet){
-    $http.put('/bets/' + bet.id + '/pay').success()
+    $http.put('/bets/' + bet.id + '/pay')
   }
 
 
