@@ -20,7 +20,7 @@
     <div class="col span-3-t ">
       <div class="b-list">
 
-        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynow(bet)">pay up</button>
+        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowcreator(bet)">pay up</button>
         <div ng-show="winchecker(bet)">Awaiting Payment</div>
 
       </div>
@@ -55,9 +55,8 @@
     <div class="col span-3-t ">
       <div ng-controller="HtmlController">
 
-        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynow(bet)">pay up</button>
+        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
         <div ng-show="winchecker(bet)">Awaiting Payment</div>
-        <!-- awaiting payment -->
 
       </div>
 

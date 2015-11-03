@@ -44,11 +44,12 @@
     <div class="col span-2-t ">
       <p class="p-list ">{{bet.bet_amount | currency}}</p>
     </div>
-
-    <div class="col span-4-t">
-      <p class="p-list">awaiting decision<p/>
-    </div>
-
+    <div>
+      <div class="col span-4-t">
+        <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">destroy</button>
+        <p class="p-list">awaiting decision<p/>
+      </div>
+  </div>
   </li>
 
 </ul>

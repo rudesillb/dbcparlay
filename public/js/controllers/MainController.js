@@ -81,13 +81,13 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 // goes to accept bet route on server and hides buttons
   $scope.accept_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/accept');
-    $(event.target).parent().hide();
+    $(event.target).parent().parent().parent().hide();
   }
 
   // goes to decline bet route on server and hides buttons
   $scope.decline_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/decline');
-    $(event.target).parent().hide();
+    $(event.target).parent().parent().parent().hide();
   }
 
   //win checker
@@ -101,19 +101,28 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   }
 
   // send payment after clicking "pay"
-  $scope.youpaynow = function(bet){
-    $http.put('/bets/' + bet.id + '/pay');
-    $(event.target).parent().hide();
+  $scope.youpaynowcreator = function(bet){
+    var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.creator +'?')
+    if (pay === true){
+      $http.put('/bets/' + bet.id + '/pay');
+      $(event.target).parent().parent().parent().hide();
+    }
+  }
+
+  $scope.youpaynowreciever = function(bet){
+    var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.reciever +'?')
+    if (pay === true){
+      $http.put('/bets/' + bet.id + '/pay');
+      $(event.target).parent().parent().parent().hide();
+    }
   }
 
 
 
-  // $scope.pay_confirmation_info = {}
-  // $scope.getbetinfo = function(bet_object){
-  //   $location.path("/pay/confirmation")
-  //     .search({bet_object: JSON.stringify(bet_object)})
-  // }
-
+  $scope.getbetinfo = function(bet_object){
+      // .search({bet_object: JSON.stringify(bet_object)})
+    $location.path("/pay/confirmation")
+  }
 
   // $scope.pay = function(bet) {
   //   $http.get('bets' + bet.id)
