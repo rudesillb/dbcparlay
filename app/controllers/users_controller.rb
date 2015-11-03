@@ -22,6 +22,8 @@ class UsersController < ApplicationController
       User.create(user)
       login(user)
       get_friends(user)
+      p user
+      p session
     end
     user = {}
   end
