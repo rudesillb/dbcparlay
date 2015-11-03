@@ -1,3 +1,4 @@
+
 <div class="container ta-center bc-lgray p-med">
     <h1 class=" h1-n mt-s">Propose a bet</h1>
 
@@ -6,18 +7,23 @@
     </p>
 
     <div id="slider" class="container w-50 m-auto m-b-xxl"></div>
-
+ <!--        <input type='text' ng-model='guy.username'>
+   -->
     <div class="row gutters-t gutters-d  ">
         <p class="  i-ta  col  span-3-t">
             <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
         </p>
-
         <p class="  i-ta  col  span-6-t">
             <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
         </p>
 
         <p class="  i-ta  col  span-3-t">
-            <input ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <input id='friend-input' ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <div id='fuzzy-list' ng-repeat="friend in friends | fuzzyBy: 'username' : newBet.reciever ">
+
+                <option ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</option>
+
+            </div>
         </p>
 
     </div>

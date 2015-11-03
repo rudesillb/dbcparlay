@@ -116,11 +116,17 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       $(event.target).parent().parent().parent().hide();
     }
   }
+  $scope.selectFriend = function() {
+    $scope.newBet.reciever = $(event.target).val();
+    $('#fuzzy-list').hide();
+  }
 
   $scope.getFriends = function() {
     $http.get('bets/new').success(function(response) {
-      console.log(response);
-    })
+      $scope.friends = response.bets
+      console.log($scope.friends)
+
+      })
   }
 
   // $scope.getbetinfo = function(bet_object){
