@@ -1,7 +1,7 @@
 include UsersHelper
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  # before_action :autheticate
+  # skip_before_action :verify_authenticity_token
+  before_action :authenticate
 
 
   def new
@@ -30,5 +30,15 @@ class UsersController < ApplicationController
   # def destroy
   #   logout
   # end
+
+  private
+
+
+  def authenticate
+    p current_user
+    if !current_user
+      redirect_to "https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_friends%20access_balance&response_type=code"
+    end
+  end
 
 end

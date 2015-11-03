@@ -1,7 +1,7 @@
 include UsersHelper
 class BetsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  # before_action :autheticate
+  # skip_before_action :verify_authenticity_token
+  before_action :authenticate
 
 
   def index
@@ -123,6 +123,22 @@ class BetsController < ApplicationController
       bet.update_attributes(status: 'complete')
     end
     render json: bet
+  end
+
+  def new
+    user = User.find_by(venmo_id: session[:current_user_id])
+    friend_collection = user.friends
+    render json: friend_collection
+  end
+
+  private
+
+
+  def authenticate
+    p current_user
+    if !current_user
+      redirect_to "https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_friends%20access_balance&response_type=code"
+    end
   end
 
 end

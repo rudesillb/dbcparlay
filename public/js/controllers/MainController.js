@@ -117,7 +117,11 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     }
   }
 
-
+  $scope.getFriends = function() {
+    $http.get('bets/new').success(function(response) {
+      console.log(response);
+    })
+  }
 
   // $scope.getbetinfo = function(bet_object){
   //     // .search({bet_object: JSON.stringify(bet_object)})
