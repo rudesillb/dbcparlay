@@ -83,7 +83,7 @@ module UsersHelper
 
   def get_friends(user)
 
-    p response = HTTParty.get("https://api.venmo.com/v1/users/#{user[:venmo_id]}/friends?access_token=#{user[:access_token]}&limit=10000")
+    p response = HTTParty.get("https://api.venmo.com/v1/users/#{user.venmo_id}/friends?access_token=#{user.access_token]}&limit=10000")
     response["data"].each do |friend|
       user_friend = User.find_by(venmo_id: friend["id"])
       user_current = User.find_by(venmo_id: current_user)
