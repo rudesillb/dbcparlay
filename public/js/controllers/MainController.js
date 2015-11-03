@@ -119,10 +119,10 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
 
 
-  $scope.getbetinfo = function(bet_object){
-      // .search({bet_object: JSON.stringify(bet_object)})
-    $location.path("/pay/confirmation")
-  }
+  // $scope.getbetinfo = function(bet_object){
+  //     // .search({bet_object: JSON.stringify(bet_object)})
+  //   $location.path("/pay/confirmation")
+  // }
 
   // $scope.pay = function(bet) {
   //   $http.get('bets' + bet.id)
