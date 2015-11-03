@@ -23,7 +23,6 @@ module UsersHelper
 
   def parse_user(response)
     user = {}
-    p response
     user[:access_token] = response["access_token"]
     user[:email] = response["user"]["email"]
     user[:first_name] = response["user"]["first_name"]
@@ -32,7 +31,6 @@ module UsersHelper
     user[:venmo_id] = response["user"]["id"]
     user[:small_image] = gravatar(response["user"]["email"],'small')
     user[:large_image] = gravatar(response["user"]["email"],'large')
-
     return user
   end
 
@@ -50,7 +48,7 @@ module UsersHelper
   def pay_winner(bet)
     winner = User.find(bet[:winner].to_i)
     loser = User.find_by(:venmo_id => current_user)
-    p response = HTTParty.post("https://api.venmo.com/v1/payments",
+    response = HTTParty.post("https://api.venmo.com/v1/payments",
       :body => { :access_token => loser.access_token,
                  :email      => winner.email,
                  :note       => bet.description,
@@ -82,8 +80,7 @@ module UsersHelper
   end
 
   def get_friends(user)
-    p "https://api.venmo.com/v1/users/#{user[:venmo_id]}/friends?access_token=#{user[:access_token]}&limit=10000"
-    p response = HTTParty.get("https://api.venmo.com/v1/users/#{user[:venmo_id]}/friends?access_token=#{user[:access_token]}&limit=10000")
+    response = HTTParty.get("https://api.venmo.com/v1/users/#{user[:venmo_id]}/friends?access_token=#{user[:access_token]}&limit=10000")
     response["data"].each do |friend|
       user_friend = User.find_by(venmo_id: friend["id"])
       user_current = User.find_by(venmo_id: current_user)
