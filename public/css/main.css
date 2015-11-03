@@ -157,6 +157,7 @@ p {
 
 /* tab needs action */
 .needA { background-color: #90C695; color: white;}
+.tabA { background-color: #e74c3c;}
 
 /* Background Color */
 .bc-lgray { background-color: #DCDCDC; }
@@ -173,7 +174,15 @@ p {
 
 img {border-radius: 30px;}
 
+.fade {.fade.ng-show {
+  /*transition:0.5s linear all;
+  opacity:0;*/
+  background-color: blue;
+    }
+}
 
+.bb-r {border-bottom: 5px solid #e74c3c;}
+.bb-w {border: 1px solid white;}
 
 
 

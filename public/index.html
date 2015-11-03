@@ -12,6 +12,7 @@
     <script src="js/vendor/angular.js"></script>
 
     <script src="js/vendor/angular-ui-router.js"></script>
+    <script src="js/vendor/angular-animate.js"></script>
 
 
 
@@ -29,17 +30,25 @@
    Main Information page
    ========================-->
 <main role="profile" class="">
+        <!-- notification for the tabs... -->
+        <div class=" container row gutters-t  h-1">
+          <p class=" bb-w h1 col span-2-t "></p>
+          <p class=" h1  bb-w col span-2-t "></p>
+          <p class=" h1  bb-w col span-2-t "></p>
+          <p class=" h1  bb-w col span-2-t "></p>
+          <p ng-if="!bets.inverse_interaction"class=" h1 bb-r col span-2-t "></p>
+        </div>
     <div class="container ta-center row ">
 
-      <div class="col span-3-t relative" ng-controller="HtmlController">
-
+      <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->
-        <ul id="desktopMenu" class=" lst-n ul-n container row gutters-t ">
+        <ul id="desktopMenu" class=" lst-n ul-n container row gutters-t">
            <li ui-sref="new bet" class="b-sdw-i-w bc-lblue fc-w mh col span-2-t  p-sm"  >New Bet</li>
           <li ui-sref="history" class=" mh col span-2-t  p-sm"  >History</li>
           <li ui-sref="active" class=" mh col span-2-t  p-sm">Active</li>
           <li ui-sref="outstanding" class="mh col span-2-t  p-sm">Outstanding</li>
-          <li ui-sref="inactive" class="mh col span-2-t  p-sm"  >Inactive</li>
+
+          <li ui-sref="inactive" class="mh col span-2-t  p-sm ">Inactive</li>
         </ul>
 
         <!-- mobile dropdown menu -->

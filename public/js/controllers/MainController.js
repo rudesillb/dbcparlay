@@ -117,4 +117,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     // call ui function
     $scope.initJqueryUi();
 
+
+
 }]) // end of controller...
