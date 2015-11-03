@@ -30,7 +30,7 @@
         <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.user_vote">declare winner</button>
 
         <!-- drop down menu -->
-        <ul class="ul-n lst-n li-h-w fade" ng-show="options" ng-if="options">
+        <ul class="ul-n lst-n li-h-w fade bc-owhite" ng-show="options" ng-if="options">
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user')">me</li>
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'friend')">other</li>
           <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'draw')">draw</li>
@@ -61,7 +61,7 @@
 
 
 <!-- Friend Vote -->
-    <div class="col span-3-t  b-list">
+    <div class="col span-3-t  b-list ">
       <!-- show when vote selected from dropdown... -->
       <p class="p-list" ng-show="bet.friend_vote">Vote Cast</p>
 
@@ -71,7 +71,7 @@
         <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.friend_vote">declare winner</button>
 
         <!-- drop down  -->
-        <ul class="ul-n lst-n li-h-w ta-center" ng-show="options">
+        <ul class="ul-n lst-n li-h-w ta-center bc-owhite" ng-show="options">
           <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'friend', $event)">me
           </li>
           <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'user')">other
