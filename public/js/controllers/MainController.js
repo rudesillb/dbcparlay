@@ -1,4 +1,25 @@
-app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
+
+// @@@@@@@@@@@@@@@@@@
+// Errors
+// @@@@@@@@@@@@@@@@@@
+  //
+  $scope.displayError = errorService.callError
+
+
+  $scope.$watch('displayError.friendError', function(newValue, oldValue){
+
+    if(newValue){
+      $('#ErrorHandle').delay(2000).fadeTo('slow', 0)
+
+      setTimeout(function(){
+        $('#ErrorHandle').remove()
+        $scope.displayError.friendError = undefined
+        $scope.displayError.friendErrorBox = undefined
+      },2400);
+    }
+  })
+
   //test for the angles
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
@@ -60,8 +81,19 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   $scope.post = function(){
     // console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
-    $http.post('/bets', newbetcopy).success(function(response){
-      console.log(response)})
+    // Need a success and fail callback
+    $http.post('/bets', newbetcopy).then(function successCallback(response){
+      $location.path('/#/profile/inactive')
+    }, function errorCallback(response){
+
+      // call service and save var inside it....
+      errorService.setError("Friend Not Found")
+      //redirect to home page if error....
+
+      $location.path('/#/')
+
+
+    });
   };
 
   // bet creator votes, buttons hide

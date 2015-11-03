@@ -1,4 +1,8 @@
 <div class="container ta-center bc-lgray p-med">
+     <!-- Error handling... -->
+
+     <p id="ErrorHandle" class="bc-red  p-sm fc-w f-m" ng-show="displayError.friendError"> {{displayError.friendError}} </p>
+
     <h1 class=" h1-n mt-s">Propose a bet</h1>
 
     <p id="homeBetAmount" class="i-ta f-m mtb-m" ng-model="newBet.bet_amount">$0</p>
@@ -7,7 +11,7 @@
 
     <div class="row gutters-t gutters-d  ">
         <p class="  i-ta  col  span-3-t">
-            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
+            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end" >
         </p>
 
         <p class="  i-ta  col  span-6-t">
@@ -15,23 +19,16 @@
         </p>
 
         <p class="  i-ta  col  span-3-t">
-            <input placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <input placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever" ng-class="displayError.friendErrorBox">
         </p>
 
     </div>
 </div>
 
-        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
+        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown fade" ng-show="newBet.end || newBet.description" ng-if="newBet.end || newBet.description">
 
-            <!-- Error handling... -->
-            <div class="bc-green" ng-show="error">
-                <p class="errors">Friend is Not Found</p>
-            </div>
 
-            <!-- ng-class="{error: error.data.captain} -->
-            <!-- ng-show="error.data.captain -->
-
-            <h2>Review</h2>
+            <h2>Please Review</h2>
             <div class="ta-l w-50 m-auto">
                 <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
                 <p class="p-sm mb-s"><b>Description:</b> {{newBet.description}}</p>
