@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   #     get_friends(user)
   #   end
   #   user = {}
+
   end
 
   # def destroy

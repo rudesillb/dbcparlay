@@ -26,32 +26,34 @@ class BetsController < ApplicationController
 
   def create
 
-    p params
+    # p params
     user = User.find_by(venmo_id: session[:current_user_id])
-    p "*" * 100
-    print "session:"
-    p session[:current_user_id]
-    p "*" * 100
+    # p user
+    # session[:hello] = "world"
+    # p "*" * 100
+    # print "session:"
+    # p session[:current_user_id]
+    # p "*" * 100
     friend = User.find_by(username: params[:reciever])
-    print "reciever:"
-    p params[:reciever]
-    p "*" * 100
-     print "reciever:"
-        p "*" * 100
-    Friendship.create(friend_id: friend.id, user_id: user.id)
+    # print "reciever:"
+    # p params[:reciever]
+    # p "*" * 100
+    #  print "reciever:"
+    #     p "*" * 100
+    # Friendship.create(friend_id: friend.id, user_id: user.id)
 
 
-        p "*" * 100
+    #     p "*" * 100
 
 
-    p friend
+    # p friend
     friendship = Friendship.where(friend_id: friend.id, user_id: user.id)
-        p "*" * 100
+    #     p "*" * 100
 
-    p friendship
+    # p friendship
     newbet = friendship[0].bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
-      p "*"*1000
+      # p "*"*1000
     end
     render json: newbet, status: :created
   end

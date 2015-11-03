@@ -17,7 +17,7 @@ module UsersHelper
 
   def authenticate
     if current_user == nil
-      redirect "https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_balance&response_type=code"
+      redirect "https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_friends%20access_balance&response_type=code"
     end
   end
 
@@ -31,7 +31,6 @@ module UsersHelper
     user[:venmo_id] = response["user"]["id"]
     user[:small_image] = gravatar(response["user"]["email"],'small')
     user[:large_image] = gravatar(response["user"]["email"],'large')
-
     return user
   end
 
@@ -49,7 +48,7 @@ module UsersHelper
   def pay_winner(bet)
     winner = User.find(bet[:winner].to_i)
     loser = User.find_by(:venmo_id => current_user)
-    p response = HTTParty.post("https://api.venmo.com/v1/payments",
+    response = HTTParty.post("https://api.venmo.com/v1/payments",
       :body => { :access_token => loser.access_token,
                  :email      => winner.email,
                  :note       => bet.description,
@@ -81,8 +80,7 @@ module UsersHelper
   end
 
   def get_friends(user)
-
-    response = HTTParty.get("https://api.venmo.com/v1/users/#{user.venmo_id}/friends?access_token=#{user.access_token}&limit=10000")
+    response = HTTParty.get("https://api.venmo.com/v1/users/#{user[:venmo_id]}/friends?access_token=#{user[:access_token]}&limit=10000")
     response["data"].each do |friend|
       user_friend = User.find_by(venmo_id: friend["id"])
       user_current = User.find_by(venmo_id: current_user)
