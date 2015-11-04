@@ -22,7 +22,7 @@ $scope.mobileTab = function(){
         delete $scope.tabOptions
       }else{
         console.log("hello joji")
-        $scope.tabOptions = ["History", "Active", "Outstanding", "inactive"]
+        $scope.tabOptions = ["New Bet","History", "Active", "Outstanding", "inactive"]
       }
    }
 

@@ -144,8 +144,8 @@ p {
 .absolute { position: absolute; }
 .relative { position: relative; }
 
-.pt-20 {top: 30%;}
-.pl-25 {left: 5%;}
+.pt-20 {top: 20%;}
+.pl-5 {left: 5%;}
 
 .right-15 { right: 15em; }
 

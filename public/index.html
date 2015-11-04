@@ -33,10 +33,9 @@
     <!--=======================
    Main Information page
    ========================-->
-    <main role="profile" class="container">
+    <main role="profile" class="container ta-center">
     <!-- ng-if check to see if object exsists and then show styling... -->
       <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
-    <div class="container ta-center row ">
 
       <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->
@@ -48,20 +47,24 @@
 
           <li ui-sref="inactive" class="mh col span-2-t  p-sm " >Inactive</li>
         </ul>
+
+      </div>
+      <div ng-controller="HtmlController">
         <!-- mobile dropdown menu -->
         <!-- need to hide this when in desktop mode... -->
         <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu</button>
+        <div class="relative t-p-sm" ng-controller="HtmlController">
 
-        <div class="absolute w-50 t-p-sm" ng-controller="HtmlController">
-          <ul class="  lst-n ul-n bc-lgray cb li-h-w " ng-show="tabOptions" ng-repeat="mOption in tabOptions">
-          <!-- lowercase matters from routing... -->
-            <li class=" mh p-sm" ui-sref="{{mOption | lowercase}}" ng-click="hideMenu($event)" >{{ mOption }}</li>
-          </ul>
-
-      </div>
+        <div class="absolute">
+            <ul class="lst-n ul-n bc-owhite cb li-h-w fade" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+            <!-- lowercase matters from routing... -->
+              <li class=" mh p-sm" ui-sref="{{mOption | lowercase}}" ng-click="hideMenu($event)" >{{ mOption }}</li>
+            </ul>
+          </div>
+        </div>
       <!-- end of htmlController -->
       </div>
-    </div>
+
   </div>
 
     <div>
