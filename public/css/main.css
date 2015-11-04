@@ -62,9 +62,9 @@ textarea {
     box-sizing: border-box;
 }
 
-/*.debug {
+.debug {
     border: 1px solid red;
-}*/
+}
 
 /* Resets... */
 .h1-n {
@@ -266,7 +266,9 @@ Animate for fade in declare winner
 }
 
 
+/* border radius */
 
+.brd-r-sm { border-radius: .2em;}
 
 
 

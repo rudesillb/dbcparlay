@@ -9,7 +9,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   //
   $scope.displayError = errorService.callError
 
-
+// watch for the error property to get set then run this...
   $scope.$watch('displayError.friendError', function(newValue, oldValue){
 
     if(newValue){
@@ -23,7 +23,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     }
   })
 
-  //test for the angles
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
@@ -74,6 +73,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
   //collection of all bets
       $scope.bets.all = response;
+
   })};
 
 
@@ -180,15 +180,16 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     // call ui function
     $scope.initJqueryUi();
 
-    $scope.landing = (function(){
+    // $scope.landing = (function(){
 
 // hide show tabs based on url...
-   //  if($location.$$path === "/landing"){
-   //    $('#indexHeader').hide()
-   //  }else{
-   //    $('#indexHeader').show()
-   //  }
-   });
+// run reguardless..
+    if($location.$$path === "/landing"){
+      $('#indexHeader').hide()
+    }else{
+      $('#indexHeader').show()
+    }
+   // });
 
 
 }]) // end of controller...
