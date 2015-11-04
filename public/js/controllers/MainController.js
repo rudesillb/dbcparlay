@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$http', '$location', 'errorService' function($scope, $http, $location, errorService){
+app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
