@@ -22,7 +22,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 // Errors
 // @@@@@@@@@@@@@@@@@@
   //
-  $scope.displayError = errorService.callError;
+  $scope.displayError = errorService.callError
 
 // watch for the error property to get set then run this...
   $scope.$watch('displayError.friendError', function(newValue, oldValue){
