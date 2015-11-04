@@ -1,15 +1,7 @@
 app.controller('HtmlController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
 
-<<<<<<< HEAD
-  // show declare winner menu...
-  // would be better on state data...
-=======
-$scope.helloJoji = "hello joji"
-console.log($scope.tabOptions)
-  // show declare winner menu..
 
->>>>>>> f1b3f2694a4fd18ac2cf946fedfc1df9093d1c2d
   $scope.declareW = function(){
     if($scope.options){
       delete $scope.options
