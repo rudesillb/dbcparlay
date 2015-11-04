@@ -2,8 +2,8 @@ require 'digest'
 module UsersHelper
 
   def login(user)
-    # session[:current_user_id] = user[:venmo_id]
-    session[:current_user_id] = '1477224414838784567'
+    session[:current_user_id] = user[:venmo_id]
+    # session[:current_user_id] = '1477224414838784567'
   end
 
   def logout
