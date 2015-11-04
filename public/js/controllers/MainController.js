@@ -2,9 +2,9 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
-
+        console.log(response);
         if (response === 1){
-          console.log(response);
+
         }
         else{
           $location.path('/landing');
