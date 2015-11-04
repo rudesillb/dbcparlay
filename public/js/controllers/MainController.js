@@ -2,6 +2,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
+        p response
         if (response === 1){
 
         }
