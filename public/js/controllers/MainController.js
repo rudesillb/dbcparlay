@@ -12,7 +12,29 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
     };
 
     $scope.checker();
-  //test for the angles
+
+// landing page....
+
+
+// @@@@@@@@@@@@@@@@@@
+// Errors
+// @@@@@@@@@@@@@@@@@@
+  //
+  $scope.displayError = errorService.callError
+
+// watch for the error property to get set then run this...
+  $scope.$watch('displayError.friendError', function(newValue, oldValue){
+
+    if(newValue){
+      $('#ErrorHandle').delay(2000).fadeTo('slow', 0)
+
+      setTimeout(function(){
+        $('#ErrorHandle').remove()
+        $scope.displayError.friendError = undefined
+        $scope.displayError.friendErrorBox = undefined
+      },2400);
+    }
+  })
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
@@ -63,7 +85,9 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
 
   //collection of all bets
       $scope.bets.all = response;
+
   })};
+
 
   $scope.getallbets();
 
@@ -72,8 +96,19 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
   $scope.post = function(){
     // console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
-    $http.post('/bets', newbetcopy).success(function(response){
-      console.log(response)})
+    // Need a success and fail callback
+    $http.post('/bets', newbetcopy).then(function successCallback(response){
+      $location.path('/#/profile/inactive')
+    }, function errorCallback(response){
+
+      // call service and save var inside it....
+      errorService.setError("Friend Not Found")
+      //redirect to home page if error....
+
+      $location.path('/#/')
+
+
+    });
   };
 
   // bet creator votes, buttons hide
@@ -130,20 +165,16 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
     }
   }
 
-  $scope.getFriends = function() {
-    $http.get('bets/new').success(function(response) {
-      console.log(response);
-    })
+  $scope.selectFriend = function() {
+    $scope.newBet.reciever = $(event.target).val();
+    $('#fuzzy-list').hide();
   }
 
-  // $scope.getbetinfo = function(bet_object){
-  //     // .search({bet_object: JSON.stringify(bet_object)})
-  //   $location.path("/pay/confirmation")
-  // }
-
-  // $scope.pay = function(bet) {
-  //   $http.get('bets' + bet.id)
-  // }
+  $scope.getFriends = function() {
+    $http.get('bets/new').success(function(response) {
+      $scope.friends = response.bets
+      })
+  }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
@@ -155,7 +186,7 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
           max: 5,
           step: 0.25,
           slide: function( event, ui ) {
-            $( "#homeBetAmount" ).val( "$" + ui.value);
+            $( "#homeBetAmount" ).text( "$" + ui.value);
             $scope.newBet.bet_amount = String(ui.value)
           }
         }); //end of slider
@@ -170,6 +201,17 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
     // call ui function
     $scope.initJqueryUi();
 
+
+    // $scope.landing = (function(){
+
+// hide show tabs based on url...
+// run regardless..
+    if($location.$$path === "/landing"){
+      $('#indexHeader').hide()
+    }else{
+      $('#indexHeader').show()
+    }
+   // });
 
 
 }]) // end of controller...

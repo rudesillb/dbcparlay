@@ -1,0 +1,76 @@
+<ul class="ul-n lst-n" ng-repeat="bet in bets.inverse_outstanding">
+
+   <li class="b-sdw m-b-m p-sm container row gutters-t gutters-d ta-center needA ">
+
+    <div class="col span-1-t">
+      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">
+
+      {{ bet.creator }}
+
+    </div>
+
+    <div class="col span-6-t ">
+      <p class="p-list">{{bet.description}}</p>
+    </div>
+
+    <div class="col span-2-t ">
+      <p class="p-list">{{bet.bet_amount | currency}}</p>
+    </div>
+
+    <div class="col span-3-t ">
+      <div class="b-list">
+
+        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowcreator(bet)">pay up</button>
+        <div ng-show="winchecker(bet)">Awaiting Payment</div>
+
+      </div>
+
+    </div>
+
+  </li>
+
+</ul>
+
+
+
+
+<ul class=" ul-n lst-n" ng-repeat="bet in bets.outstanding">
+
+
+  <li class="b-sdw m-b-m p-sm container row gutters-t gutters-d ta-center bc-lgray ">
+
+
+    <div class="col span-1-t">
+      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">{{ bet.reciever }}
+    </div>
+
+    <div class="col span-6-t ">
+      <p class="p-list">{{bet.description}}</p>
+    </div>
+
+    <div class="col span-2-t ">
+      <p class="p-list">{{bet.bet_amount | currency}}</p>
+    </div>
+
+    <div class="col span-3-t ">
+      <div ng-controller="HtmlController">
+
+        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
+        <div ng-show="winchecker(bet)">Awaiting Payment</div>
+
+      </div>
+
+    </div>
+
+  </li>
+
+</ul>
+
+
+
+
+
+
+
+
+
