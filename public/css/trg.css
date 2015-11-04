@@ -9,9 +9,6 @@
     http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
 
-
-
-
 .container,
 .row,
 .col {
@@ -57,9 +54,12 @@
 
 /* drewp mobile..*/
 
-@media (max-width: 800px){
+@media (max-width: 50em){
     #desktopMenu {display: none;}
+
 }
+
+
 
 /*
     tablet columns
@@ -68,9 +68,10 @@
 @media (min-width: 50em) {
 
     #ad-btn{font-size: .6em}
+    .d-hide {display: none;}
 
     .container {
-        width: 45em; /* 720px */
+        width: 45em;  720px
     }
 
     .gutters-t .col {

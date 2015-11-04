@@ -10,6 +10,12 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'MainController',
       templateUrl: 'views/NewBet.html'
     })
+    // new bet
+     .state('Landing', {
+      url: '/landing',
+      controller: 'MainController',
+      templateUrl: 'views/profile-templates/_landing.html'
+    })
 
     // Nessted routes for the profile page...
 

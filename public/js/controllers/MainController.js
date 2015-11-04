@@ -1,5 +1,28 @@
-app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
-  //test for the angles
+app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
+
+// landing page....
+
+
+// @@@@@@@@@@@@@@@@@@
+// Errors
+// @@@@@@@@@@@@@@@@@@
+  //
+  $scope.displayError = errorService.callError
+
+// watch for the error property to get set then run this...
+  $scope.$watch('displayError.friendError', function(newValue, oldValue){
+
+    if(newValue){
+      $('#ErrorHandle').delay(2000).fadeTo('slow', 0)
+
+      setTimeout(function(){
+        $('#ErrorHandle').remove()
+        $scope.displayError.friendError = undefined
+        $scope.displayError.friendErrorBox = undefined
+      },2400);
+    }
+  })
+
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
@@ -50,7 +73,9 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
   //collection of all bets
       $scope.bets.all = response;
+
   })};
+
 
   $scope.getallbets();
 
@@ -59,8 +84,19 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   $scope.post = function(){
     // console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
-    $http.post('/bets', newbetcopy).success(function(response){
-      console.log(response)})
+    // Need a success and fail callback
+    $http.post('/bets', newbetcopy).then(function successCallback(response){
+      $location.path('/#/profile/inactive')
+    }, function errorCallback(response){
+
+      // call service and save var inside it....
+      errorService.setError("Friend Not Found")
+      //redirect to home page if error....
+
+      $location.path('/#/')
+
+
+    });
   };
 
   // bet creator votes, buttons hide
@@ -138,7 +174,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
           max: 5,
           step: 0.25,
           slide: function( event, ui ) {
-            $( "#homeBetAmount" ).val( "$" + ui.value);
+            $( "#homeBetAmount" ).text( "$" + ui.value);
             $scope.newBet.bet_amount = String(ui.value)
           }
         }); //end of slider
@@ -152,5 +188,18 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
     // call ui function
     $scope.initJqueryUi();
+
+
+    // $scope.landing = (function(){
+
+// hide show tabs based on url...
+// run regardless..
+    if($location.$$path === "/landing"){
+      $('#indexHeader').hide()
+    }else{
+      $('#indexHeader').show()
+    }
+   // });
+
 
 }]) // end of controller...

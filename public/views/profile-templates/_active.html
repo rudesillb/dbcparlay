@@ -1,4 +1,4 @@
-
+<h3 class="ta-center d-hide h1-n m-b-s">Active </h3>
 
 <ul class="ul-n lst-n " ng-repeat="bet in bets.active">
 
@@ -25,16 +25,20 @@
       <p class="" ng-show="bet.user_vote">Vote Cast</p>
 
       <!-- this div gets hidden on vote selected -->
-      <div ng-controller="HtmlController">
+      <div class="relative" ng-controller="HtmlController">
+
         <!-- button -->
         <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.user_vote">declare winner</button>
 
         <!-- drop down menu -->
-        <ul class="ul-n lst-n li-h-w fade" ng-show="options" ng-if="options">
-          <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user')">me</li>
-          <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'friend')">other</li>
-          <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'draw')">draw</li>
-        </ul>
+        <!-- animate needs the class fade and ng-if -->
+        <div class="absolute w-100 z-top">
+          <ul class="ul-n lst-n li-h-w fade bc-owhite" ng-show="options" ng-if="options">
+            <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'user')">me</li>
+            <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'friend')">other</li>
+            <li class=" p-sm li-hover mh" ng-click="declareWinnerUser(bet.id, 'draw')">draw</li>
+          </ul>
+        </div>
 
       </div>
     </div>
@@ -61,23 +65,25 @@
 
 
 <!-- Friend Vote -->
-    <div class="col span-3-t  b-list">
+    <div class="col span-3-t  b-list ">
       <!-- show when vote selected from dropdown... -->
       <p class="p-list" ng-show="bet.friend_vote">Vote Cast</p>
 
       <!-- hide on selection -->
-      <div ng-controller="HtmlController">
+      <div class=" relative" ng-controller="HtmlController">
 
         <button class="btn btn--s" ng-click="declareW()" ng-hide="bet.friend_vote">declare winner</button>
 
         <!-- drop down  -->
-        <ul class="ul-n lst-n li-h-w ta-center" ng-show="options">
-          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'friend', $event)">me
-          </li>
-          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'user')">other
-          </li>
-          <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'draw')">draw</li>
-        </ul>
+        <div class="absolute w-100 z-top">
+          <ul class="  ul-n lst-n li-h-w ta-center bc-owhite fade "  ng-if="options">
+            <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'friend', $event)">me
+            </li>
+            <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'user')">other
+            </li>
+            <li class="p-sm li-hover mh" ng-click="declareWinnerFriend(bet.id, 'draw')">draw</li>
+          </ul>
+        </div>
 
       </div>
     </div>
