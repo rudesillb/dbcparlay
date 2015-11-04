@@ -6,7 +6,7 @@ module UsersHelper
     session[:current_user_id] = '1477224414838784567'
   end
 
-  def logout
+  def destroy_session
     session.destroy
   end
 

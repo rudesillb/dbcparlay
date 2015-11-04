@@ -177,6 +177,12 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       })
   }
 
+  $scope.logout = function(){
+    $http.get('users/logout').success(function(){
+      $location.path('/landing')
+    })
+  }
+
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){

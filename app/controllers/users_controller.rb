@@ -19,8 +19,9 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-  def destroy
-    logout
+  def logout
+    destroy_session
+    redirect_to '/'
   end
 
   def check
