@@ -116,6 +116,7 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
       $(event.target).parent().parent().parent().hide();
     }
   }
+
   $scope.selectFriend = function() {
     $scope.newBet.reciever = $(event.target).val();
     $('#fuzzy-list').hide();
@@ -124,19 +125,8 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
   $scope.getFriends = function() {
     $http.get('bets/new').success(function(response) {
       $scope.friends = response.bets
-      console.log($scope.friends)
-
       })
   }
-
-  // $scope.getbetinfo = function(bet_object){
-  //     // .search({bet_object: JSON.stringify(bet_object)})
-  //   $location.path("/pay/confirmation")
-  // }
-
-  // $scope.pay = function(bet) {
-  //   $http.get('bets' + bet.id)
-  // }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
@@ -162,7 +152,5 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
 
     // call ui function
     $scope.initJqueryUi();
-
-
 
 }]) // end of controller...
