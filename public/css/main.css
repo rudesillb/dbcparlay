@@ -62,9 +62,9 @@ textarea {
     box-sizing: border-box;
 }
 
-.debug {
+/*.debug {
     border: 1px solid red;
-}
+}*/
 
 /* Resets... */
 .h1-n {
@@ -104,7 +104,7 @@ p {
 .p-list { padding: 1.22em; }
 /* button padding needs some work... */
 .b-list { padding: .80em; }
-.p-sm { padding: 0.58em; }
+.p-sm { padding: 0.60em; }
 .p-med { padding: 1.2em;}
 .p-lg {padding:2em;}
 .p-xl { padding: 10em; }
@@ -136,6 +136,7 @@ p {
 .mt-s {margin-top: .5em;}
 .mt-m {margin-top: .8em;}
 .mtb-m {margin: 1em 0}
+.ml-xl {margin-left: 4em;}
 
 /* list */
 .lst-n { list-style-type: none;}
@@ -204,6 +205,11 @@ Animate for fade in declare winner
   opacity:0;
 }
 
+.block {
+    height: 50px;
+    width: 50px;
+    background-color: #27ae60;
+}
 
 
 
