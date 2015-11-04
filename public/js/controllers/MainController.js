@@ -11,7 +11,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
           $('#indexHeader').hide();
         }
       });
-    };
+    }
 
     $scope.checker();
 
