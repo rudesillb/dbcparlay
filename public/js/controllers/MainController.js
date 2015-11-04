@@ -3,7 +3,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
         console.log(response);
-        if (response === 1){
+        if (response === "1"){
 
         }
         else{
