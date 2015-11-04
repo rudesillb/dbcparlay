@@ -42,11 +42,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular.filter'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.outstanding', {
+      url: '/outstanding',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/outstanding.html'
         }
       }
     })

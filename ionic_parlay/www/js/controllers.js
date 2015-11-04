@@ -235,20 +235,45 @@ angular.module('starter.controllers', [])
         },
      buttonClicked: function(index) {
        if (index === 0){
-         $http.put('http://localhost:3000/bets/' + id, {user_vote: 'friend'})
+         $http.put('http://localhost:3000/bets/' + id, {friend_vote: 'friend'})
        console.log(id)
        }
       else if (index === 1){
-         $http.put('http://localhost:3000/bets/' + id, {user_vote: 'user'})
+         $http.put('http://localhost:3000/bets/' + id, {friend_vote: 'user'})
      console.log('hey sweet')
       }
       else if (index === 2) {
-        $http.put('http://localhost:3000/bets/' + id, {user_vote: 'draw'})
+        $http.put('http://localhost:3000/bets/' + id, {friend_vote: 'draw'})
      console.log('hey sweet')
       }
      }
    });
 
+  };
+
+  $scope.winchecker = function(bet) {
+    if(bet.winner == $scope.bets.all.bets[2]){
+      return true
+    }
+    else {
+      return false
+    }
+  };
+
+  $scope.youpaynowcreator = function(bet){
+    var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.creator +'?')
+    if (pay === true){
+      $http.put('/bets/' + bet.id + '/pay');
+      $(event.target).parent().parent().parent().hide();
+    }
+  };
+
+  $scope.youpaynowreciever = function(bet){
+    var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.reciever +'?')
+    if (pay === true){
+      $http.put('/bets/' + bet.id + '/pay');
+      $(event.target).parent().parent().parent().hide();
+    }
   };
 
 
