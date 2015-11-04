@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$http', '$location', '$window', function($scope, $http, $location, $window){
+app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
@@ -6,7 +6,8 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
 
         }
         else{
-          $window.location.href = 'https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_friends%20access_balance&response_type=code';
+          $location.path('/landing');
+          $('#indexHeader').hide();
         }
       });
     };
@@ -206,11 +207,7 @@ app.controller('MainController', ['$scope', '$http', '$location', '$window', fun
 
 // hide show tabs based on url...
 // run regardless..
-    if($location.$$path === "/landing"){
-      $('#indexHeader').hide()
-    }else{
-      $('#indexHeader').show()
-    }
+
    // });
 
 
