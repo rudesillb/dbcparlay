@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def new
+    # login('sfdfsd')
      url = request.original_url
     user = parse_user(send_response(url))
     if User.find_by(:venmo_id => user[:venmo_id]) != nil
@@ -23,11 +24,11 @@ class UsersController < ApplicationController
   end
 
   def check
-    auth = 1
-    if current_user != nil
-      render json: auth
+    if current_user
+      ok = true
     else
-      render json: nil
+      ok = false
     end
+    render json: ok
   end
 end
