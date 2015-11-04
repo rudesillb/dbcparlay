@@ -20,4 +20,12 @@ class UsersController < ApplicationController
   def destroy
     logout
   end
+
+  def check
+    if current_user
+      render json: 1
+    else
+      render json: nil
+    end
+  end
 end

@@ -1,8 +1,6 @@
 include UsersHelper
 class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :autheticate
-
 
   def index
     @bets = User.find_by(venmo_id: session[:current_user_id]).bets

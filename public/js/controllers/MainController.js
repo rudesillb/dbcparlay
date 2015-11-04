@@ -1,4 +1,17 @@
-app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('MainController', ['$scope', '$http', '$location', '$window', function($scope, $http, $location, $window){
+
+    $scope.checker = function() {
+      $http.get('/users/check').success(function(response){
+        if (response === 1){
+
+        }
+        else{
+          $window.location.href = 'https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_friends%20access_balance&response_type=code';
+        }
+      });
+    };
+
+    $scope.checker();
   //test for the angles
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections

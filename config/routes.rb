@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   put '/bets/:id/accept', to: 'bets#accept'
   put '/bets/:id/decline', to: 'bets#decline'
   put '/bets/:id/pay', to: 'bets#pay'
+  get '/users/check', to: 'users#check'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
