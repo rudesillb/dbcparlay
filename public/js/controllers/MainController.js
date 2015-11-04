@@ -1,5 +1,8 @@
 app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
+// landing page....
+
+
 // @@@@@@@@@@@@@@@@@@
 // Errors
 // @@@@@@@@@@@@@@@@@@
@@ -177,6 +180,15 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     // call ui function
     $scope.initJqueryUi();
 
-    console.log($scope.bets)
+    $scope.landing = (function(){
+
+// hide show tabs based on url...
+   //  if($location.$$path === "/landing"){
+   //    $('#indexHeader').hide()
+   //  }else{
+   //    $('#indexHeader').show()
+   //  }
+   });
+
 
 }]) // end of controller...

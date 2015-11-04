@@ -19,6 +19,7 @@
   </head>
   <body ng-app="Parlay" class="">
 
+  <div id="indexHeader">
     <!-- nav... -->
     <nav class="container p-sm clearfix ">
 
@@ -28,38 +29,36 @@
     <!--=======================
    Main Information page
    ========================-->
-<main role="profile" class="">
-
-          <!-- ng-if check to see if object exsists and then show styling... -->
-          <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
-        </div>
+    <main role="profile" class="">
+    <!-- ng-if check to see if object exsists and then show styling... -->
+      <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
     <div class="container ta-center row ">
 
       <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->
         <ul id="desktopMenu" class=" lst-n ul-n container row gutters-t">
-           <li ui-sref="new bet" class="b-sdw-i-w bc-lblue fc-w mh col span-2-t  p-sm"  >New Bet</li>
+          <li ui-sref="new bet" class="b-sdw-i-w bc-lblue fc-w mh col span-2-t  p-sm"  >New Bet</li>
           <li ui-sref="history" class=" mh col span-2-t  p-sm"  >History</li>
           <li ui-sref="active" class=" mh col span-2-t  p-sm">Active</li>
           <li ui-sref="outstanding" class="mh col span-2-t  p-sm">Outstanding</li>
 
           <li ui-sref="inactive" class="mh col span-2-t  p-sm " >Inactive</li>
         </ul>
-
         <!-- mobile dropdown menu -->
         <!-- need to hide this when in desktop mode... -->
-        <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu</button>
+        <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu d</button>
 
         <div class="absolute w-50 t-p-sm" ng-controller="HtmlController">
-          <ul class="  lst-n ul-n bc-lgray cb li-h-w" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
-            <!-- lowercase matters from routing... -->
+          <ul class="  lst-n ul-n bc-lgray cb li-h-w " ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+          <!-- lowercase matters from routing... -->
             <li class=" mh p-sm" ui-sref="{{mOption | lowercase}}" ng-click="hideMenu($event)" >{{ mOption }}</li>
           </ul>
 
-        </div>
-
+      </div>
+      <!-- end of htmlController -->
       </div>
     </div>
+  </div>
 
     <div>
 

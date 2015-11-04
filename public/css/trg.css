@@ -9,9 +9,6 @@
     http://www.paulirish.com/2012/box-sizing-border-box-ftw/
 */
 
-
-
-
 .container,
 .row,
 .col {
@@ -61,6 +58,8 @@
     #desktopMenu {display: none;}
 
 }
+
+
 
 /*
     tablet columns
