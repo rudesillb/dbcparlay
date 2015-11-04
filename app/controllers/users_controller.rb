@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def check
-    if current_user
+    if current_user != nil
       render json: 1
     else
       render json: nil
