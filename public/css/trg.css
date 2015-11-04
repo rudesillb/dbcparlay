@@ -54,7 +54,7 @@
 
 /* drewp mobile..*/
 
-@media (max-width: 800px){
+@media (max-width: 50em){
     #desktopMenu {display: none;}
 
 }
@@ -71,7 +71,7 @@
     .d-hide {display: none;}
 
     .container {
-        width: 45em; /* 720px */
+        width: 45em;  720px
     }
 
     .gutters-t .col {

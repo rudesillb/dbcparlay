@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- This needs to be added to make mobile work... -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/trg.css">
     <link rel="stylesheet" href="css/main.css">
@@ -29,7 +33,7 @@
     <!--=======================
    Main Information page
    ========================-->
-    <main role="profile" class="">
+    <main role="profile" class="container">
     <!-- ng-if check to see if object exsists and then show styling... -->
       <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
     <div class="container ta-center row ">
@@ -46,7 +50,7 @@
         </ul>
         <!-- mobile dropdown menu -->
         <!-- need to hide this when in desktop mode... -->
-        <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu d</button>
+        <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu</button>
 
         <div class="absolute w-50 t-p-sm" ng-controller="HtmlController">
           <ul class="  lst-n ul-n bc-lgray cb li-h-w " ng-show="tabOptions" ng-repeat="mOption in tabOptions">
