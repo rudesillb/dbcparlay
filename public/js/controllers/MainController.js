@@ -1,18 +1,18 @@
-app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
-    $scope.checker = function() {
-      $http.get('/users/check').success(function(response){
-        if (response === 1){
+    // $scope.checker = function() {
+    //   $http.get('/users/check').success(function(response){
+    //     if (response === 1){
 
-        }
-        else{
-          $location.path('/landing');
-          $('#indexHeader').hide();
-        }
-      });
-    };
+    //     }
+    //     else{
+    //       $location.path('/landing');
+    //       $('#indexHeader').hide();
+    //     }
+    //   });
+    // };
 
-    $scope.checker();
+    // $scope.checker();
 
 // landing page....
 
