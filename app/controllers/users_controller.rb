@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     #   get_friends(user)
     # end
     # user = {}
+    redirect_to '/'
   end
 
   def destroy
