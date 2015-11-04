@@ -1,0 +1,36 @@
+<ion-view view-title="Active">
+  <ion-content>
+    <ion-list>
+
+
+
+      <ion-item ng-repeat="bet in bets.active">
+
+        <div class='col col-50'>
+          {{bet.description}}
+        </div>
+
+        <div class='col'>
+          {{bet.bet_amount | currency}}
+        </div>
+        <div class='col'>
+            <button class="btn btn--s" ng-click="showUser(bet.id)" ng-hide="bet.user_vote">declare winner</button>
+        </div>
+      </ion-item>
+
+            <ion-item ng-repeat="bet in bets.inverse_active">
+         <div class='col col-50'>
+           {{bet.description}}
+        </div>
+
+        <div class='col'>
+           {{bet.bet_amount | currency}}
+        </div>
+        <div class='col'>
+            <button class="btn btn--s" ng-click="showFriend(bet.id)" ng-hide="bet.friend_vote">declare winner</button>
+        </div>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

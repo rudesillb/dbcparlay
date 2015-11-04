@@ -1,0 +1,67 @@
+<ion-view view-title="Search">
+  <ion-content>
+
+<div class="container ta-center bc-lgray p-med">
+    <h1 class=" h1-n mt-s">Propose a bet</h1>
+
+
+
+    <!-- <div id="slider" class="container w-50 m-auto m-b-xxl"></div> -->
+ <!--        <input type='text' ng-model='guy.username'>
+   -->
+
+
+
+    <div class="list">
+      <div class="item range range-positive">
+        <i class="icon ion-social-usd-outline"></i>
+        <input type="range" name="cash_monies" min="0" max="5" value="0" step="0.25" ng-model="newBet.bet_amount">
+        <i class="icon ion-social-usd"></i>
+      </div>
+    </div>
+
+
+
+    <div class="row gutters-t gutters-d  ">
+<!--         <p class="  i-ta  col  span-3-t">
+            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
+        </p> -->
+
+
+
+        <label class="item item-input">
+          <span class="input-label">Date</span>
+          <input type="date" min="{{ date | date: 'yyyy-MM-dd' }}" ng-model="newBet.end">
+        </label>
+
+
+        <p class="  i-ta  col  span-6-t">
+            <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
+        </p>
+
+        <p class="  i-ta  col  span-3-t">
+            <input id='friend-input' ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <div id='fuzzy-list' ng-repeat="friend in friends | fuzzyBy: 'username' : newBet.reciever ">
+
+                <option ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</option>
+
+            </div>
+        </p>
+
+    </div>
+</div>
+
+        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
+            <h2>Review</h2>
+            <div class="ta-l w-50 m-auto">
+                <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
+                <p class="p-sm mb-s"><b>Description:</b> {{newBet.description}}</p>
+                <p class="p-sm m-b-s"><b>End Date:</b> {{newBet.end}}</p>
+                <p class="p-sm m-b-s"><b>Friend:</b> {{newBet.reciever}}</p>
+            </div>
+
+            <a href="/#/profile/active"><button class=" mt-m btn btn--m" ng-click="post()">Propose Bet</button></a>
+        </div>
+
+  </ion-content>
+</ion-view>

@@ -93,6 +93,7 @@ p {
 /******************
  Atomic Styles */
 
+.z-top {z-index: 9999}
  /* font color */
  .fc-w {color: white;}
 
@@ -103,9 +104,9 @@ p {
 .p-list { padding: 1.22em; }
 /* button padding needs some work... */
 .b-list { padding: .80em; }
-.p-sm { padding: 0.58em; }
+.p-sm { padding: 0.60em; }
 .p-med { padding: 1.2em;}
-.p-large {}
+.p-lg {padding:2em;}
 .p-xl { padding: 10em; }
 .p-xxl {}
 
@@ -122,6 +123,10 @@ p {
 .w-95 { width: 95%; }
 .w-100 { width: 100%; }
 
+
+/*height*/
+.h-100 { height: 100%;}
+
 /* margin */
 .m-auto { margin: 0 auto; }
 .m-b-s {margin-bottom: .4em;}
@@ -131,6 +136,7 @@ p {
 .mt-s {margin-top: .5em;}
 .mt-m {margin-top: .8em;}
 .mtb-m {margin: 1em 0}
+.ml-xl {margin-left: 4em;}
 
 /* list */
 .lst-n { list-style-type: none;}
@@ -138,6 +144,10 @@ p {
 /* positioning */
 .absolute { position: absolute; }
 .relative { position: relative; }
+
+.pt-20 {top: 20%;}
+.pl-5 {left: 5%;}
+
 .right-15 { right: 15em; }
 
 .t-p-sm {top: 2.5em;}
@@ -150,6 +160,8 @@ p {
 /* font */
 .fnt-s {font-size: 1em;}
 .f-m {font-size: 1.3em;}
+.fs-l {font-size: 1.7em;}
+.f-xl {font-size: 3em;}
 
 /* background color */
 .bgc-gray { background-color: gray; }
@@ -174,24 +186,50 @@ p {
 
 img {border-radius: 30px;}
 
-.fade {.fade.ng-show {
-  /*transition:0.5s linear all;
-  opacity:0;*/
-  background-color: blue;
-    }
+/***************
+Animate for fade in declare winner
+*****************/
+.fade.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
 }
+.fade.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+/* now the element will fade out before it is removed from the DOM */
+.fade.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+}
+.fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.block {
+    height: 50px;
+    width: 50px;
+    background-color: #27ae60;
+}
+
+
+
+/* *************** */
 
 .bb-r {border-bottom: 5px solid #e74c3c;}
 .bb-w {border: 1px solid white;}
 
-
+.errorBox {border: 3px solid red;}
+.pt {top:0;}
 
 /* full background */
 
-/*.fbg {
-    background: url(http://images3.alphacoders.com/575/575271.jpg) no-repeat center center fixed;
-    background-size: cover;
-    }*/
+.fbg {
+     background: url(http://i.imgur.com/whsTZ.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    }
 
 /* input */
 .b-n {border: none;}
@@ -204,6 +242,9 @@ img {border-radius: 30px;}
 .cb { clear: both;}
 
 /* Color */
+.fc-joji {color: #1E824C; }
+.f-sdw-g {text-shadow: 2px 2px #ABB7B7;}
+
 
 /* Random */
 .hide {display: none;}
@@ -211,7 +252,8 @@ img {border-radius: 30px;}
 
 /* hover */
 .hover-g li:hover { background-color: #DCDCDC; }
-.li-h-w li:hover { background-color: white;}
+.li-h-w li:hover { background-color: #D2D7D3;}
+.lnd {background-color: #ECECEC;}
 
 /* animation */
 #desktopMenu li {
@@ -222,6 +264,11 @@ img {border-radius: 30px;}
 #desktopMenu li:hover {
     background-color: #DCDCDC;
 }
+
+
+/* border radius */
+
+.brd-r-sm { border-radius: .2em;}
 
 
 

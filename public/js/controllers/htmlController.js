@@ -1,9 +1,7 @@
-app.controller('HtmlController', ['$scope', function($scope){
+app.controller('HtmlController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
 
 
-  // show declare winner menu...
-  // would be better on state data...
   $scope.declareW = function(){
     if($scope.options){
       delete $scope.options
@@ -16,10 +14,12 @@ app.controller('HtmlController', ['$scope', function($scope){
 
 // this doesnt work as inteded cannot get ng-repeate to show all...
 $scope.mobileTab = function(){
+
      if($scope.tabOptions){
         delete $scope.tabOptions
       }else{
-        $scope.tabOptions = ["History", "Active", "Outstanding", "inactive"]
+        console.log("hello joji")
+        $scope.tabOptions = ["New Bet","History", "Active", "Outstanding", "inactive"]
       }
    }
 
@@ -43,5 +43,8 @@ $scope.mobileTab = function(){
     })
    }
    $scope.changeTabColor()
+
+
+
 
 }])

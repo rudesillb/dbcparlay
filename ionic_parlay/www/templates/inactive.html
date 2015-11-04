@@ -1,0 +1,34 @@
+<ion-view view-title="Inactive">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="bet in bets.inverse_inactive">
+         <div class='col col-50'>
+           {{bet.description}}
+        </div>
+
+        <div class='col'>
+           {{bet.bet_amount | currency}}
+        </div>
+        <div class='col'>
+          <button id="ad-btn" class="btn btn--s" ng-click="accept_bet(bet.id)">accept</button>
+          <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">decline</button>
+        </div>
+      </ion-item>
+
+
+      <ion-item ng-repeat="bet in bets.inactive">
+
+        <div class='col col-50'>
+          {{bet.description}}
+        </div>
+
+        <div class='col'>
+          {{bet.bet_amount | currency}}
+        </div>
+        <div class='col'>
+          Awaiting Decision
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

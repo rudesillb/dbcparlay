@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- This needs to be added to make mobile work... -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/trg.css">
     <link rel="stylesheet" href="css/main.css">
@@ -19,51 +23,55 @@
   </head>
   <body ng-app="Parlay" class="">
 
+  <div id="indexHeader">
     <!-- nav... -->
-    <nav class="container p-sm clearfix ">
+    <nav class=" debug p-sm clearfix ta-l bc-owhite m-b-m">
+        <div class=" debug container p-sm">
+          <div class=" debug block fl-left"></div>
+          <div class="debug p-sm ml-xl">
+            <h3 class="h1-n ">Parlay</h3>
+           </div>
+        </div>
 
-            <a href="https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_phone%20access_balance&response_type=code"><button class=" btn btn--s fl-right">Login</button></a>
     </nav>
 
     <!--=======================
    Main Information page
    ========================-->
-<main role="profile" class="">
-        <!-- notification for the tabs... -->
-        <div class=" container row gutters-t  h-1">
-          <p class=" bb-w h1 col span-2-t "></p>
-          <p class=" h1  bb-w col span-2-t "></p>
-          <p class=" h1  bb-w col span-2-t "></p>
-          <p class=" h1  bb-w col span-2-t "></p>
-    <!--       <p ng-if="!bets.inverse_interaction"class=" h1 bb-r col span-2-t "></p> -->
-        </div>
-    <div class="container ta-center row ">
+
+    <main role="profile" class="container ta-center">
+    <!-- ng-if check to see if object exsists and then show styling... -->
+      <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
 
       <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->
         <ul id="desktopMenu" class=" lst-n ul-n container row gutters-t">
-           <li ui-sref="new bet" class="b-sdw-i-w bc-lblue fc-w mh col span-2-t  p-sm"  >New Bet</li>
+          <li ui-sref="new bet" class="b-sdw-i-w bc-lblue fc-w mh col span-2-t  p-sm"  >New Bet</li>
           <li ui-sref="history" class=" mh col span-2-t  p-sm"  >History</li>
           <li ui-sref="active" class=" mh col span-2-t  p-sm">Active</li>
           <li ui-sref="outstanding" class="mh col span-2-t  p-sm">Outstanding</li>
 
-          <li ui-sref="inactive" class="mh col span-2-t  p-sm ">Inactive</li>
+          <li ui-sref="inactive" class="mh col span-2-t  p-sm " >Inactive</li>
         </ul>
 
+      </div>
+      <div ng-controller="HtmlController">
         <!-- mobile dropdown menu -->
         <!-- need to hide this when in desktop mode... -->
         <button id="mobileMenu" class="btn btn--s fl-left m-b-s" ng-click="mobileTab()">menu</button>
+        <div class="relative t-p-sm" ng-controller="HtmlController">
 
-        <div class="absolute w-50 t-p-sm" ng-controller="HtmlController">
-          <ul class="  lst-n ul-n bc-lgray cb li-h-w" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
+        <div class="absolute">
+            <ul class="lst-n ul-n bc-owhite cb li-h-w fade" ng-show="tabOptions" ng-repeat="mOption in tabOptions">
             <!-- lowercase matters from routing... -->
-            <li class=" mh p-sm" ui-sref="{{mOption | lowercase}}" ng-click="hideMenu($event)" >{{ mOption }}</li>
-          </ul>
-
+              <li class=" mh p-sm" ui-sref="{{mOption | lowercase}}" ng-click="hideMenu($event)" >{{ mOption }}</li>
+            </ul>
+          </div>
         </div>
-
+      <!-- end of htmlController -->
       </div>
-    </div>
+
+  </div>
 
     <div>
 
@@ -83,6 +91,7 @@
     <script src="js/controllers/htmlController.js"></script>
 
     <!-- Services -->
+    <script src="js/services/errorServices.js"></script>
 
     <!-- Jquery UI -->
     <script src="js/vendor/jquery-ui.js"></script>

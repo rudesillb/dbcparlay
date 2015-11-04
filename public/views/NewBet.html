@@ -1,30 +1,40 @@
-<div class="container ta-center bc-lgray p-med">
+
+<div class="container ta-center bc-lgray p-med ">
+     <!-- Error handling... -->
+
+     <p id="ErrorHandle" class="bc-red  p-sm fc-w f-m " ng-show="displayError.friendError"> {{displayError.friendError}} </p>
+
     <h1 class=" h1-n mt-s">Propose a bet</h1>
 
-    <p class="i-ta">
-        <input class="b-n f-m mtb-m wb-n" type="text" id="homeBetAmount" placeholder="slide" ng-model="newBet.bet_amount">
-    </p>
+    <p id="homeBetAmount" class="i-ta f-m mtb-m" ng-model="newBet.bet_amount">$0</p>
 
     <div id="slider" class="container w-50 m-auto m-b-xxl"></div>
-
+ <!--        <input type='text' ng-model='guy.username'>
+   -->
     <div class="row gutters-t gutters-d  ">
         <p class="  i-ta  col  span-3-t">
-            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end">
+            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end" >
         </p>
-
         <p class="  i-ta  col  span-6-t">
             <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
         </p>
 
         <p class="  i-ta  col  span-3-t">
-            <input ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <input id='friend-input' ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
+            <div id='fuzzy-list' ng-repeat="friend in friends | fuzzyBy: 'username' : newBet.reciever" ng-class="displayError.friendErrorBox">
+
+                <option ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</option>
+
+            </div>
         </p>
 
     </div>
 </div>
 
-        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown" ng-show="newBet.bet_amount">
-            <h2>Review</h2>
+        <div id="newBetFinal" class=" container bc-lgray p-sm m-auto mt-m ta-center fadeInDown fade" ng-show="newBet.end || newBet.description" ng-if="newBet.end || newBet.description">
+
+
+            <h2>Please Review</h2>
             <div class="ta-l w-50 m-auto">
                 <p class="p-sm mb-s"><b>Amount:</b> {{newBet.bet_amount | currency}}</p>
                 <p class="p-sm mb-s"><b>Description:</b> {{newBet.description}}</p>
