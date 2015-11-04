@@ -23,8 +23,9 @@ class UsersController < ApplicationController
   end
 
   def check
+    auth = 1
     if current_user != nil
-      render json: 1
+      render json: auth
     else
       render json: nil
     end
