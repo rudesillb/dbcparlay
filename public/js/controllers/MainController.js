@@ -2,18 +2,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
-<<<<<<< HEAD
-        console.log(response);
-        if (response === "1"){
-
-        }
-        else{
-=======
-        console.log('hey we are checking')
-        console.log(response)
-        console.log('hey response should be above')
         if (!response){
->>>>>>> 31dc26614a1b72e534f525d48162379d2d91dd06
           $location.path('/landing');
           $('#indexHeader').hide();
         }
