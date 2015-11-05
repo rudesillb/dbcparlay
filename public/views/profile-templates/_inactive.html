@@ -1,12 +1,12 @@
 <h3 class="ta-center d-hide h1-n m-b-s">Inactive</h3>
 
-<ul class="ul-n lst-n " ng-repeat="bet in bets.inverse_inactive">
+<ul class="ul-n lst-n " ng-repeat="bet in bets.inverse_inactive track by $index">
 
 
   <li class="b-sdw m-b-m p-sm container row gutters-t gutters-d ta-center needA ">
 
     <div class=" col span-1-t ">
-    <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">
+      <img src="{{ inactive_inverse_images[$index] }}">
     </div>
 
     <div class=" col span-5-t ">
@@ -19,10 +19,10 @@
 
 
     <div class=" col span-4-t b-list ">
-      <div>
+      <div class=" fl-right">
         <button id="ad-btn" class="btn btn--s" ng-click="accept_bet(bet.id)">accept</button>
         <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">decline</button>
-
+      </div>
     </div>
 
   </li>
@@ -30,12 +30,12 @@
 </ul>
 
 
-<ul class="ul-n lst-n " ng-repeat="bet in bets.inactive">
+<ul class="ul-n lst-n " ng-repeat="bet in bets.inactive track by $index">
 
   <li class="b-sdw m-b-m p-sm  bc-lgray container row gutters-t gutters-d ta-center ">
 
     <div class="col span-1-t ">
-      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">
+      <img src="{{ inactive_images[$index] }}">
     </div>
 
     <div class="col span-5-t ">
@@ -45,12 +45,13 @@
     <div class="col span-2-t ">
       <p class="p-list ">{{bet.bet_amount | currency}}</p>
     </div>
+
     <div>
       <div class="col span-4-t">
-        <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">destroy</button>
-        <p class="p-list">awaiting decision<p/>
+        <p class="fl-left p-med">awaiting decision<p/>
+        <button id="ad-btn" class="btn btn--s fl-right mt-m" ng-click="decline_bet(bet.id)">destroy</button>
       </div>
-  </div>
+    </div>
   </li>
 
 </ul>

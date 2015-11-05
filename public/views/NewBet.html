@@ -13,19 +13,19 @@
    -->
     <div class="row gutters-t gutters-d  ">
         <p class="  i-ta  col  span-3-t">
-            <input placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end" >
+            <input name='thisdate'placeholder="date" class=" p-sm m-b-s fnt-s w-95 " type="text" id="datepicker" ng-model="newBet.end" >
         </p>
+
+
+
+
+
         <p class="  i-ta  col  span-6-t">
             <input placeholder="Description "class=" p-sm m-b-s fnt-s w-95 " type="text" ng-model="newBet.description">
         </p>
 
         <p class="  i-ta  col  span-3-t">
-            <input id='friend-input' ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
-            <div id='fuzzy-list' ng-repeat="friend in friends | fuzzyBy: 'username' : newBet.reciever" ng-class="displayError.friendErrorBox">
-
-                <option ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</option>
-
-            </div>
+            <input ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
         </p>
 
     </div>
@@ -44,3 +44,33 @@
 
             <a href="/#/profile/active"><button class=" mt-m btn btn--m" ng-click="post()">Propose Bet</button></a>
         </div>
+
+
+        <!-- #######################
+Modal
+ -->
+
+
+<!-- Opacity background -->
+<!-- ng-if="modal" will show fade.... -->
+<div id="modal" class="absolute top h-100 w-100  op-h fade" ng-show="friends" ng-if="friends">
+ <div class=" ta-center absolute c-absol w-50 h-50 bc-owhite" role="background" >
+
+  <!-- Close Modal -->
+  <a class="block fl-right lh-50 fs-l fc-w mh" ng-click="getFriends()")>X</a>
+
+    <h1 class="h1-n cb fs-l">Friend Search</h1>
+  <!-- Search Box -->
+    <input id='friend-input' placeholder="Friend "class="p-sm ta-center w-50 p-sm mt-s fnt-s" type="text" ng-model="newBet.reciever">
+
+    <div id='fuzzy-list' ng-repeat=" friend in friends | fuzzyBy: 'username' : newBet.reciever" ng-class="displayError.friendErrorBox">
+
+      <!-- Results... -->
+      <div class="mt-m hoverP" ng-controller="HtmlController">
+        <p class="p-sm fs-l mh " ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</p>
+      </div>
+    </div>
+
+ </div>
+</div>
+

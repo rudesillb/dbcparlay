@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     # login('sfdfsd')
-     url = request.original_url
+    url = request.original_url
     user = parse_user(send_response(url))
     if User.find_by(:venmo_id => user[:venmo_id]) != nil
       # user[:access_token] = response["access_token"]
@@ -19,8 +19,9 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-  def destroy
-    logout
+  def logout
+    destroy_session
+    redirect_to '/'
   end
 
   def check

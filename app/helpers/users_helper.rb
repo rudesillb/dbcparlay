@@ -6,7 +6,7 @@ module UsersHelper
     # session[:current_user_id] = '1477224414838784567'
   end
 
-  def logout
+  def destroy_session
     session.destroy
   end
 
@@ -63,7 +63,7 @@ module UsersHelper
       md5 = Digest::MD5.new
       md5.update email
       md5 = md5.hexdigest
-      return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=80"
+      return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=60"
     end
     if size == 'large'
       md5 = Digest::MD5.new
@@ -83,4 +83,20 @@ module UsersHelper
       end
     end
   end
+
+
+  def win_percentage
+    user = User.find_by(venmo_id: session[:current_user_id])
+    total_bets = user.bets.where(status: 'outstanding') + user.bets.where(status: 'complete') + user.inverse_bets.where(status: 'outstanding') + user.inverse_bets.where(status: 'complete')
+    bets_won = []
+    total_bets.each do |bet|
+      if bet.winner.to_i == user.id
+        bets_won << bet
+      end
+    end
+    p bets_won.length.to_f
+    p total_bets.length.to_f
+    bets_won.length.to_f/ total_bets.length.to_f
+  end
+
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  get '/users/logout', to: 'users#logout'
   resources :users, constraints: {id: /[0-9]+/}
   resources :bets
   # The priority is based upon order of creation: first created -> highest priority.

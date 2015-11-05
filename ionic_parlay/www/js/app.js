@@ -46,7 +46,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular.filter'])
       url: '/outstanding',
       views: {
         'menuContent': {
-          templateUrl: 'templates/outstanding.html'
+          templateUrl: 'templates/outstanding.html',
+          controller: 'MainController'
         }
       }
     })
@@ -55,6 +56,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'angular.filter'])
       views: {
         'menuContent': {
           templateUrl: 'templates/inactive.html',
+          controller: 'MainController'
+        }
+      }
+    })
+    .state('app.history', {
+      url: '/history',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/history.html',
           controller: 'MainController'
         }
       }

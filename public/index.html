@@ -23,14 +23,19 @@
   </head>
   <body ng-app="Parlay" class="">
 
-  <div id="indexHeader">
+  <div id="indexHeader" ng-controller="MainController">
     <!-- nav... -->
-    <nav class=" debug p-sm clearfix ta-l bc-owhite m-b-m">
-        <div class=" debug container p-sm">
-          <div class=" debug block fl-left"></div>
-          <div class="debug p-sm ml-xl">
-            <h3 class="h1-n ">Parlay</h3>
-           </div>
+    <nav class="ta-l bc-owhite m-b-m">
+        <div class="container row">
+
+          <div id="logoDiv" class="absolute col span-2-t">
+            <img class="w-lgem" src="img/header-logo.png">
+          </div>
+
+          <div class="col span-10-t p-tb-lg">
+            <a class=""><button class="btn btn--s fl-right" ng-click="logout()">Logout</button></a>
+          </div>
+
         </div>
 
     </nav>
@@ -40,8 +45,6 @@
    ========================-->
 
     <main role="profile" class="container ta-center">
-    <!-- ng-if check to see if object exsists and then show styling... -->
-      <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
 
       <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->

@@ -1,20 +1,27 @@
+<!-- mobile header -->
 <h3 class="ta-center d-hide h1-n m-b-s">History</h3>
 
+
+<div class=" container p-sm">
+  <p class=""> Your Win Percentage: {{bets.all.bets[3] * 100}}% </p>
+</div>
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[0]">
 
   <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
+
     <div class=" col span-1-t ">
-      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60">
+      <img src="{{ images[$index] }}">
        {{ bet.reciever }}
     </div>
+
     <div class=" col span-8-t ">
-      <p class="  p-list">{{ bet.description }}</p>
+      <p class="p-list">{{ bet.description }}</p>
     </div>
+
     <div class=" col span-3-t ">
-
-
       <div class=" b-list">
-        <p class="debug w-30 m-auto p-sm fc-w bc-red brd-r-sm">
+        <!-- ng-class="{bc-green: moneyGreen(bet), bc-red: moneyRed(bet)}" -->
+        <p class=" w-30 m-auto p-sm  brd-r-sm" >
           {{ bet.bet_amount | currency }}
         </p>
       </div>
@@ -23,19 +30,22 @@
 </ul>
 
 
+
+
 <ul class="ul-n lst-n " ng-repeat="bet in bets.all.bets[1]">
 
   <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
     <div class=" col span-1-t ">
-      <img src="http://www.gravatar.com/avatar/6f1ee73002f145a28e6d559fc53347ad?d=mm&s=60"> {{ bet.creator }}
+      <img src="{{ inverse_images[$index] }}">
+    {{ bet.creator }}
     </div>
     <div class=" col span-8-t ">
-      <p class="  p-list">{{ bet.description }}</p>
+      <p class="  p-list ">{{ bet.description }}</p>
     </div>
 
     <div class=" col span-3-t b-list">
-      {{ bet.bet_amount | currency }}
-
+      <!-- ng-class="{bc-green: , bc-red: moneyRed(bet);}" -->
+      <p class="" > {{ bet.bet_amount | currency }} </p>
     </div>
   </li>
 </ul>
