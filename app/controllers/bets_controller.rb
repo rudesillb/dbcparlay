@@ -4,15 +4,23 @@ class BetsController < ApplicationController
 
   def index
     # @bets = User.find_by(venmo_id: session[:current_user_id]).bets
-    @bets = User.find_by(venmo_id: '1477224414838784567').bets
+    bets = User.find_by(venmo_id: '1477224414838784567').bets
     # @inverse_bets = User.find_by(venmo_id: session[:current_user_id]).inverse_bets
-    @inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
+    inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
     # @user = User.find_by(venmo_id: session[:current_user_id])
-    @user = User.find_by(venmo_id: '1477224414838784567')
-    @percentage = win_percentage
+    user = User.find_by(venmo_id: '1477224414838784567')
+    percentage = win_percentage
 
+    bet_pictures = []
+    bets.each do |bet|
+      bet_pictures << bet.friendship.friend.small_image
+    end
+    inverse_bet_pictures = []
+    inverse_bets.each do |bet|
+      inverse_bet_pictures << bet.friendship.user.small_image
+    end
 
-    render json: [@bets, @inverse_bets, @user.id, @percentage]
+    render json: [bets, inverse_bets, user.id, percentage, bet_pictures, inverse_bet_pictures]
   end
 
   def create
@@ -71,7 +79,8 @@ class BetsController < ApplicationController
   end
 
   def new
-    user = User.find_by(venmo_id: session[:current_user_id])
+    # user = User.find_by(venmo_id: session[:current_user_id])
+    user = User.find_by(venmo_id: '1477224414838784567')
     friend_collection = user.friends
     render json: friend_collection
   end

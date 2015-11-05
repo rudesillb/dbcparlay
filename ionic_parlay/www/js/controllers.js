@@ -132,13 +132,13 @@ angular.module('starter.controllers', [])
 // goes to accept bet route on server and hides buttons
   $scope.accept_bet = function(bet_id){
     $http.put('http://localhost:3000/bets/' + bet_id + '/accept');
-    // $(event.target).parent().parent().parent().hide();
+    $(event.target).parent().parent().hide();
   }
 
   // goes to decline bet route on server and hides buttons
   $scope.decline_bet = function(bet_id){
     $http.put('http://localhost:3000/bets/' + bet_id + '/decline');
-    // $(event.target).parent().parent().parent().hide();
+    $(event.target).parent().parent().hide();
   }
 
   //win checker
@@ -156,7 +156,7 @@ angular.module('starter.controllers', [])
     var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.creator +'?')
     if (pay === true){
       $http.put('/bets/' + bet.id + '/pay');
-      $(event.target).parent().parent().parent().hide();
+      $(event.target).parent().hide();
     }
   }
 
@@ -164,13 +164,13 @@ angular.module('starter.controllers', [])
     var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.reciever +'?')
     if (pay === true){
       $http.put('/bets/' + bet.id + '/pay');
-      $(event.target).parent().parent().parent().hide();
+      $(event.target).parent().hide();
     }
   }
 
   $scope.selectFriend = function() {
     $scope.newBet.reciever = $(event.target).val();
-    $('#fuzzy-list').hide();
+    // $('#fuzzy-list').hide();
   }
 
   $scope.getFriends = function() {

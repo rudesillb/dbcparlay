@@ -3,34 +3,37 @@
     <ion-list>
       <ion-item ng-repeat="bet in bets.inverse_outstanding">
         <div>
-          Bet with: {{ bet.creator}}
-        </div>
-        <div class='col col-50'>
-          The bet: {{bet.description}}
-        </div>
+          <div>
+            Bet with: {{ bet.creator}}
+          </div>
+          <div class='col col-50'>
+            The bet: {{bet.description}}
+          </div>
 
-        <div class='col'>
-          {{bet.bet_amount | currency}}
-        </div>
+          <div class='col'>
+            {{bet.bet_amount | currency}}
+          </div>
           <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowcreator(bet)">pay up</button>
           <div ng-show="winchecker(bet)">Awaiting Payment
+          </div>
         </div>
-
       </ion-item>
 
       <ion-item ng-repeat="bet in bets.outstanding">
         <div>
-          Bet with: {{ bet.reciever }}
-        </div>
-         <div class='col col-50'>
-           The bet: {{bet.description}}
-        </div>
+          <div>
+            Bet with: {{ bet.reciever }}
+          </div>
+          <div class='col col-50'>
+             The bet: {{bet.description}}
+          </div>
 
-        <div class='col'>
-           {{bet.bet_amount | currency}}
+          <div class='col'>
+             {{bet.bet_amount | currency}}
+          </div>
+          <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
+          <div ng-show="winchecker(bet)">Awaiting Payment</div>
         </div>
-        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
-        <div ng-show="winchecker(bet)">Awaiting Payment</div>
       </ion-item>
 
     </ion-list>

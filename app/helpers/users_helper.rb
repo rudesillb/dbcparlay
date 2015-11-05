@@ -63,7 +63,7 @@ module UsersHelper
       md5 = Digest::MD5.new
       md5.update email
       md5 = md5.hexdigest
-      return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=80"
+      return "http://www.gravatar.com/avatar/#{md5}?d=mm&s=60"
     end
     if size == 'large'
       md5 = Digest::MD5.new

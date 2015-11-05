@@ -39,7 +39,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
-  $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': []}
+  $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': [], 'bet_pictures': [], 'inverse_bet_pictures': []}
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
 
       //collect active bets that user created
@@ -83,6 +83,18 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
           $scope.bets.inverse_outstanding.push(response.bets[1][i])
         }
       }
+      for(var i = 0; i < response.bets[4].length; i++){
+        if (response.bets[1][i].status === 'outstanding'){
+          $scope.bets.inverse_outstanding.push(response.bets[1][i])
+        }
+      }
+      for(var i = 0; i < response.bets[1].length; i++){
+        if (response.bets[1][i].status === 'outstanding'){
+          $scope.bets.inverse_outstanding.push(response.bets[1][i])
+        }
+      }
+      $scope.images = response.bets[4]
+      $scope.inverse_images = response.bets[5]
 
   //collection of all bets
       $scope.bets.all = response;
