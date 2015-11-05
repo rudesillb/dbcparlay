@@ -9,8 +9,10 @@ class BetsController < ApplicationController
     @inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
     # @user = User.find_by(venmo_id: session[:current_user_id])
     @user = User.find_by(venmo_id: '1477224414838784567')
+    @percentage = win_percentage
 
-    render json: [@bets, @inverse_bets, @user.id]
+
+    render json: [@bets, @inverse_bets, @user.id, @percentage]
   end
 
   def create

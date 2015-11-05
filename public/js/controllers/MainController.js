@@ -149,6 +149,9 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     }
   }
 
+
+  // $scope.win_percentage = $scope.bets.all.bets[3]
+
   // send payment after clicking "pay"
   $scope.youpaynowcreator = function(bet){
     var pay = confirm('Pay: $'+ bet.bet_amount + ' to '+ bet.creator +'?')
