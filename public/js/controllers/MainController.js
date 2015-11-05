@@ -39,12 +39,18 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   // get route for bets collections
   // explicitly showing all info in bets expression
   $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': [], 'bet_pictures': [], 'inverse_bet_pictures': []}
+  $scope.active_images = [];
+  $scope.active_inverse_images = [];
+  $scope.inactive_images = [];
+  $scope.inactive_inverse_images = [];
+  $scope.outstanding_images = [];
+  $scope.outstanding_inverse_images = [];
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-
       //collect active bets that user created
       for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'active'){
           $scope.bets.active.push(response.bets[0][i])
+          $scope.active_images.push(response.bets[4][i])
         }
       }
 
@@ -52,6 +58,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'active'){
           $scope.bets.inverse_active.push(response.bets[1][i])
+          $scope.active_inverse_images.push(response.bets[5][i])
         }
       }
 
@@ -59,6 +66,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'inactive'){
           $scope.bets.inactive.push(response.bets[0][i])
+          $scope.inactive_images.push(response.bets[4][i])
         }
       }
 
@@ -66,6 +74,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'inactive'){
           $scope.bets.inverse_inactive.push(response.bets[1][i])
+          $scope.inactive_inverse_images.push(response.bets[5][i])
         }
       }
 
@@ -73,6 +82,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       for(var i = 0; i < response.bets[0].length; i++){
         if (response.bets[0][i].status === 'outstanding'){
           $scope.bets.outstanding.push(response.bets[0][i])
+          $scope.outstanding_images.push(response.bets[4][i])
         }
       }
 
@@ -80,18 +90,11 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       for(var i = 0; i < response.bets[1].length; i++){
         if (response.bets[1][i].status === 'outstanding'){
           $scope.bets.inverse_outstanding.push(response.bets[1][i])
+          $scope.outstanding_inverse_images.push(response.bets[5][i])
         }
       }
-      for(var i = 0; i < response.bets[4].length; i++){
-        if (response.bets[1][i].status === 'outstanding'){
-          $scope.bets.inverse_outstanding.push(response.bets[1][i])
-        }
-      }
-      for(var i = 0; i < response.bets[1].length; i++){
-        if (response.bets[1][i].status === 'outstanding'){
-          $scope.bets.inverse_outstanding.push(response.bets[1][i])
-        }
-      }
+
+
       $scope.images = response.bets[4]
       $scope.inverse_images = response.bets[5]
 
