@@ -25,13 +25,17 @@
 
   <div id="indexHeader" ng-controller="MainController">
     <!-- nav... -->
-    <nav class=" debug p-sm clearfix ta-l bc-owhite m-b-m">
-        <div class=" debug container p-sm">
-          <div class=" debug block fl-left"></div>
-          <div class="debug p-sm ml-xl">
-            <h3 class="h1-n ">Parlay</h3>
-             <a><button class="btn btn--s" ng-click="logout()">Logout</button></a>
-           </div>
+    <nav class=" p-sm clearfix ta-l bc-owhite m-b-m">
+        <div class="  container row p-sm">
+          <div class=" col span-2-t  block"></div>
+
+          <div class=" p-sm col span-9-t">
+            <h3 class="h1-n">Parlay</h3>
+          </div>
+
+          <div class="p-xxs  col span-2-t">
+            <a class=""><button class="btn btn--s fl-right" ng-click="logout()">Logout</button></a>
+          </div>
         </div>
 
     </nav>
@@ -41,8 +45,6 @@
    ========================-->
 
     <main role="profile" class="container ta-center">
-    <!-- ng-if check to see if object exsists and then show styling... -->
-      <p ng-if="bets.inverse_inactive"class=" h1 bb-r col span-2-t "></p>
 
       <div class=" col span-3-t relative" ng-controller="HtmlController">
         <!-- tab version of data below... not the best.... -->

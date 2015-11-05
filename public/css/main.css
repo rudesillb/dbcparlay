@@ -99,7 +99,7 @@ p {
  .fc-w {color: white;}
 
 /* padding */
-.p-xxs {}
+.p-xxs { padding: .25em;}
 .p-xs { padding: 0.4em; }
 /* padding round list for images 50x50*/
 .p-list { padding: 1.22em; }
@@ -157,6 +157,7 @@ p {
 .right-15 { right: 15em; }
 
 .t-p-sm {top: 2.5em;}
+.top {top: 0; z-index: 10}
 
 .b-sdw { box-shadow: 0 8px 6px -6px #777; }
 .b-sdw-i-w { box-shadow: inset 0 0 5px #FFF; }

@@ -172,6 +172,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
   $scope.getFriends = function() {
     $http.get('bets/new').success(function(response) {
+
       $scope.friends = response.bets
       })
   }
