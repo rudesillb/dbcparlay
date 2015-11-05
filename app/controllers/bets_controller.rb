@@ -3,19 +3,19 @@ class BetsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @bets = User.find_by(venmo_id: session[:current_user_id]).bets
-    # @bets = User.find_by(venmo_id: '1477224414838784567').bets
-    @inverse_bets = User.find_by(venmo_id: session[:current_user_id]).inverse_bets
-    # @inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
-    @user = User.find_by(venmo_id: session[:current_user_id])
-    # @user = User.find_by(venmo_id: '1477224414838784567')
+    # @bets = User.find_by(venmo_id: session[:current_user_id]).bets
+    @bets = User.find_by(venmo_id: '1477224414838784567').bets
+    # @inverse_bets = User.find_by(venmo_id: session[:current_user_id]).inverse_bets
+    @inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
+    # @user = User.find_by(venmo_id: session[:current_user_id])
+    @user = User.find_by(venmo_id: '1477224414838784567')
 
     render json: [@bets, @inverse_bets, @user.id]
   end
 
   def create
-    user = User.find_by(venmo_id: session[:current_user_id])
-    # user = User.find_by(venmo_id: '1477224414838784567')
+    # user = User.find_by(venmo_id: session[:current_user_id])
+    user = User.find_by(venmo_id: '1477224414838784567')
     friend = User.find_by(username: params[:reciever])
     print "reciever:"
     p params[:reciever]

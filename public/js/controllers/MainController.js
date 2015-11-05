@@ -2,10 +2,10 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
-        if (response === 1){
-
-        }
-        else{
+        console.log('hey we are checking')
+        console.log(response)
+        console.log('hey response should be above')
+        if (!response){
           $location.path('/landing');
           $('#indexHeader').hide();
         }
@@ -174,6 +174,12 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     $http.get('bets/new').success(function(response) {
       $scope.friends = response.bets
       })
+  }
+
+  $scope.logout = function(){
+    $http.get('users/logout').success(function(){
+      $location.path('/landing')
+    })
   }
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...

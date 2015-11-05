@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :users
+
+  get '/users/logout', to: 'users#logout'
+  resources :users, constraints: {id: /[0-9]+/}
   resources :bets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  get '/users/check', to: 'users#check'
   root 'bets#index'
 
 
   put '/bets/:id/accept', to: 'bets#accept'
   put '/bets/:id/decline', to: 'bets#decline'
   put '/bets/:id/pay', to: 'bets#pay'
-  get '/users/check', to: 'users#check'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
