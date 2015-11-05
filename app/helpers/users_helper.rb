@@ -83,4 +83,20 @@ module UsersHelper
       end
     end
   end
+
+
+  def win_percentage
+    user = User.find_by(venmo_id: '1477224414838784567')
+    total_bets = user.bets.where(status: 'outstanding') + user.bets.where(status: 'complete') + user.inverse_bets.where(status: 'outstanding') + user.inverse_bets.where(status: 'complete')
+    bets_won = []
+    total_bets.each do |bet|
+      if bet.winner.to_i == user.id
+        bets_won << bet
+      end
+    end
+    p bets_won.length.to_f
+    p total_bets.length.to_f
+    bets_won.length.to_f/ total_bets.length.to_f
+  end
+
 end

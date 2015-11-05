@@ -9,8 +9,10 @@ class BetsController < ApplicationController
     @inverse_bets = User.find_by(venmo_id: '1477224414838784567').inverse_bets
     # @user = User.find_by(venmo_id: session[:current_user_id])
     @user = User.find_by(venmo_id: '1477224414838784567')
+    @percentage = win_percentage
 
-    render json: [@bets, @inverse_bets, @user.id]
+
+    render json: [@bets, @inverse_bets, @user.id, @percentage]
   end
 
   def create
@@ -19,12 +21,11 @@ class BetsController < ApplicationController
     friend = User.find_by(username: params[:reciever])
     print "reciever:"
     p params[:reciever]
-    p "*" * 100
-     print "reciever:"
+
+
         p "*" * 100
-
-
     friendship = Friendship.where(friend_id: friend.id, user_id: user.id)
+    p friendship
     newbet = friendship[0].bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
       # placeholder

@@ -1,9 +1,11 @@
-<ion-view view-title="Outstanding Bets">
+
+<ion-view view-title="History">
   <ion-content>
+    Your Win Percentage: {{bets.all.bets[3] * 100}}%
     <ion-list>
-      <ion-item ng-repeat="bet in bets.inverse_outstanding">
+      <ion-item ng-repeat="bet in bets.all.bets[0]">
         <div>
-          Bet with: {{ bet.creator}}
+          Bet with: {{ bet.reciever}}
         </div>
         <div class='col col-50'>
           The bet: {{bet.description}}
@@ -12,13 +14,11 @@
         <div class='col'>
           {{bet.bet_amount | currency}}
         </div>
-          <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowcreator(bet)">pay up</button>
-          <div ng-show="winchecker(bet)">Awaiting Payment
-        </div>
 
+        {{ bet.status }}
       </ion-item>
 
-      <ion-item ng-repeat="bet in bets.outstanding">
+      <ion-item ng-repeat="bet in bets.all.bets[1]">
         <div>
           Bet with: {{ bet.reciever }}
         </div>
@@ -29,8 +29,7 @@
         <div class='col'>
            {{bet.bet_amount | currency}}
         </div>
-        <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
-        <div ng-show="winchecker(bet)">Awaiting Payment</div>
+{{ bet.status }}
       </ion-item>
 
     </ion-list>
