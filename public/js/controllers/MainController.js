@@ -115,13 +115,14 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
           $scope.outstanding_inverse_images.push(response.bets[5][i])
         }
       }
-
+      $scope.user_id = response.bets[3]
 
       $scope.images = response.bets[4]
       $scope.inverse_images = response.bets[5]
       $scope.user_id = response.bets[3]
   //collection of all bets
       $scope.bets.all = response;
+
 
   })};
 
