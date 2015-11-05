@@ -1,5 +1,7 @@
 app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
+
+
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
         console.log('hey we are checking')
@@ -13,6 +15,26 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     };
 
     $scope.checker();
+
+// Css for win loose in history
+// $scope.moneyGreen = function(bet){
+//     debugger
+
+//   if(bet.winner == $scope.user_id){
+//     $green = true;
+//   }else{
+
+//     return false;
+//   }
+// }
+
+// $scope.moneyred = function(bet){
+//   if(bet.winner == $scope.user_id){
+//     return false;
+//   }else{
+//     return true;
+//   }
+// }
 
 // landing page....
 
@@ -97,7 +119,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
       $scope.images = response.bets[4]
       $scope.inverse_images = response.bets[5]
-
+      $scope.user_id = response.bets[3]
   //collection of all bets
       $scope.bets.all = response;
 
