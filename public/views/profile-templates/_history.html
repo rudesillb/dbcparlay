@@ -11,11 +11,15 @@
 
     <div class=" col span-1-t ">
       <img src="{{ images[$index] }}">
-       {{ bet.reciever }}
+
     </div>
 
-    <div class=" col span-8-t ">
-      <p class="p-list">{{ bet.description }}</p>
+    <div class="col span-2-t">
+      <p class="p-list">{{ bet.reciever }}</p>
+    </div>
+
+    <div class=" col span-6-t ">
+      <p class="p-list">{{bet.creator}} says: {{ bet.description }}</p>
     </div>
 
     <div class=" col span-3-t ">
@@ -37,10 +41,15 @@
   <li class="b-sdw m-b-m p-sm m-b-s bc-lgray container row gutters-t gutters-d  ta-center ">
     <div class=" col span-1-t ">
       <img src="{{ inverse_images[$index] }}">
-    {{ bet.creator }}
+
     </div>
-    <div class=" col span-8-t ">
-      <p class="  p-list ">{{ bet.description }}</p>
+
+    <div class="col span-2-t">
+      <p class="p-list">{{ bet.creator }}</p>
+    </div>
+
+    <div class=" col span-6-t ">
+      <p class="  p-list ">{{bet.creator}} says: {{ bet.description }}</p>
     </div>
 
     <div class=" col span-3-t b-list">
