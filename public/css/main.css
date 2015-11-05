@@ -63,7 +63,7 @@ textarea {
     text-decoration: none;
 
     /* debug */
-   /* border: 1px solid red;*/
+    /*border: 1px solid red;*/
 }
 
 .debug {
@@ -105,7 +105,7 @@ p {
 .p-xxs { padding: .25em;}
 .p-xs { padding: 0.4em; }
 /* padding round list for images 50x50*/
-.p-list { padding: 1.22em; }
+.p-list { padding: 1.22em 0; }
 /* button padding needs some work... */
 .b-list { padding: .80em 0; }
 .p-sm { padding: 0.60em; }
