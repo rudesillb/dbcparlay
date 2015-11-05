@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(username: "grant", first_name: "grant", last_name: "grant", email: "grant@grant.com")
-User.create(username: "joji", first_name: "joji", last_name: "joji", email: "joji@joji.com")
-User.create(username: "drew", first_name: "drew", last_name: "drew", email: "drew@drew.com")
+User.create(id: 1, venmo_id: "1477224414838784567", username: "grant", first_name: "grant", last_name: "grant", email: "grant@grant.com")
+User.create(id: 2, username: "joji", first_name: "joji", last_name: "joji", email: "joji@joji.com")
+User.create(id: 3, username: "drew", first_name: "drew", last_name: "drew", email: "drew@drew.com")
 
 Friendship.create(user_id: 1, friend_id: 2)
 Friendship.create(user_id: 1, friend_id: 3)

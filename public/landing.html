@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- This needs to be added to make mobile work... -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/trg.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/button.css">
+
+    <!-- Jquery -->
+     <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        <!-- anugular file -->
+    <script src="js/vendor/angular.js"></script>
+
+    <script src="js/vendor/angular-ui-router.js"></script>
+    <script src="js/vendor/angular-animate.js"></script>
+
+
+
+  </head>
+  <body ng-app="Parlay" class="">
+
+  <div id="indexHeader">
+
+    <!--=======================
+   Main Information page
+   ========================-->
+
+    <main role="profile" class="container ta-center">
+      </div>
+
+  </div>
+
+    <div>
+
+      <div class="fbg w-100 h-100 absolute">
+
+  <a class=""  href="https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_friends%20access_phone%20access_balance&response_type=code" ng-mouseenter="hover = true" ng-mouseleave="hover=false">
+
+    <div ng-class="{lnd:hover}" class=" container ta-center absolute w-70 pt-20 pl-5 p-lg " >
+
+      <h1 id="landH1" class="h1-n fs-xl fc-joji f-sdw-g ">Parlay</h1>
+      <h3 class="f-l fc-joji">Click Here to Login</h3>
+      <img class="w-30" src="../img/venmo_logo_blue.png">
+
+  </div></a>
+</div>
+
+    </div>
+</main>
+    <!--=======================
+   End main info page...
+   ========================-->
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+    <script src="node_modules/angular-filter/dist/angular-filter.js"></script>
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/htmlController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/errorServices.js"></script>
+
+    <!-- Jquery UI -->
+    <script src="js/vendor/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+  </body>
+</html>
+

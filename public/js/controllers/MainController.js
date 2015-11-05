@@ -16,7 +16,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
 // landing page....
 
-
 // @@@@@@@@@@@@@@@@@@
 // Errors
 // @@@@@@@@@@@@@@@@@@
@@ -182,13 +181,19 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   }
 
   $scope.selectFriend = function() {
-    $scope.newBet.reciever = $(event.target).val();
-    $('#fuzzy-list').hide();
+    $scope.newBet.reciever = $(event.target).text();
+    delete $scope.friends
   }
 
   $scope.getFriends = function() {
     $http.get('bets/new').success(function(response) {
+
+      if($scope.friends){
+        delete $scope.friends
+      }else{
       $scope.friends = response.bets
+      }
+
       })
   }
 

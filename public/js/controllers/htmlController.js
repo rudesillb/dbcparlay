@@ -44,7 +44,9 @@ $scope.mobileTab = function(){
    }
    $scope.changeTabColor()
 
+   $scope.hover = function(){
 
+   }
 
 
 }])

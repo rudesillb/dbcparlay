@@ -60,6 +60,7 @@ textarea {
     font-family: avenir, helvetica, roboto, arial, sans-serif;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .debug {
@@ -98,7 +99,7 @@ p {
  .fc-w {color: white;}
 
 /* padding */
-.p-xxs {}
+.p-xxs { padding: .25em;}
 .p-xs { padding: 0.4em; }
 /* padding round list for images 50x50*/
 .p-list { padding: 1.22em; }
@@ -126,6 +127,7 @@ p {
 
 /*height*/
 .h-100 { height: 100%;}
+.h-50 { height: 50% ;}
 
 /* margin */
 .m-auto { margin: 0 auto; }
@@ -135,7 +137,8 @@ p {
 .m-b-xxl {margin-bottom: 2em;}
 .mt-s {margin-top: .5em;}
 .mt-m {margin-top: .8em;}
-.mtb-m {margin: 1em 0}
+.mtb-m {margin: 1em 0 }
+.mt-l {margin-top: 2em }
 .ml-xl {margin-left: 4em;}
 
 /* list */
@@ -144,13 +147,19 @@ p {
 /* positioning */
 .absolute { position: absolute; }
 .relative { position: relative; }
+.in-b { display: inline-block;}
 
 .pt-20 {top: 20%;}
 .pl-5 {left: 5%;}
+.c-absol {
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
 
 .right-15 { right: 15em; }
 
 .t-p-sm {top: 2.5em;}
+.top {top: 0; z-index: 10}
 
 .b-sdw { box-shadow: 0 8px 6px -6px #777; }
 .b-sdw-i-w { box-shadow: inset 0 0 5px #FFF; }
@@ -206,8 +215,8 @@ Animate for fade in declare winner
 }
 
 .block {
-    height: 50px;
-    width: 50px;
+    height: 1.8em;
+    width: 1.8em;
     background-color: #27ae60;
 }
 
@@ -234,6 +243,8 @@ Animate for fade in declare winner
 /* input */
 .b-n {border: none;}
 
+/* opacity */
+.op-h { background: rgba(0, 0, 0, 0.5);}
 
 /* border */
 .b1b {border: 1px solid #DCDCDC;}
@@ -255,6 +266,9 @@ Animate for fade in declare winner
 .li-h-w li:hover { background-color: #D2D7D3;}
 .lnd {background-color: #ECECEC;}
 
+.hoverP p:hover { background-color: #27ae60; color: white;}
+
+
 /* animation */
 #desktopMenu li {
   -webkit-transition: background-color .4s linear;
@@ -270,7 +284,7 @@ Animate for fade in declare winner
 
 .brd-r-sm { border-radius: .2em;}
 
-
+.lh-50 {line-height: 50px;}
 
 
 

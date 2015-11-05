@@ -66,8 +66,10 @@
 */
 /* 800px */
 @media (min-width: 50em) {
+    #landH1 {font-size: 4em;}
+    #ad-btn{font-size: .6em; }
 
-    #ad-btn{font-size: .6em}
+    #landH1 h3 { font-size: 3em; }
     .d-hide {display: none;}
 
     .container {
