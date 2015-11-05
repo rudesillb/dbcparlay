@@ -97,7 +97,7 @@ angular.module('starter.controllers', [])
           $scope.bets.inverse_outstanding.push(response.bets[1][i])
         }
       }
-
+      console.log(response)
   //collection of all bets
       $scope.bets.all = response;
   })};

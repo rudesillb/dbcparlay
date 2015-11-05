@@ -19,12 +19,11 @@ class BetsController < ApplicationController
     friend = User.find_by(username: params[:reciever])
     print "reciever:"
     p params[:reciever]
-    p "*" * 100
-     print "reciever:"
+
+
         p "*" * 100
-
-
     friendship = Friendship.where(friend_id: friend.id, user_id: user.id)
+    p friendship
     newbet = friendship[0].bets.new(friendship_id: friendship[0].id, bet_amount: params[:bet_amount], description: params[:description], end: params[:end], creator: user.username, reciever: params[:reciever])
     if newbet.save
       # placeholder
