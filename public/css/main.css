@@ -63,7 +63,7 @@ textarea {
     text-decoration: none;
 
     /* debug */
-    /*border: 1px solid red;*/
+   /* border: 1px solid red;*/
 }
 
 .debug {
@@ -107,13 +107,14 @@ p {
 /* padding round list for images 50x50*/
 .p-list { padding: 1.22em; }
 /* button padding needs some work... */
-.b-list { padding: .80em; }
+.b-list { padding: .80em 0; }
 .p-sm { padding: 0.60em; }
 .p-med { padding: 1.2em;}
 .p-lg {padding:2em;}
 .p-xl { padding: 10em; }
 .p-xxl {}
 
+.p-tb-sm { padding: 1em 0;}
 .p-tb-lg { padding: 2.2em 0; }
 
 /* Text align */
