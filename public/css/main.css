@@ -60,6 +60,7 @@ textarea {
     font-family: avenir, helvetica, roboto, arial, sans-serif;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .debug {
@@ -126,6 +127,7 @@ p {
 
 /*height*/
 .h-100 { height: 100%;}
+.h-50 { height: 50% ;}
 
 /* margin */
 .m-auto { margin: 0 auto; }
@@ -147,6 +149,10 @@ p {
 
 .pt-20 {top: 20%;}
 .pl-5 {left: 5%;}
+.c-absol {
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
 
 .right-15 { right: 15em; }
 
@@ -234,6 +240,8 @@ Animate for fade in declare winner
 /* input */
 .b-n {border: none;}
 
+/* opacity */
+.op-h { background: rgba(0, 0, 0, 0.5);}
 
 /* border */
 .b1b {border: 1px solid #DCDCDC;}
@@ -270,7 +278,7 @@ Animate for fade in declare winner
 
 .brd-r-sm { border-radius: .2em;}
 
-
+.lh-50 {line-height: 50px;}
 
 
 

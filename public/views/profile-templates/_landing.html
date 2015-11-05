@@ -1,6 +1,5 @@
-
+<a href="" ng-click="modal=true">Click ME</a>
 <div class="fbg w-100 h-100 absolute">
-
   <a class=""  href="https://api.venmo.com/v1/oauth/authorize?client_id=3073&scope=make_payments%20access_profile%20access_email%20access_friends%20access_phone%20access_balance&response_type=code" ng-mouseenter="hover = true" ng-mouseleave="hover=false">
 
     <div ng-class="{lnd:hover}" class=" container ta-center absolute w-50 pt-20 pl-5 p-lg " >
@@ -10,4 +9,28 @@
       <img class="w-30" src="../img/venmo_logo_blue.png">
 
   </div></a>
+</div>
+
+<!-- #######################
+Modal
+ -->
+<!-- Opacity background -->
+<div id="modal" class=" absolute h-100 w-100 bc-blue op-h fade" ng-show="modal" ng-if="modal">
+ <div class=" ta-center absolute c-absol w-50 h-50 bc-owhite" role="background" >
+  <a class="block fl-right lh-50 fs-l fc-w mh" ng-click="modal = false")>X</a>
+
+    <h1 class="h1-n cb"> Search For a Friend</h1>
+    <div class="  ">
+      <!-- Search Box -->
+      <input class="ta-center w-50 p-sm mt-s" type="text" placeholder="Search for Friend">
+      <!-- Results... -->
+      <div class="">
+        <ul class="debug ul-n mt-s">
+          <li class="debug lst-n p-sm">Friend would go here...</li>
+
+        </ul>
+      </div>
+    </div>
+
+ </div>
 </div>

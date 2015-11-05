@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
@@ -15,7 +15,6 @@ app.controller('MainController', ['$scope', '$http', '$location', function($scop
     $scope.checker();
 
 // landing page....
-
 
 // @@@@@@@@@@@@@@@@@@
 // Errors
