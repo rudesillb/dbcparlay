@@ -63,7 +63,7 @@ textarea {
     text-decoration: none;
 
     /* debug */
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .debug {
@@ -130,6 +130,8 @@ p {
 .w-80 { width: 80%; }
 .w-95 { width: 95%; }
 .w-100 { width: 100%; }
+
+.w-lgem { width: 7em;}
 
 
 /*height*/

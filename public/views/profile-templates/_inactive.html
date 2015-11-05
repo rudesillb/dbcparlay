@@ -19,7 +19,7 @@
 
 
     <div class=" col span-4-t b-list ">
-      <div>
+      <div class=" fl-right">
         <button id="ad-btn" class="btn btn--s" ng-click="accept_bet(bet.id)">accept</button>
         <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">decline</button>
       </div>
@@ -47,9 +47,9 @@
     </div>
 
     <div>
-      <div class="col span-4-t ">
-        <p class=" in-b">awaiting decision<p/>
-        <button id="ad-btn" class="btn btn--s" ng-click="decline_bet(bet.id)">destroy</button>
+      <div class="col span-4-t">
+        <p class="fl-left p-med">awaiting decision<p/>
+        <button id="ad-btn" class="btn btn--s fl-right mt-m" ng-click="decline_bet(bet.id)">destroy</button>
       </div>
     </div>
   </li>
