@@ -20,12 +20,7 @@
         </p>
 
         <p class="  i-ta  col  span-3-t">
-            <input id='friend-input' ng-click="getFriends(); modal=true" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
-            <div id='fuzzy-list' ng-repeat="friend in friends | fuzzyBy: 'username' : newBet.reciever" ng-class="displayError.friendErrorBox">
-
-                <option ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</option>
-
-            </div>
+            <input ng-click="getFriends()" placeholder="Friend "class=" p-sm m-b-s fnt-s w-95" type="text" ng-model="newBet.reciever">
         </p>
 
     </div>
@@ -49,22 +44,32 @@
         <!-- #######################
 Modal
  -->
+ <p class="  i-ta  col  span-3-t">
+
+
+
+
+
+            </div>
+        </p>
+
 <!-- Opacity background -->
 <!-- ng-if="modal" will show fade.... -->
-<div id="modal" class="absolute top h-100 w-100 bc-blue op-h fade" ng-show="modal" >
+<div id="modal" class="absolute top h-100 w-100  op-h fade" ng-show="friends">
  <div class=" ta-center absolute c-absol w-50 h-50 bc-owhite" role="background" >
-  <a class="block fl-right lh-50 fs-l fc-w mh" ng-click="modal= false")>X</a>
 
-    <h1 class="h1-n cb"> Search For a Friend</h1>
-    <div class="  ">
-      <!-- Search Box -->
-      <input class="ta-center w-50 p-sm mt-s" type="text" placeholder="Search for Friend">
+  <!-- Close Modal -->
+  <a class="block fl-right lh-50 fs-l fc-w mh" ng-click="getFriends()")>X</a>
+
+    <h1 class="h1-n cb fs-l">Friend Search</h1>
+  <!-- Search Box -->
+    <input id='friend-input' placeholder="Friend "class="p-sm ta-center w-50 p-sm mt-s fnt-s" type="text" ng-model="newBet.reciever">
+
+    <div id='fuzzy-list' ng-repeat=" friend in friends | fuzzyBy: 'username' : newBet.reciever" ng-class="displayError.friendErrorBox">
+
       <!-- Results... -->
-      <div class="">
-        <ul class="debug ul-n mt-s">
-          <li class="debug lst-n p-sm">Friend would go here...</li>
-
-        </ul>
+      <div class="mt-m hoverP" ng-controller="HtmlController">
+        <p class="p-sm fs-l mh " ng-click='selectFriend()' ng-show='newBet.reciever'>{{ friend.username }}</p>
       </div>
     </div>
 

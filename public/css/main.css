@@ -137,7 +137,8 @@ p {
 .m-b-xxl {margin-bottom: 2em;}
 .mt-s {margin-top: .5em;}
 .mt-m {margin-top: .8em;}
-.mtb-m {margin: 1em 0}
+.mtb-m {margin: 1em 0 }
+.mt-l {margin-top: 2em }
 .ml-xl {margin-left: 4em;}
 
 /* list */
@@ -146,6 +147,7 @@ p {
 /* positioning */
 .absolute { position: absolute; }
 .relative { position: relative; }
+.in-b { display: inline-block;}
 
 .pt-20 {top: 20%;}
 .pl-5 {left: 5%;}
@@ -213,8 +215,8 @@ Animate for fade in declare winner
 }
 
 .block {
-    height: 50px;
-    width: 50px;
+    height: 1.8em;
+    width: 1.8em;
     background-color: #27ae60;
 }
 
@@ -263,6 +265,9 @@ Animate for fade in declare winner
 .hover-g li:hover { background-color: #DCDCDC; }
 .li-h-w li:hover { background-color: #D2D7D3;}
 .lnd {background-color: #ECECEC;}
+
+.hoverP p:hover { background-color: #27ae60; color: white;}
+
 
 /* animation */
 #desktopMenu li {
