@@ -112,6 +112,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
           $scope.outstanding_inverse_images.push(response.bets[5][i])
         }
       }
+
       $scope.user_id = response.bets[3]
 
       $scope.images = response.bets[4]
@@ -119,6 +120,8 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       $scope.user_id = response.bets[3]
   //collection of all bets
       $scope.bets.all = response;
+
+      $scope.winrate = Math.round($scope.bets.all.bets[3] * 100)
 
 
   })};
@@ -225,6 +228,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       $location.path('/landing')
     })
   }
+
 
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER

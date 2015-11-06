@@ -132,7 +132,7 @@ p {
 .w-95 { width: 95%; }
 .w-100 { width: 100%; }
 
-.w-lgem { width: 7em;}
+.w-lgem { width: 7em ;}
 
 
 /*height*/
@@ -180,6 +180,7 @@ p {
 .fnt-s {font-size: 1em;}
 .f-m {font-size: 1.3em;}
 .fs-l {font-size: 1.7em;}
+.fs-h {font-size: 2em;}
 .f-xl {font-size: 3em;}
 
 /* background color */
