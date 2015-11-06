@@ -11,7 +11,7 @@
     </div>
 
     <div class="col span-6-t ">
-      <p class="p-list">{{bet.description}}</p>
+      <p class="p-list">{{bet.creator}} says: {{bet.description}}</p>
     </div>
 
     <div class="col span-2-t ">
@@ -47,7 +47,7 @@
     </div>
 
     <div class="col span-6-t ">
-      <p class="p-list">{{bet.description}}</p>
+      <p class="p-list">{{bet.creator}} says: {{bet.description}}</p>
     </div>
 
     <div class="col span-2-t ">
@@ -55,7 +55,7 @@
     </div>
 
     <div class="col span-3-t ">
-      <div ng-controller="HtmlController">
+      <div class="b-list" ng-controller="HtmlController">
 
         <button class="btn btn--s" ng-hide="winchecker(bet)" ng-click="youpaynowreciever(bet)">pay up</button>
         <div ng-show="winchecker(bet)">Awaiting Payment</div>

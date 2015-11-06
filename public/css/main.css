@@ -63,7 +63,7 @@ textarea {
     text-decoration: none;
 
     /* debug */
-   /* border: 1px solid red;*/
+    /*border: 1px solid red;*/
 }
 
 .debug {
@@ -105,15 +105,16 @@ p {
 .p-xxs { padding: .25em;}
 .p-xs { padding: 0.4em; }
 /* padding round list for images 50x50*/
-.p-list { padding: 1.22em; }
+.p-list { padding: 1.22em 0; }
 /* button padding needs some work... */
-.b-list { padding: .80em; }
+.b-list { padding: .80em 0; }
 .p-sm { padding: 0.60em; }
 .p-med { padding: 1.2em;}
 .p-lg {padding:2em;}
 .p-xl { padding: 10em; }
 .p-xxl {}
 
+.p-tb-sm { padding: 1em 0;}
 .p-tb-lg { padding: 2.2em 0; }
 
 /* Text align */
@@ -130,6 +131,8 @@ p {
 .w-80 { width: 80%; }
 .w-95 { width: 95%; }
 .w-100 { width: 100%; }
+
+.w-lgem { width: 7em;}
 
 
 /*height*/

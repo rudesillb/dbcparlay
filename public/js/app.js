@@ -14,7 +14,14 @@ app.config(function($stateProvider, $urlRouterProvider){
      .state('Landing', {
       url: '/landing',
       controller: 'MainController',
-      templateUrl: 'views/profile-templates/_landing.html'
+      templateUrl: 'views/profile-templates/_landing.html',
+      onEnter: function(){
+        $('#indexHeader').hide();
+      },
+      onExit: function() {
+        $('#indexHeader').show();
+      }
+
     })
 
     // Nessted routes for the profile page...

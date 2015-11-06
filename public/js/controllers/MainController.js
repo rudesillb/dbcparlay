@@ -1,5 +1,7 @@
 app.controller('MainController', ['$scope', '$http', '$location', 'errorService', function($scope, $http, $location, errorService){
 
+
+
     $scope.checker = function() {
       $http.get('/users/check').success(function(response){
         console.log('hey we are checking')
@@ -13,6 +15,26 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     };
 
     $scope.checker();
+
+// Css for win loose in history
+// $scope.moneyGreen = function(bet){
+//     debugger
+
+//   if(bet.winner == $scope.user_id){
+//     $green = true;
+//   }else{
+
+//     return false;
+//   }
+// }
+
+// $scope.moneyred = function(bet){
+//   if(bet.winner == $scope.user_id){
+//     return false;
+//   }else{
+//     return true;
+//   }
+// }
 
 // landing page....
 
@@ -93,13 +115,16 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
           $scope.outstanding_inverse_images.push(response.bets[5][i])
         }
       }
+
       $scope.user_id = response.bets[3]
 
       $scope.images = response.bets[4]
       $scope.inverse_images = response.bets[5]
-
+      $scope.user_id = response.bets[3]
   //collection of all bets
       $scope.bets.all = response;
+
+      $scope.winrate = Math.round($scope.bets.all.bets[3] * 100)
 
 
   })};
@@ -207,7 +232,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     })
   }
 
-  $scope.Math = Math
+
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
