@@ -207,6 +207,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     })
   }
 
+  $scope.Math = Math
   // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
     $scope.initJqueryUi = function(){
