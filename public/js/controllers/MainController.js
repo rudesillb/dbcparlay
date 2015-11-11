@@ -2,18 +2,18 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
 
 
-    $scope.checker = function() {
-      $http.get('/users/check').success(function(response){
-        if (!response){
-          $location.path('/landing');
-          $('#indexHeader').hide();
-        }
-      });
-    }
+  $scope.checker = function() {
+    $http.get('/users/check').success(function(response){
+      if (!response){
+        $location.path('/landing');
+        $('#indexHeader').hide();
+      }
+    });
+  }
 
-    $scope.checker();
+  $scope.checker();
 
-// Css for win loose in history
+// Css for win lose in history
 // $scope.moneyGreen = function(bet){
 //     debugger
 
@@ -35,10 +35,10 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
 // landing page....
 
-// @@@@@@@@@@@@@@@@@@
-// Errors
-// @@@@@@@@@@@@@@@@@@
-  //
+  // @@@@@@@@@@@@@@@@@@
+  // Errors
+  // @@@@@@@@@@@@@@@@@@
+
   $scope.displayError = errorService.callError
 
 // watch for the error property to get set then run this...
@@ -57,7 +57,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   // $scope.pay.id = $routeParams.bet_object.id
   // get route for bets collections
   // explicitly showing all info in bets expression
-  $scope.bets={'active' : [], 'inverse_active' : [], 'inactive':[], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': [], 'bet_pictures': [], 'inverse_bet_pictures': []}
+  $scope.bets = {'active' : [], 'inverse_active' : [], 'inactive' : [], 'inverse_inactive' : [], 'outstanding': [], 'inverse_outstanding': [], 'bet_pictures': [], 'inverse_bet_pictures': []}
   $scope.active_images = [];
   $scope.active_inverse_images = [];
   $scope.inactive_images = [];
@@ -65,63 +65,62 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   $scope.outstanding_images = [];
   $scope.outstanding_inverse_images = [];
   $scope.getallbets = function(){ $http.get('/bets').success(function(response){
-      //collect active bets that user created
-      for(var i = 0; i < response.bets[0].length; i++){
-        if (response.bets[0][i].status === 'active'){
-          $scope.bets.active.push(response.bets[0][i])
-          $scope.active_images.push(response.bets[4][i])
-        }
+    //collect active bets that user created
+    for(var i = 0; i < response.bets[0].length; i++){
+      if (response.bets[0][i].status === 'active'){
+        $scope.bets.active.push(response.bets[0][i])
+        $scope.active_images.push(response.bets[4][i])
       }
+    }
 
-      //collect active bets where user is friend
-      for(var i = 0; i < response.bets[1].length; i++){
-        if (response.bets[1][i].status === 'active'){
-          $scope.bets.inverse_active.push(response.bets[1][i])
-          $scope.active_inverse_images.push(response.bets[5][i])
-        }
+    //collect active bets where user is friend
+    for(var i = 0; i < response.bets[1].length; i++){
+      if (response.bets[1][i].status === 'active'){
+        $scope.bets.inverse_active.push(response.bets[1][i])
+        $scope.active_inverse_images.push(response.bets[5][i])
       }
+    }
 
-      //collect inactive bets where user created
-      for(var i = 0; i < response.bets[0].length; i++){
-        if (response.bets[0][i].status === 'inactive'){
-          $scope.bets.inactive.push(response.bets[0][i])
-          $scope.inactive_images.push(response.bets[4][i])
-        }
+    //collect inactive bets where user created
+    for(var i = 0; i < response.bets[0].length; i++){
+      if (response.bets[0][i].status === 'inactive'){
+        $scope.bets.inactive.push(response.bets[0][i])
+        $scope.inactive_images.push(response.bets[4][i])
       }
+    }
 
-      //collect inactive bets where user is friend
-      for(var i = 0; i < response.bets[1].length; i++){
-        if (response.bets[1][i].status === 'inactive'){
-          $scope.bets.inverse_inactive.push(response.bets[1][i])
-          $scope.inactive_inverse_images.push(response.bets[5][i])
-        }
+    //collect inactive bets where user is friend
+    for(var i = 0; i < response.bets[1].length; i++){
+      if (response.bets[1][i].status === 'inactive'){
+        $scope.bets.inverse_inactive.push(response.bets[1][i])
+        $scope.inactive_inverse_images.push(response.bets[5][i])
       }
+    }
 
-      //collect outstanding bets where user created
-      for(var i = 0; i < response.bets[0].length; i++){
-        if (response.bets[0][i].status === 'outstanding'){
-          $scope.bets.outstanding.push(response.bets[0][i])
-          $scope.outstanding_images.push(response.bets[4][i])
-        }
+    //collect outstanding bets where user created
+    for(var i = 0; i < response.bets[0].length; i++){
+      if (response.bets[0][i].status === 'outstanding'){
+        $scope.bets.outstanding.push(response.bets[0][i])
+        $scope.outstanding_images.push(response.bets[4][i])
       }
+    }
 
-      //collect outstanding bets where user is friend
-      for(var i = 0; i < response.bets[1].length; i++){
-        if (response.bets[1][i].status === 'outstanding'){
-          $scope.bets.inverse_outstanding.push(response.bets[1][i])
-          $scope.outstanding_inverse_images.push(response.bets[5][i])
-        }
+    //collect outstanding bets where user is friend
+    for(var i = 0; i < response.bets[1].length; i++){
+      if (response.bets[1][i].status === 'outstanding'){
+        $scope.bets.inverse_outstanding.push(response.bets[1][i])
+        $scope.outstanding_inverse_images.push(response.bets[5][i])
       }
+    }
 
-      $scope.user_id = response.bets[3]
+    $scope.user_id = response.bets[3]
+    $scope.images = response.bets[4]
+    $scope.inverse_images = response.bets[5]
+    
+    //collection of all bets
+    $scope.bets.all = response;
 
-      $scope.images = response.bets[4]
-      $scope.inverse_images = response.bets[5]
-      $scope.user_id = response.bets[3]
-  //collection of all bets
-      $scope.bets.all = response;
-
-      $scope.winrate = Math.round($scope.bets.all.bets[3] * 100)
+    $scope.winrate = Math.round($scope.bets.all.bets[3] * 100)
 
 
   })};
@@ -132,20 +131,14 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
   //post route to create new bet
   $scope.newBet = {}
   $scope.post = function(){
-    // console.log($scope.newBet)
     var newbetcopy = angular.copy($scope.newBet)
-    // Need a success and fail callback
     $http.post('/bets', newbetcopy).then(function successCallback(response){
       $location.path('/#/profile/inactive')
     }, function errorCallback(response){
-
       // call service and save var inside it....
       errorService.setError("Friend Not Found")
       //redirect to home page if error....
-
       $location.path('/#/')
-
-
     });
   };
 
@@ -164,7 +157,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
     })
   }
 
-// goes to accept bet route on server and hides buttons
+  // goes to accept bet route on server and hides buttons
   $scope.accept_bet = function(bet_id){
     $http.put('/bets/' + bet_id + '/accept');
     $(event.target).parent().parent().parent().hide();
@@ -185,9 +178,6 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       return false
     }
   }
-
-
-  // $scope.win_percentage = $scope.bets.all.bets[3]
 
   // send payment after clicking "pay"
   $scope.youpaynowcreator = function(bet){
@@ -217,51 +207,38 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
       if($scope.friends){
         delete $scope.friends
       }else{
-      $scope.friends = response.bets
+        $scope.friends = response.bets
       }
-
-      })
+    });
   }
 
   $scope.logout = function(){
     $http.get('users/logout').success(function(){
-      $location.path('/landing')
+      $location.path('/landing');
     })
   }
 
-
-  // PUT JQUERY INSIDE CONTROLLER CALL IN IMMEDIATLLY...
   // JQUERY UI--SLIDER
-    $scope.initJqueryUi = function(){
+  $scope.initJqueryUi = function(){
     // Slider on login page...
-        $( "#slider" ).slider({
-          range: "max",
-          min: 0,
-          max: 5,
-          step: 0.25,
-          slide: function( event, ui ) {
-            $( "#homeBetAmount" ).text( "$" + ui.value);
-            $scope.newBet.bet_amount = String(ui.value)
-          }
-        }); //end of slider
+    $( "#slider" ).slider({
+      range: "max",
+      min: 0,
+      max: 5,
+      step: 0.25,
+      slide: function( event, ui ) {
+        $( "#homeBetAmount" ).text( "$" + ui.value);
+        $scope.newBet.bet_amount = String(ui.value);
+      }
+    }); //end of slider
 
-      // JQUERY UI--DATEPICKER
-         $( "#datepicker" ).datepicker({
-            minDate: 0,
-            dateFormat: 'dd/mm/yy'
-          }) //end of dp
-    } // END OF initJquery
+    // JQUERY UI--DATEPICKER
+    $( "#datepicker" ).datepicker({
+      minDate: 0,
+      dateFormat: 'dd/mm/yy'
+    }); //end of dp
+  } // END OF initJquery
 
-    // call ui function
-    $scope.initJqueryUi();
-
-
-    // $scope.landing = (function(){
-
-// hide show tabs based on url...
-// run regardless..
-
-   // });
-
-
+  // call ui function
+  $scope.initJqueryUi();
 }]) // end of controller...
