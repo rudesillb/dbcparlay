@@ -13,27 +13,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
   $scope.checker();
 
-// Css for win lose in history
-// $scope.moneyGreen = function(bet){
-//     debugger
-
-//   if(bet.winner == $scope.user_id){
-//     $green = true;
-//   }else{
-
-//     return false;
-//   }
-// }
-
-// $scope.moneyred = function(bet){
-//   if(bet.winner == $scope.user_id){
-//     return false;
-//   }else{
-//     return true;
-//   }
-// }
-
-// landing page....
+  // landing page....
 
   // @@@@@@@@@@@@@@@@@@
   // Errors
@@ -41,7 +21,7 @@ app.controller('MainController', ['$scope', '$http', '$location', 'errorService'
 
   $scope.displayError = errorService.callError
 
-// watch for the error property to get set then run this...
+  // watch for the error property to get set then run this...
   $scope.$watch('displayError.friendError', function(newValue, oldValue){
 
     if(newValue){
