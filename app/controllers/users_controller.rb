@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def new
     # login('sfdfsd')
     url = request.original_url
+    p url
+    p "888" * 100
     user = parse_user(send_response(url))
     p "888" * 100
     p user
