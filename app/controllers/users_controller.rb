@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     url = request.original_url
     p url
     p "888" * 100
+    p send_response(url)
     user = parse_user(send_response(url))
     p "888" * 100
     p user
