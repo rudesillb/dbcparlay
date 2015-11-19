@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     # login('sfdfsd')
     url = request.original_url
     user = parse_user(send_response(url))
+    p "888" * 100
+    p user
     if User.find_by(:venmo_id => user[:venmo_id]) != nil
       # user[:access_token] = response["access_token"]
       login(user)
