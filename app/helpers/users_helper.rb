@@ -2,6 +2,9 @@ require 'digest'
 module UsersHelper
 
   def login(user)
+    p "**" * 50
+    p user[:venmo_id]
+    p "**" * 50
     session[:current_user_id] = user[:venmo_id]
     # session[:current_user_id] = '1477224414838784567'
   end
