@@ -30,11 +30,12 @@ class UsersController < ApplicationController
   end
 
   def check
-    if current_user
-      ok = true
-    else
-      ok = false
-    end
+    # if current_user
+    #   ok = true
+    # else
+    #   ok = false
+    # end
+    ok = true
     render json: ok
   end
 end
